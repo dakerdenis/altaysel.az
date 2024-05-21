@@ -1,0 +1,14 @@
+[
+    { 
+        "id": 1,
+        "projectName": "Future Project 1", 
+        "description": "<p>Description for Future Project 1</p>",
+        "images": ["./style/imgs/building1.png", "./style/imgs/building2.png", "./style/imgs/building3.png"] 
+    },
+    { 
+        "id": 2,
+        "projectName": "Future Project 2", 
+        "description": "<p>Description for Future Project 2</p>",
+        "images": ["./style/imgs/building1.png", "./style/imgs/building2.png", "./style/imgs/building3.png"] 
+    }
+]

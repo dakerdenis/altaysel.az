@@ -1,0 +1,15 @@
+[
+    { 
+        "id": 1,
+        "projectName": "Layihənin adı 1 old", 
+        "description": "<p>Bu layihə ilə bağlı məlumat 1</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores nobis nulla earum quas, laboriosam repudiandae similique temporibus nesciunt assumenda sapiente nostrum illo dolor voluptas eius consequatur amet delectus exercitationem voluptatum.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eos molestiae atque explicabo id, aperiam eveniet aspernatur nisi? Natus ratione nulla, commodi ipsam eveniet eos cum fugiat officia et praesentium?</p>",
+        "images": ["./style/imgs/building1.png", "./style/imgs/building2.png", "./style/imgs/building3.png"] 
+    },
+    { 
+        "id": 2,
+        "projectName": "Layihənin adı 2 old", 
+        "description": "<p>Bu layihə ilə bağlı məlumat 2</p>",
+        "images": ["./style/imgs/building1.png", "./style/imgs/building2.png", "./style/imgs/building3.png"] 
+    }
+   
+]

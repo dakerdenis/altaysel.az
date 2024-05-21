@@ -1,0 +1,531 @@
+{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fmodern Consolas;}{\f1\fmodern\fcharset204 Consolas;}{\f2\fnil\fcharset129 Courier New;}}
+{\colortbl ;\red20\green20\blue20;\red142\green142\blue142;\red16\green158\blue98;\red148\green146\blue12;\red170\green51\blue170;\red170\green64\blue64;\red56\green136\blue159;\red18\green124\blue155;\red94\green147\blue162;\red9\green118\blue72;\red126\green126\blue12;\red222\green222\blue136;\red85\green85\blue85;\red12\green100\blue126;\red136\green136\blue136;\red136\green202\blue222;\red170\green85\blue85;\red255\green175\blue175;\red170\green83\blue170;}
+\viewkind4\uc1\pard\f0\fs20     \u9484?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9488?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                 \cf3\f1\bullet  MobaXterm Personal Edition v24.1 \bullet\cf0\f0                  \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?               \cf4 (SSH client, X server and network tools)\cf0                \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? SSH session to \cf5 altayselaz@altaysel.az                    \cf0           \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  Direct SSH      :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH compression :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH-browser     :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  X11-forwarding  :  \cf6\f0\u10007?\cf0   (disabled or not supported by server)      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? For more info, ctrl+click on \cf7\ul help\cf0\ulnone  or visit our \cf7\ul website\cf0\ulnone .            \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9492?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9496?\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ ls\cf1\highlight2 
+\par \cf8\highlight0 bin\cf0   \cf8 etc\cf0   \cf8 logs\cf0   \cf8 mail\cf0   \cf8 php\cf0   \cf8 public_ftp\cf0   \cf8 public_html\cf0   \cf8 ssl\cf0   \cf8 tmp\cf0   \cf9 www\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ cd public_html\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ ls\cf1\highlight2 
+\par \cf8\highlight0 vendor\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ rm -r vendor\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ ls\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ composer\cf1\highlight2 
+\par \cf0\highlight0    ______\cf1\highlight2 
+\par \cf0\highlight0   / ____/___  ____ ___  ____  ____  ________  _____\cf1\highlight2 
+\par \cf0\highlight0  / /   / __ \\/ __ `__ \\/ __ \\/ __ \\/ ___/ _ \\/ ___/\cf1\highlight2 
+\par \cf0\highlight0 / /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /\cf1\highlight2 
+\par \cf0\highlight0\\____/\\____/_/ /_/ /_/ .___/\\____/____/\\___/_/\cf1\highlight2 
+\par \cf0\highlight0                     /_/\cf1\highlight2 
+\par \cf10\highlight0 Composer\cf0  version \cf11 2.6.5\cf0  2023-10-06 10:11:52\cf1\highlight2 
+\par 
+\par \cf11\highlight0 Usage:\cf1\highlight2 
+\par \cf0\highlight0   command [options] [arguments]\cf1\highlight2 
+\par 
+\par \cf11\highlight0 Options:\cf1\highlight2 
+\par \cf0\highlight0   \cf10 -h, --help\cf0                      Display help for the given command. When no command is given display help for the \cf10 list\cf0  command\cf1\highlight2 
+\par \cf0\highlight0   \cf10 -q, --quiet\cf0                     Do not output any message\cf1\highlight2 
+\par \cf0\highlight0   \cf10 -V, --version\cf0                   Display this application version\cf1\highlight2 
+\par \cf0\highlight0   \cf10     --ansi|--no-ansi\cf0            Force (or disable --no-ansi) ANSI output\cf1\highlight2 
+\par \cf0\highlight0   \cf10 -n, --no-interaction\cf0            Do not ask any interactive question\cf1\highlight2 
+\par \cf0\highlight0   \cf10     --profile\cf0                   Display timing and memory usage information\cf1\highlight2 
+\par \cf0\highlight0   \cf10     --no-plugins\cf0                Whether to disable plugins.\cf1\highlight2 
+\par \cf0\highlight0   \cf10     --no-scripts\cf0                Skips the execution of all scripts defined in composer.json file.\cf1\highlight2 
+\par \cf0\highlight0   \cf10 -d, --working-dir=WORKING-DIR\cf0   If specified, use the given directory as working directory.\cf1\highlight2 
+\par \cf0\highlight0   \cf10     --no-cache\cf0                  Prevent use of the cache\cf1\highlight2 
+\par \cf0\highlight0   \cf10 -v|vv|vvv, --verbose\cf0            Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug\cf1\highlight2 
+\par 
+\par \cf11\highlight0 Available commands:\cf1\highlight2 
+\par \cf0\highlight0   \cf10 about\cf0                 Shows a short information about Composer\cf1\highlight2 
+\par \cf0\highlight0   \cf10 archive\cf0               Creates an archive of this composer package\cf1\highlight2 
+\par \cf0\highlight0   \cf10 audit\cf0                 Checks for security vulnerability advisories for installed packages\cf1\highlight2 
+\par \cf0\highlight0   \cf10 browse\cf0                [home] Opens the package's repository URL or homepage in your browser\cf1\highlight2 
+\par \cf0\highlight0   \cf10 bump\cf0                  Increases the lower limit of your composer.json requirements to the currently installed versions\cf1\highlight2 
+\par \cf0\highlight0   \cf10 check-platform-reqs\cf0   Check that platform requirements are satisfied\cf1\highlight2 
+\par \cf0\highlight0   \cf10 clear-cache\cf0           [clearcache|cc] Clears composer's internal package cache\cf1\highlight2 
+\par \cf0\highlight0   \cf10 completion\cf0            Dump the shell completion script\cf1\highlight2 
+\par \cf0\highlight0   \cf10 config\cf0                Sets config options\cf1\highlight2 
+\par \cf0\highlight0   \cf10 create-project\cf0        Creates new project from a package into given directory\cf1\highlight2 
+\par \cf0\highlight0   \cf10 depends\cf0               [why] Shows which packages cause the given package to be installed\cf1\highlight2 
+\par \cf0\highlight0   \cf10 diagnose\cf0              Diagnoses the system to identify common errors\cf1\highlight2 
+\par \cf0\highlight0   \cf10 dump-autoload\cf0         [dumpautoload] Dumps the autoloader\cf1\highlight2 
+\par \cf0\highlight0   \cf10 exec\cf0                  Executes a vendored binary/script\cf1\highlight2 
+\par \cf0\highlight0   \cf10 fund\cf0                  Discover how to help fund the maintenance of your dependencies\cf1\highlight2 
+\par \cf0\highlight0   \cf10 global\cf0                Allows running commands in the global composer dir ($COMPOSER_HOME)\cf1\highlight2 
+\par \cf0\highlight0   \cf10 help\cf0                  Display help for a command\cf1\highlight2 
+\par \cf0\highlight0   \cf10 init\cf0                  Creates a basic composer.json file in current directory\cf1\highlight2 
+\par \cf0\highlight0   \cf10 install\cf0               [i] Installs the project dependencies from the composer.lock file if present, or falls back on the composer.json\cf1\highlight2 
+\par \cf0\highlight0   \cf10 licenses\cf0              Shows information about licenses of dependencies\cf1\highlight2 
+\par \cf0\highlight0   \cf10 list\cf0                  List commands\cf1\highlight2 
+\par \cf0\highlight0   \cf10 outdated\cf0              Shows a list of installed packages that have updates available, including their latest version\cf1\highlight2 
+\par \cf0\highlight0   \cf10 prohibits\cf0             [why-not] Shows which packages prevent the given package from being installed\cf1\highlight2 
+\par \cf0\highlight0   \cf10 reinstall\cf0             Uninstalls and reinstalls the given package names\cf1\highlight2 
+\par \cf0\highlight0   \cf10 remove\cf0                [rm] Removes a package from the require or require-dev\cf1\highlight2 
+\par \cf0\highlight0   \cf10 require\cf0               [r] Adds required packages to your composer.json and installs them\cf1\highlight2 
+\par \cf0\highlight0   \cf10 run-script\cf0            [run] Runs the scripts defined in composer.json\cf1\highlight2 
+\par \cf0\highlight0   \cf10 search\cf0                Searches for packages\cf1\highlight2 
+\par \cf0\highlight0   \cf10 self-update\cf0           [selfupdate] Updates composer.phar to the latest version\cf1\highlight2 
+\par \cf0\highlight0   \cf10 show\cf0                  [info] Shows information about packages\cf1\highlight2 
+\par \cf0\highlight0   \cf10 status\cf0                Shows a list of locally modified packages\cf1\highlight2 
+\par \cf0\highlight0   \cf10 suggests\cf0              Shows package suggestions\cf1\highlight2 
+\par \cf0\highlight0   \cf10 update\cf0                [u|upgrade] Updates your dependencies to the latest version according to composer.json, and updates the composer.lock file\cf1\highlight2 
+\par \cf0\highlight0   \cf10 validate\cf0              Validates a composer.json and composer.lock\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ composer create-project --prefer-dist laravel/laravel archi\cf1\highlight2 
+\par \cf10\highlight0 Creating a "laravel/laravel" project at "./archi"\cf1\highlight2 
+\par \highlight12 Cannot use laravel/laravel's latest version v11.0.8 as it requires php ^8.2 which is not satisfied by your platform.\highlight2 
+\par \cf10\highlight0 Installing laravel/laravel (v10.3.3)\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 laravel/laravel\cf0  (\cf11 v10.3.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf10\highlight0 Created project in /home/altayselaz/public_html/archi\cf1\highlight2 
+\par \cf0\highlight0 > @php -r "file_exists('.env') || copy('.env.example', '.env');"\cf1\highlight2 
+\par \cf10\highlight0 Loading composer repositories with package information\cf1\highlight2 
+\par \cf10\highlight0 Updating dependencies\cf1\highlight2 
+\par \cf10\highlight0 Lock file operations: 111 installs, 0 updates, 0 removals\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 brick/math\cf0  (\cf11 0.12.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 carbonphp/carbon-doctrine-types\cf0  (\cf11 2.1.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 dflydev/dot-access-data\cf0  (\cf11 v3.0.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 doctrine/inflector\cf0  (\cf11 2.0.10\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 doctrine/lexer\cf0  (\cf11 3.0.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 dragonmantank/cron-expression\cf0  (\cf11 v3.3.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 egulias/email-validator\cf0  (\cf11 4.0.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 fakerphp/faker\cf0  (\cf11 v1.23.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 filp/whoops\cf0  (\cf11 2.15.4\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 fruitcake/php-cors\cf0  (\cf11 v1.3.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 graham-campbell/result-type\cf0  (\cf11 v1.1.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 guzzlehttp/guzzle\cf0  (\cf11 7.8.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 guzzlehttp/promises\cf0  (\cf11 2.0.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 guzzlehttp/psr7\cf0  (\cf11 2.6.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 guzzlehttp/uri-template\cf0  (\cf11 v1.0.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 hamcrest/hamcrest-php\cf0  (\cf11 v2.0.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 laravel/framework\cf0  (\cf11 v10.48.10\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 laravel/pint\cf0  (\cf11 v1.15.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 laravel/prompts\cf0  (\cf11 v0.1.21\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 laravel/sail\cf0  (\cf11 v1.29.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 laravel/sanctum\cf0  (\cf11 v3.3.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 laravel/serializable-closure\cf0  (\cf11 v1.3.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 laravel/tinker\cf0  (\cf11 v2.9.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 league/commonmark\cf0  (\cf11 2.4.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 league/config\cf0  (\cf11 v1.2.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 league/flysystem\cf0  (\cf11 3.27.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 league/flysystem-local\cf0  (\cf11 3.25.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 league/mime-type-detection\cf0  (\cf11 1.15.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 mockery/mockery\cf0  (\cf11 1.6.12\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 monolog/monolog\cf0  (\cf11 3.6.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 myclabs/deep-copy\cf0  (\cf11 1.11.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 nesbot/carbon\cf0  (\cf11 2.72.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 nette/schema\cf0  (\cf11 v1.3.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 nette/utils\cf0  (\cf11 v4.0.4\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 nikic/php-parser\cf0  (\cf11 v5.0.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 nunomaduro/collision\cf0  (\cf11 v7.10.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 nunomaduro/termwind\cf0  (\cf11 v1.15.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 phar-io/manifest\cf0  (\cf11 2.0.4\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 phar-io/version\cf0  (\cf11 3.2.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 phpoption/phpoption\cf0  (\cf11 1.9.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 phpunit/php-code-coverage\cf0  (\cf11 10.1.14\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 phpunit/php-file-iterator\cf0  (\cf11 4.1.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 phpunit/php-invoker\cf0  (\cf11 4.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 phpunit/php-text-template\cf0  (\cf11 3.0.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 phpunit/php-timer\cf0  (\cf11 6.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 phpunit/phpunit\cf0  (\cf11 10.5.20\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 psr/clock\cf0  (\cf11 1.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 psr/container\cf0  (\cf11 2.0.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 psr/event-dispatcher\cf0  (\cf11 1.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 psr/http-client\cf0  (\cf11 1.0.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 psr/http-factory\cf0  (\cf11 1.1.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 psr/http-message\cf0  (\cf11 2.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 psr/log\cf0  (\cf11 3.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 psr/simple-cache\cf0  (\cf11 3.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 psy/psysh\cf0  (\cf11 v0.12.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 ralouphie/getallheaders\cf0  (\cf11 3.0.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 ramsey/collection\cf0  (\cf11 2.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 ramsey/uuid\cf0  (\cf11 4.7.6\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/cli-parser\cf0  (\cf11 2.0.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/code-unit\cf0  (\cf11 2.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/code-unit-reverse-lookup\cf0  (\cf11 3.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/comparator\cf0  (\cf11 5.0.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/complexity\cf0  (\cf11 3.2.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/diff\cf0  (\cf11 5.1.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/environment\cf0  (\cf11 6.1.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/exporter\cf0  (\cf11 5.1.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/global-state\cf0  (\cf11 6.0.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/lines-of-code\cf0  (\cf11 2.0.2\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/object-enumerator\cf0  (\cf11 5.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/object-reflector\cf0  (\cf11 3.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/recursion-context\cf0  (\cf11 5.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/type\cf0  (\cf11 4.0.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 sebastian/version\cf0  (\cf11 4.0.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 spatie/backtrace\cf0  (\cf11 1.6.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 spatie/flare-client-php\cf0  (\cf11 1.5.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 spatie/ignition\cf0  (\cf11 1.14.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 spatie/laravel-ignition\cf0  (\cf11 2.7.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/console\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/css-selector\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/deprecation-contracts\cf0  (\cf11 v3.5.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/error-handler\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/event-dispatcher\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/event-dispatcher-contracts\cf0  (\cf11 v3.5.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/finder\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/http-foundation\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/http-kernel\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/mailer\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/mime\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/polyfill-ctype\cf0  (\cf11 v1.29.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/polyfill-intl-grapheme\cf0  (\cf11 v1.29.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/polyfill-intl-idn\cf0  (\cf11 v1.29.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/polyfill-intl-normalizer\cf0  (\cf11 v1.29.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/polyfill-mbstring\cf0  (\cf11 v1.29.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/polyfill-php72\cf0  (\cf11 v1.29.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/polyfill-php80\cf0  (\cf11 v1.29.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/polyfill-php83\cf0  (\cf11 v1.29.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/polyfill-uuid\cf0  (\cf11 v1.29.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/process\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/routing\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/service-contracts\cf0  (\cf11 v3.5.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/string\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/translation\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/translation-contracts\cf0  (\cf11 v3.5.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/uid\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/var-dumper\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 symfony/yaml\cf0  (\cf11 v6.4.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 theseer/tokenizer\cf0  (\cf11 1.2.3\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 tijsverkoyen/css-to-inline-styles\cf0  (\cf11 v2.2.7\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 vlucas/phpdotenv\cf0  (\cf11 v5.6.0\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 voku/portable-ascii\cf0  (\cf11 2.0.1\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Locking \cf10 webmozart/assert\cf0  (\cf11 1.11.0\cf0 )\cf1\highlight2 
+\par \cf10\highlight0 Writing lock file\cf1\highlight2 
+\par \cf10\highlight0 Installing dependencies from lock file (including require-dev)\cf1\highlight2 
+\par \cf10\highlight0 Package operations: 111 installs, 0 updates, 0 removals\cf1\highlight2 
+\par \cf0\highlight0   - Downloading \cf10 mockery/mockery\cf0  (\cf11 1.6.12\cf0 )\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 doctrine/inflector\cf0  (\cf11 2.0.10\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 doctrine/lexer\cf0  (\cf11 3.0.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/polyfill-ctype\cf0  (\cf11 v1.29.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 webmozart/assert\cf0  (\cf11 1.11.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 dragonmantank/cron-expression\cf0  (\cf11 v3.3.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/deprecation-contracts\cf0  (\cf11 v3.5.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 psr/container\cf0  (\cf11 2.0.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 fakerphp/faker\cf0  (\cf11 v1.23.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/polyfill-php80\cf0  (\cf11 v1.29.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/polyfill-php83\cf0  (\cf11 v1.29.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/polyfill-mbstring\cf0  (\cf11 v1.29.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/http-foundation\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 fruitcake/php-cors\cf0  (\cf11 v1.3.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 psr/http-message\cf0  (\cf11 2.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 psr/http-client\cf0  (\cf11 1.0.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 ralouphie/getallheaders\cf0  (\cf11 3.0.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 psr/http-factory\cf0  (\cf11 1.1.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 guzzlehttp/psr7\cf0  (\cf11 2.6.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 guzzlehttp/promises\cf0  (\cf11 2.0.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 guzzlehttp/guzzle\cf0  (\cf11 7.8.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 guzzlehttp/uri-template\cf0  (\cf11 v1.0.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 laravel/pint\cf0  (\cf11 v1.15.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/polyfill-intl-normalizer\cf0  (\cf11 v1.29.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/polyfill-intl-grapheme\cf0  (\cf11 v1.29.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/string\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/service-contracts\cf0  (\cf11 v3.5.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/console\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 voku/portable-ascii\cf0  (\cf11 2.0.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 phpoption/phpoption\cf0  (\cf11 1.9.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 graham-campbell/result-type\cf0  (\cf11 v1.1.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 vlucas/phpdotenv\cf0  (\cf11 v5.6.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/css-selector\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 tijsverkoyen/css-to-inline-styles\cf0  (\cf11 v2.2.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/var-dumper\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/polyfill-uuid\cf0  (\cf11 v1.29.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/uid\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/routing\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/process\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/polyfill-php72\cf0  (\cf11 v1.29.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/polyfill-intl-idn\cf0  (\cf11 v1.29.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/mime\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 psr/event-dispatcher\cf0  (\cf11 1.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/event-dispatcher-contracts\cf0  (\cf11 v3.5.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/event-dispatcher\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 psr/log\cf0  (\cf11 3.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 egulias/email-validator\cf0  (\cf11 4.0.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/mailer\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/error-handler\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/http-kernel\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/finder\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 ramsey/collection\cf0  (\cf11 2.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 brick/math\cf0  (\cf11 0.12.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 ramsey/uuid\cf0  (\cf11 4.7.6\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 psr/simple-cache\cf0  (\cf11 3.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 nunomaduro/termwind\cf0  (\cf11 v1.15.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/translation-contracts\cf0  (\cf11 v3.5.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/translation\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 psr/clock\cf0  (\cf11 1.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 carbonphp/carbon-doctrine-types\cf0  (\cf11 2.1.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 nesbot/carbon\cf0  (\cf11 2.72.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 monolog/monolog\cf0  (\cf11 3.6.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 league/mime-type-detection\cf0  (\cf11 1.15.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 league/flysystem\cf0  (\cf11 3.27.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 league/flysystem-local\cf0  (\cf11 3.25.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 nette/utils\cf0  (\cf11 v4.0.4\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 nette/schema\cf0  (\cf11 v1.3.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 dflydev/dot-access-data\cf0  (\cf11 v3.0.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 league/config\cf0  (\cf11 v1.2.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 league/commonmark\cf0  (\cf11 2.4.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 laravel/serializable-closure\cf0  (\cf11 v1.3.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 laravel/prompts\cf0  (\cf11 v0.1.21\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 laravel/framework\cf0  (\cf11 v10.48.10\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 symfony/yaml\cf0  (\cf11 v6.4.7\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 laravel/sail\cf0  (\cf11 v1.29.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 laravel/sanctum\cf0  (\cf11 v3.3.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 nikic/php-parser\cf0  (\cf11 v5.0.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 psy/psysh\cf0  (\cf11 v0.12.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 laravel/tinker\cf0  (\cf11 v2.9.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 hamcrest/hamcrest-php\cf0  (\cf11 v2.0.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 mockery/mockery\cf0  (\cf11 1.6.12\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 filp/whoops\cf0  (\cf11 2.15.4\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 nunomaduro/collision\cf0  (\cf11 v7.10.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/version\cf0  (\cf11 4.0.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/type\cf0  (\cf11 4.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/recursion-context\cf0  (\cf11 5.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/object-reflector\cf0  (\cf11 3.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/object-enumerator\cf0  (\cf11 5.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/global-state\cf0  (\cf11 6.0.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/exporter\cf0  (\cf11 5.1.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/environment\cf0  (\cf11 6.1.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/diff\cf0  (\cf11 5.1.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/comparator\cf0  (\cf11 5.0.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/code-unit\cf0  (\cf11 2.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/cli-parser\cf0  (\cf11 2.0.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 phpunit/php-timer\cf0  (\cf11 6.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 phpunit/php-text-template\cf0  (\cf11 3.0.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 phpunit/php-invoker\cf0  (\cf11 4.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 phpunit/php-file-iterator\cf0  (\cf11 4.1.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 theseer/tokenizer\cf0  (\cf11 1.2.3\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/lines-of-code\cf0  (\cf11 2.0.2\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/complexity\cf0  (\cf11 3.2.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 sebastian/code-unit-reverse-lookup\cf0  (\cf11 3.0.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 phpunit/php-code-coverage\cf0  (\cf11 10.1.14\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 phar-io/version\cf0  (\cf11 3.2.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 phar-io/manifest\cf0  (\cf11 2.0.4\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 myclabs/deep-copy\cf0  (\cf11 1.11.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 phpunit/phpunit\cf0  (\cf11 10.5.20\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 spatie/backtrace\cf0  (\cf11 1.6.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 spatie/flare-client-php\cf0  (\cf11 1.5.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 spatie/ignition\cf0  (\cf11 1.14.1\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf0\highlight0   - Installing \cf10 spatie/laravel-ignition\cf0  (\cf11 2.7.0\cf0 ): Extracting archive\cf1\highlight2 
+\par \cf10\highlight0 42 package suggestions were added by new dependencies, use `composer suggest` to see details.\cf1\highlight2 
+\par \cf10\highlight0 Generating optimized autoload files\cf1\highlight2 
+\par 
+\par \cf6\highlight0 Network error: Software caused connection abort\cf1\highlight2 
+\par 
+\par \cf13\highlight0\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\cf1\highlight2 
+\par 
+\par \cf6\highlight0 Session stopped\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 <Return>\cf0  to exit tab\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 R\cf0  to restart session\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 S\cf0  to save terminal output to file\cf1\highlight2 
+\par \cf0\highlight0     \u9484?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9488?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                 \cf3\f1\bullet  MobaXterm Personal Edition v24.1 \bullet\cf0\f0                  \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?               \cf4 (SSH client, X server and network tools)\cf0                \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? SSH session to \cf5 altayselaz@altaysel.az                    \cf0           \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  Direct SSH      :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH compression :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH-browser     :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  X11-forwarding  :  \cf6\f0\u10007?\cf0   (disabled or not supported by server)      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? For more info, ctrl+click on \cf7\ul help\cf0\ulnone  or visit our \cf7\ul website\cf0\ulnone .            \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9492?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9496?\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ ls\cf1\highlight2 
+\par \cf8\highlight0 bin\cf0   \cf8 etc\cf0   \cf8 logs\cf0   \cf8 mail\cf0   \cf8 php\cf0   \cf8 public_ftp\cf0   \cf8 public_html\cf0   \cf8 ssl\cf0   \cf8 tmp\cf0   \cf9 www\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ cd public_html\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ php artisan\cf1\highlight2 
+\par \cf0\highlight0 Could not open input file: artisan\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ ls\cf1\highlight2 
+\par \cf8\highlight0 archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ cd archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ ls\cf1\highlight2 
+\par \cf0\highlight0 README.md  \cf3 artisan\cf0     composer.json  \cf8 config\cf0     package.json  \cf8 public\cf0      \cf8 routes\cf0    \cf8 tests\cf0    vite.config.js\cf1\highlight2 
+\par \cf8\highlight0 app\cf0         \cf8 bootstrap\cf0   composer.lock  \cf8 database\cf0   phpunit.xml   \cf8 resources\cf0   \cf8 storage\cf0   \cf8 vendor\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan route:list\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf14 GET|HEAD\cf0    \cf15 /\cf14  ....................................................................................................................................\cf1\highlight2 
+\par \cf0\highlight0   \cf11 POST\cf0        \cf15 _ignition/execute-solution\cf14\f1  ............................. ignition.executeSolution \'9b Spatie\\LaravelIgnition \'9b ExecuteSolutionController\cf1\highlight2\f0 
+\par \cf0\highlight0   \cf14 GET|HEAD\cf0    \cf15 _ignition/health-check\cf14\f1  ......................................... ignition.healthCheck \'9b Spatie\\LaravelIgnition \'9b HealthCheckController\cf1\highlight2\f0 
+\par \cf0\highlight0   \cf11 POST\cf0        \cf15 _ignition/update-config\cf14\f1  ...................................... ignition.updateConfig \'9b Spatie\\LaravelIgnition \'9b UpdateConfigController\cf1\highlight2\f0 
+\par \cf0\highlight0   \cf14 GET|HEAD\cf0    \cf15 api/user\cf14  .............................................................................................................................\cf1\highlight2 
+\par \cf0\highlight0   \cf14 GET|HEAD\cf0    \cf15 sanctum/csrf-cookie\cf14\f1  ................................................ sanctum.csrf-cookie \'9b Laravel\\Sanctum \'9b CsrfCookieController@show\cf1\highlight2\f0 
+\par 
+\par \cf0\highlight0                                                                                                                                  \cf8 Showing [6] routes\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan migrate\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf15\highlight16  INFO \cf0\highlight0  Running migrations.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   2014_10_12_000000_create_users_table \cf13 .................................................................................................. 86ms\cf0  \cf17 FAIL\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \highlight18  Illuminate\\Database\\QueryException\cf1\highlight2 
+\par 
+\par \cf0\highlight0\b   SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'users' already exists (Connection: mysql, SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `email` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')\cf1\highlight2\b0 
+\par 
+\par \cf0\highlight0   at \cf10 vendor/laravel/framework/src/Illuminate/Database/Connection.php\cf0 :\cf10 829\cf1\highlight2 
+\par \cf0\highlight0     \cf13 825\u9621? \cf19                     \cf0\b $this\cf19\b0 ->\cf0\b getName\cf19\b0 (), \cf0\b $query\cf19\b0 , \cf0\b $this\cf19\b0 ->\cf0\b prepareBindings\cf19\b0 (\cf0\b $bindings\cf19\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf13 826\u9621? \cf0\b                 \cf19\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf13 827\u9621? \cf19             \}\cf1\highlight2 
+\par \cf0\highlight0     \cf13 828\u9621?\cf1\highlight2 
+\par \cf17\highlight0   \u10140? \cf0\b 829\cf13\b0\u9621? \cf19             throw new \cf0\b QueryException\cf19\b0 (\cf1\highlight2 
+\par \cf0\highlight0     \cf13 830\u9621? \cf19                 \cf0\b $this\cf19\b0 ->\cf0\b getName\cf19\b0 (), \cf0\b $query\cf19\b0 , \cf0\b $this\cf19\b0 ->\cf0\b prepareBindings\cf19\b0 (\cf0\b $bindings\cf19\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf13 831\u9621? \cf0\b             \cf19\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf13 832\u9621? \cf19         \}\cf1\highlight2 
+\par \cf0\highlight0     \cf13 833\u9621? \cf19     \}\cf1\highlight2 
+\par 
+\par \cf0\highlight0       +9 vendor frames\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf11 10  \cf0\b database/migrations/2014_10_12_000000_create_users_table.php\b0 :\b 22\cf1\highlight2\b0 
+\par \cf0\highlight0   \cf13     Illuminate\\Support\\Facades\\Facade::__callStatic("create")\cf1\highlight2 
+\par \cf0\highlight0       +24 vendor frames\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf11 35  \cf0\b artisan\b0 :\b 37\cf1\highlight2\b0 
+\par \cf0\highlight0   \cf13     Illuminate\\Foundation\\Console\\Kernel::handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan migrate\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf15\highlight16  INFO \cf0\highlight0  Preparing database.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   Creating migration table \cf13 ............................................................................................................. 206ms\cf0  \cf3 DONE\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf15\highlight16  INFO \cf0\highlight0  Running migrations.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   0001_01_01_000000_create_users_table \cf13 ................................................................................................. 419ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000001_create_cache_table \cf13 .................................................................................................. 91ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000002_create_jobs_table \cf13 .................................................................................................. 219ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2014_10_12_000000_create_users_table \cf13 ................................................................................................... 3ms\cf0  \cf17 FAIL\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \highlight18  Illuminate\\Database\\QueryException\cf1\highlight2 
+\par 
+\par \cf0\highlight0\b   SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'users' already exists (Connection: mysql, SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `email` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')\cf1\highlight2\b0 
+\par 
+\par \cf0\highlight0   at \cf10 vendor/laravel/framework/src/Illuminate/Database/Connection.php\cf0 :\cf10 829\cf1\highlight2 
+\par \cf0\highlight0     \cf13 825\u9621? \cf19                     \cf0\b $this\cf19\b0 ->\cf0\b getName\cf19\b0 (), \cf0\b $query\cf19\b0 , \cf0\b $this\cf19\b0 ->\cf0\b prepareBindings\cf19\b0 (\cf0\b $bindings\cf19\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf13 826\u9621? \cf0\b                 \cf19\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf13 827\u9621? \cf19             \}\cf1\highlight2 
+\par \cf0\highlight0     \cf13 828\u9621?\cf1\highlight2 
+\par \cf17\highlight0   \u10140? \cf0\b 829\cf13\b0\u9621? \cf19             throw new \cf0\b QueryException\cf19\b0 (\cf1\highlight2 
+\par \cf0\highlight0     \cf13 830\u9621? \cf19                 \cf0\b $this\cf19\b0 ->\cf0\b getName\cf19\b0 (), \cf0\b $query\cf19\b0 , \cf0\b $this\cf19\b0 ->\cf0\b prepareBindings\cf19\b0 (\cf0\b $bindings\cf19\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf13 831\u9621? \cf0\b             \cf19\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf13 832\u9621? \cf19         \}\cf1\highlight2 
+\par \cf0\highlight0     \cf13 833\u9621? \cf19     \}\cf1\highlight2 
+\par 
+\par \cf0\highlight0       +9 vendor frames\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf11 10  \cf0\b database/migrations/2014_10_12_000000_create_users_table.php\b0 :\b 22\cf1\highlight2\b0 
+\par \cf0\highlight0   \cf13     Illuminate\\Support\\Facades\\Facade::__callStatic("create")\cf1\highlight2 
+\par \cf0\highlight0       +24 vendor frames\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf11 35  \cf0\b artisan\b0 :\b 37\cf1\highlight2\b0 
+\par \cf0\highlight0   \cf13     Illuminate\\Foundation\\Console\\Kernel::handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$\cf1\highlight2 
+\par \cf6\highlight0 Network error: Software caused connection abort\cf1\highlight2 
+\par 
+\par \cf13\highlight0\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\cf1\highlight2 
+\par 
+\par \cf6\highlight0 Session stopped\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 <Return>\cf0  to exit tab\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 R\cf0  to restart session\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 S\cf0  to save terminal output to file\cf1\highlight2 
+\par \cf0\highlight0     \u9484?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9488?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                 \cf3\f1\bullet  MobaXterm Personal Edition v24.1 \bullet\cf0\f0                  \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?               \cf4 (SSH client, X server and network tools)\cf0                \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? SSH session to \cf5 altayselaz@altaysel.az                    \cf0           \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  Direct SSH      :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH compression :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH-browser     :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  X11-forwarding  :  \cf6\f0\u10007?\cf0   (disabled or not supported by server)      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? For more info, ctrl+click on \cf7\ul help\cf0\ulnone  or visit our \cf7\ul website\cf0\ulnone .            \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9492?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9496?\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ cd public_html\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ ls\cf1\highlight2 
+\par \cf8\highlight0 archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ cd archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan migrate:refresh\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf1\highlight12  WARN \cf0\highlight0  Migration table not found.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf15\highlight16  INFO \cf0\highlight0  Preparing database.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   Creating migration table \cf13 ............................................................................................................. 137ms\cf0  \cf3 DONE\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf15\highlight16  INFO \cf0\highlight0  Running migrations.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   0001_01_01_000000_create_users_table \cf13 ................................................................................................. 429ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000001_create_cache_table \cf13 .................................................................................................. 93ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000002_create_jobs_table \cf13 .................................................................................................. 212ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2014_10_12_000000_create_users_table \cf13 ................................................................................................... 3ms\cf0  \cf17 FAIL\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \highlight18  Illuminate\\Database\\QueryException\cf1\highlight2 
+\par 
+\par \cf0\highlight0\b   SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'users' already exists (Connection: mysql, SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `email` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')\cf1\highlight2\b0 
+\par 
+\par \cf0\highlight0   at \cf10 vendor/laravel/framework/src/Illuminate/Database/Connection.php\cf0 :\cf10 829\cf1\highlight2 
+\par \cf0\highlight0     \cf13 825\u9621? \cf19                     \cf0\b $this\cf19\b0 ->\cf0\b getName\cf19\b0 (), \cf0\b $query\cf19\b0 , \cf0\b $this\cf19\b0 ->\cf0\b prepareBindings\cf19\b0 (\cf0\b $bindings\cf19\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf13 826\u9621? \cf0\b                 \cf19\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf13 827\u9621? \cf19             \}\cf1\highlight2 
+\par \cf0\highlight0     \cf13 828\u9621?\cf1\highlight2 
+\par \cf17\highlight0   \u10140? \cf0\b 829\cf13\b0\u9621? \cf19             throw new \cf0\b QueryException\cf19\b0 (\cf1\highlight2 
+\par \cf0\highlight0     \cf13 830\u9621? \cf19                 \cf0\b $this\cf19\b0 ->\cf0\b getName\cf19\b0 (), \cf0\b $query\cf19\b0 , \cf0\b $this\cf19\b0 ->\cf0\b prepareBindings\cf19\b0 (\cf0\b $bindings\cf19\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf13 831\u9621? \cf0\b             \cf19\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf13 832\u9621? \cf19         \}\cf1\highlight2 
+\par \cf0\highlight0     \cf13 833\u9621? \cf19     \}\cf1\highlight2 
+\par 
+\par \cf0\highlight0       +9 vendor frames\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf11 10  \cf0\b database/migrations/2014_10_12_000000_create_users_table.php\b0 :\b 22\cf1\highlight2\b0 
+\par \cf0\highlight0   \cf13     Illuminate\\Support\\Facades\\Facade::__callStatic("create")\cf1\highlight2 
+\par \cf0\highlight0       +35 vendor frames\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf11 46  \cf0\b artisan\b0 :\b 37\cf1\highlight2\b0 
+\par \cf0\highlight0   \cf13     Illuminate\\Foundation\\Console\\Kernel::handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan migrate:refresh\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf15\highlight16  INFO \cf0\highlight0  Rolling back migrations.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   0001_01_01_000002_create_jobs_table \cf13 .................................................................................................. 114ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000001_create_cache_table \cf13 .................................................................................................. 50ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000000_create_users_table \cf13 .................................................................................................. 85ms\cf0  \cf3 DONE\cf1\highlight2 
+\par 
+\par 
+\par \cf0\highlight0   \cf15\highlight16  INFO \cf0\highlight0  Running migrations.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   0001_01_01_000000_create_users_table \cf13 ................................................................................................. 310ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000001_create_cache_table \cf13 ................................................................................................. 100ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000002_create_jobs_table \cf13 .................................................................................................. 288ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2019_12_14_000001_create_personal_access_tokens_table \cf13 ................................................................................ 117ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_04_04_072326_create_projects_table \cf13 ............................................................................................... 54ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_04_24_171318_create_services_table \cf13 ............................................................................................... 45ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_04_26_074508_create_sliders_table \cf13 ................................................................................................ 92ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_05_03_103639_create_main_projects_table \cf13 .......................................................................................... 48ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_05_05_162035_create_contacts_table \cf13 ............................................................................................... 63ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_05_08_082403_create_future_projects_table \cf13 ........................................................................................ 44ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_05_10_085413_create_map_projects_table \cf13 ........................................................................................... 51ms\cf0  \cf3 DONE\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$\cf1\highlight2 
+\par \cf6\highlight0 Network error: Software caused connection abort\cf1\highlight2 
+\par 
+\par \cf13\highlight0\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\cf1\highlight2 
+\par 
+\par \cf6\highlight0 Session stopped\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 <Return>\cf0  to exit tab\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 R\cf0  to restart session\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 S\cf0  to save terminal output to file\cf1\highlight2 
+\par \pard\cf0\highlight0\f2 
+\par }
+ 

@@ -1,0 +1,236 @@
+{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fmodern Consolas;}{\f1\fmodern\fcharset204 Consolas;}{\f2\fnil\fcharset129 Courier New;}}
+{\colortbl ;\red20\green20\blue20;\red142\green142\blue142;\red16\green158\blue98;\red148\green146\blue12;\red170\green51\blue170;\red170\green64\blue64;\red56\green136\blue159;\red18\green124\blue155;\red94\green147\blue162;\red255\green175\blue175;\red9\green118\blue72;\red85\green85\blue85;\red170\green83\blue170;\red170\green85\blue85;\red126\green126\blue12;\red222\green222\blue136;\red136\green136\blue136;\red136\green202\blue222;}
+\viewkind4\uc1\pard\f0\fs20     \u9484?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9488?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                 \cf3\f1\bullet  MobaXterm Personal Edition v24.1 \bullet\cf0\f0                  \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?               \cf4 (SSH client, X server and network tools)\cf0                \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? SSH session to \cf5 altayselaz@altaysel.az                    \cf0           \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  Direct SSH      :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH compression :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH-browser     :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  X11-forwarding  :  \cf6\f0\u10007?\cf0   (disabled or not supported by server)      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? For more info, ctrl+click on \cf7\ul help\cf0\ulnone  or visit our \cf7\ul website\cf0\ulnone .            \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9492?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9496?\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ ls\cf1\highlight2 
+\par \cf8\highlight0 bin\cf0   \cf8 etc\cf0   \cf8 logs\cf0   \cf8 mail\cf0   \cf8 php\cf0   \cf8 public_ftp\cf0   \cf8 public_html\cf0   \cf8 ssl\cf0   \cf8 tmp\cf0   \cf9 www\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ cd public_html\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ ls\cf1\highlight2 
+\par \cf8\highlight0 archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ cd archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan migrate:refresh\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \highlight10  Illuminate\\Database\\QueryException\cf1\highlight2 
+\par 
+\par \cf0\highlight0\b   SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'laravel' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name)\cf1\highlight2\b0 
+\par 
+\par \cf0\highlight0   at \cf11 vendor/laravel/framework/src/Illuminate/Database/Connection.php\cf0 :\cf11 829\cf1\highlight2 
+\par \cf0\highlight0     \cf12 825\u9621? \cf13                     \cf0\b $this\cf13\b0 ->\cf0\b getName\cf13\b0 (), \cf0\b $query\cf13\b0 , \cf0\b $this\cf13\b0 ->\cf0\b prepareBindings\cf13\b0 (\cf0\b $bindings\cf13\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf12 826\u9621? \cf0\b                 \cf13\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf12 827\u9621? \cf13             \}\cf1\highlight2 
+\par \cf0\highlight0     \cf12 828\u9621?\cf1\highlight2 
+\par \cf14\highlight0   \u10140? \cf0\b 829\cf12\b0\u9621? \cf13             throw new \cf0\b QueryException\cf13\b0 (\cf1\highlight2 
+\par \cf0\highlight0     \cf12 830\u9621? \cf13                 \cf0\b $this\cf13\b0 ->\cf0\b getName\cf13\b0 (), \cf0\b $query\cf13\b0 , \cf0\b $this\cf13\b0 ->\cf0\b prepareBindings\cf13\b0 (\cf0\b $bindings\cf13\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf12 831\u9621? \cf0\b             \cf13\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf12 832\u9621? \cf13         \}\cf1\highlight2 
+\par \cf0\highlight0     \cf12 833\u9621? \cf13     \}\cf1\highlight2 
+\par 
+\par \cf0\highlight0       +44 vendor frames\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf15 45  \cf0\b artisan\b0 :\b 37\cf1\highlight2\b0 
+\par \cf0\highlight0   \cf12     Illuminate\\Foundation\\Console\\Kernel::handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan migrate:refresh\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf1\highlight16  WARN \cf0\highlight0  Migration table not found.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Preparing database.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   Creating migration table \cf12 ............................................................................................................. 106ms\cf0  \cf3 DONE\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Running migrations.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   2014_10_12_000000_create_users_table \cf12 ................................................................................................. 122ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2014_10_12_100000_create_password_reset_tokens_table \cf12 .................................................................................. 55ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2019_08_19_000000_create_failed_jobs_table \cf12 ............................................................................................ 87ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2019_12_14_000001_create_personal_access_tokens_table \cf12 ................................................................................ 139ms\cf0  \cf3 DONE\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$\cf1\highlight2 
+\par \cf6\highlight0 Network error: Software caused connection abort\cf1\highlight2 
+\par 
+\par \cf12\highlight0\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\cf1\highlight2 
+\par 
+\par \cf6\highlight0 Session stopped\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 <Return>\cf0  to exit tab\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 R\cf0  to restart session\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 S\cf0  to save terminal output to file\cf1\highlight2 
+\par \cf0\highlight0     \u9484?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9488?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                 \cf3\f1\bullet  MobaXterm Personal Edition v24.1 \bullet\cf0\f0                  \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?               \cf4 (SSH client, X server and network tools)\cf0                \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? SSH session to \cf5 altayselaz@altaysel.az                    \cf0           \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  Direct SSH      :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH compression :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH-browser     :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  X11-forwarding  :  \cf6\f0\u10007?\cf0   (disabled or not supported by server)      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? For more info, ctrl+click on \cf7\ul help\cf0\ulnone  or visit our \cf7\ul website\cf0\ulnone .            \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9492?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9496?\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ ls\cf1\highlight2 
+\par \cf8\highlight0 bin\cf0   \cf8 etc\cf0   \cf8 logs\cf0   \cf8 mail\cf0   \cf8 php\cf0   \cf8 public_ftp\cf0   \cf8 public_html\cf0   \cf8 ssl\cf0   \cf8 tmp\cf0   \cf9 www\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ cd public_html\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ ls\cf1\highlight2 
+\par \cf8\highlight0 archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ cd archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ ls\cf1\highlight2 
+\par \cf0\highlight0 README.md  \cf3 artisan\cf0     composer.json  \cf8 config\cf0     package.json  \cf8 public\cf0      \cf8 routes\cf0    \cf8 tests\cf0    vite.config.js\cf1\highlight2 
+\par \cf8\highlight0 app\cf0         \cf8 bootstrap\cf0   composer.lock  \cf8 database\cf0   phpunit.xml   \cf8 resources\cf0   \cf8 storage\cf0   \cf8 vendor\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan migrate:refresh\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Rolling back migrations.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   2019_12_14_000001_create_personal_access_tokens_table \cf12 ................................................................................ 156ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2019_08_19_000000_create_failed_jobs_table \cf12 ..................................................................................\cf0  \cf4 Migration not found\cf1\highlight2 
+\par \cf0\highlight0   2014_10_12_100000_create_password_reset_tokens_table \cf12 ........................................................................\cf0  \cf4 Migration not found\cf1\highlight2 
+\par \cf0\highlight0   2014_10_12_000000_create_users_table \cf12 ........................................................................................\cf0  \cf4 Migration not found\cf1\highlight2 
+\par 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Running migrations.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   0001_01_01_000000_create_users_table \cf12 ................................................................................................... 7ms\cf0  \cf14 FAIL\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \highlight10  Illuminate\\Database\\QueryException\cf1\highlight2 
+\par 
+\par \cf0\highlight0\b   SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'users' already exists (Connection: mysql, SQL: create table `users` (`id` bigint unsigned not null auto_increment primary key, `name` varchar(255) not null, `email` varchar(255) not null, `email_verified_at` timestamp null, `password` varchar(255) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timestamp null, `role` enum('admin', 'user') not null default 'user') default character set utf8mb4 collate 'utf8mb4_unicode_ci')\cf1\highlight2\b0 
+\par 
+\par \cf0\highlight0   at \cf11 vendor/laravel/framework/src/Illuminate/Database/Connection.php\cf0 :\cf11 829\cf1\highlight2 
+\par \cf0\highlight0     \cf12 825\u9621? \cf13                     \cf0\b $this\cf13\b0 ->\cf0\b getName\cf13\b0 (), \cf0\b $query\cf13\b0 , \cf0\b $this\cf13\b0 ->\cf0\b prepareBindings\cf13\b0 (\cf0\b $bindings\cf13\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf12 826\u9621? \cf0\b                 \cf13\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf12 827\u9621? \cf13             \}\cf1\highlight2 
+\par \cf0\highlight0     \cf12 828\u9621?\cf1\highlight2 
+\par \cf14\highlight0   \u10140? \cf0\b 829\cf12\b0\u9621? \cf13             throw new \cf0\b QueryException\cf13\b0 (\cf1\highlight2 
+\par \cf0\highlight0     \cf12 830\u9621? \cf13                 \cf0\b $this\cf13\b0 ->\cf0\b getName\cf13\b0 (), \cf0\b $query\cf13\b0 , \cf0\b $this\cf13\b0 ->\cf0\b prepareBindings\cf13\b0 (\cf0\b $bindings\cf13\b0 ), \cf0\b $e\cf1\highlight2\b0 
+\par \cf0\highlight0     \cf12 831\u9621? \cf0\b             \cf13\b0 );\cf1\highlight2 
+\par \cf0\highlight0     \cf12 832\u9621? \cf13         \}\cf1\highlight2 
+\par \cf0\highlight0     \cf12 833\u9621? \cf13     \}\cf1\highlight2 
+\par 
+\par \cf0\highlight0       +9 vendor frames\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf15 10  \cf0\b database/migrations/0001_01_01_000000_create_users_table.php\b0 :\b 23\cf1\highlight2\b0 
+\par \cf0\highlight0   \cf12     Illuminate\\Support\\Facades\\Facade::__callStatic("create")\cf1\highlight2 
+\par \cf0\highlight0       +35 vendor frames\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf15 46  \cf0\b artisan\b0 :\b 37\cf1\highlight2\b0 
+\par \cf0\highlight0   \cf12     Illuminate\\Foundation\\Console\\Kernel::handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan migrate:refresh\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf1\highlight16  WARN \cf0\highlight0  Migration table not found.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Preparing database.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   Creating migration table \cf12 .............................................................................................................. 89ms\cf0  \cf3 DONE\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Running migrations.\cf1\highlight2 
+\par 
+\par \cf0\highlight0   0001_01_01_000000_create_users_table \cf12 ................................................................................................. 429ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000001_create_cache_table \cf12 ................................................................................................. 216ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   0001_01_01_000002_create_jobs_table \cf12 .................................................................................................. 308ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2019_12_14_000001_create_personal_access_tokens_table \cf12 ................................................................................ 166ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_04_04_072326_create_projects_table \cf12 ............................................................................................... 50ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_04_24_171318_create_services_table \cf12 ............................................................................................... 46ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_04_26_074508_create_sliders_table \cf12 ................................................................................................ 42ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_05_03_103639_create_main_projects_table \cf12 .......................................................................................... 45ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_05_05_162035_create_contacts_table \cf12 ............................................................................................... 70ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_05_08_082403_create_future_projects_table \cf12 ........................................................................................ 61ms\cf0  \cf3 DONE\cf1\highlight2 
+\par \cf0\highlight0   2024_05_10_085413_create_map_projects_table \cf12 ........................................................................................... 54ms\cf0  \cf3 DONE\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:model slider\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Model \b [app/Models/slider.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:model Slider\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Model \b [app/Models/Slider.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:model Service\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Model \b [app/Models/Service.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:model Project\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Model \b [app/Models/Project.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:model MapProjects\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Model \b [app/Models/MapProjects.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:model MainProject\cf1\highlight2 
+\par \cf0\highlight0 ^[[A\cf1\highlight2 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Model \b [app/Models/MainProject.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:model FutureProjects\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Model \b [app/Models/FutureProjects.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:model Contact\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Model \b [app/Models/Contact.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:controller AdminController\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Controller \b [app/Http/Controllers/AdminController.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:controller ArchitectController\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Controller \b [app/Http/Controllers/ArchitectController.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ php artisan make:controller ProjectController\cf1\highlight2 
+\par 
+\par \cf0\highlight0   \cf17\highlight18  INFO \cf0\highlight0  Controller \b [app/Http/Controllers/ProjectController.php]\b0  created successfully.\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$\cf1\highlight2 
+\par \cf6\highlight0 Network error: Software caused connection abort\cf1\highlight2 
+\par 
+\par \cf12\highlight0\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\cf1\highlight2 
+\par 
+\par \cf6\highlight0 Session stopped\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 <Return>\cf0  to exit tab\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 R\cf0  to restart session\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 S\cf0  to save terminal output to file\cf1\highlight2 
+\par \cf0\highlight0     \u9484?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9488?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                 \cf3\f1\bullet  MobaXterm Personal Edition v24.1 \bullet\cf0\f0                  \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?               \cf4 (SSH client, X server and network tools)\cf0                \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? SSH session to \cf5 altayselaz@altaysel.az                    \cf0           \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  Direct SSH      :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH compression :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  SSH-browser     :  \cf3\f0\u10003?\cf0                                              \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?\f1    \bullet  X11-forwarding  :  \cf6\f0\u10007?\cf0   (disabled or not supported by server)      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474?                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9474? \u11166? For more info, ctrl+click on \cf7\ul help\cf0\ulnone  or visit our \cf7\ul website\cf0\ulnone .            \u9474?\cf1\highlight2 
+\par \cf0\highlight0     \u9492?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9496?\cf1\highlight2 
+\par 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ ls\cf1\highlight2 
+\par \cf8\highlight0 bin\cf0   \cf8 etc\cf0   \cf8 logs\cf0   \cf8 mail\cf0   \cf8 php\cf0   \cf8 public_ftp\cf0   \cf8 public_html\cf0   \cf8 ssl\cf0   \cf8 tmp\cf0   \cf9 www\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 ~]$ cd public_html\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ ls\cf1\highlight2 
+\par \cf8\highlight0 archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 public_html]$ cd archi\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$ ls\cf1\highlight2 
+\par \cf0\highlight0 README.md  \cf3 artisan\cf0     composer.json  \cf8 config\cf0     package.json  \cf8 public\cf0      \cf8 routes\cf0    \cf8 tests\cf0    vite.config.js\cf1\highlight2 
+\par \cf8\highlight0 app\cf0         \cf8 bootstrap\cf0   composer.lock  \cf8 database\cf0   phpunit.xml   \cf8 resources\cf0   \cf8 storage\cf0   \cf8 vendor\cf1\highlight2 
+\par \cf0\highlight0 [altayselaz@ns1 archi]$\cf1\highlight2 
+\par \cf6\highlight0 Network error: Software caused connection abort\cf1\highlight2 
+\par 
+\par \cf12\highlight0\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\cf1\highlight2 
+\par 
+\par \cf6\highlight0 Session stopped\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 <Return>\cf0  to exit tab\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 R\cf0  to restart session\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf5 S\cf0  to save terminal output to file\cf1\highlight2 
+\par \pard\cf0\highlight0\f2 
+\par }
+ 
