@@ -24,47 +24,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
    // Hide the preloader after 1.5 seconds even if all content is not loaded
    hidePreloader();
-    // Theme changer functionality
-    // Theme changer functionality
-    const themeChanger = document.querySelector('.main__block__theme-changer');
-    const themeCircle = document.querySelector('.__theme-surface__circle');
-    const themeSurface = document.querySelector('.__theme-surface');
-    const themeMoon = document.querySelector('.__theme-surface__moon');
-    const backgroundChange = document.getElementById('background_change');
-    const backgroundChange2 = document.getElementById('background_change2');
-    const colorChangeElements = document.querySelectorAll('#color_change');
-    const imageChange = document.getElementById('image_change');
-    const imageChange2 = document.getElementById('image_change2');
-    const imageChange3 = document.getElementById('image_change3');
-    const imageChange4 = document.getElementById('image_change4');
-    const imageChange5 = document.getElementById('image_change5');
-    const imageChange6 = document.getElementById('image_change6');
-    const backgroundChangeMain = document.getElementById('background_change_main');
-    const backgroundChangeMainServices = document.querySelectorAll('#background_change_main_services');
-    let isActive = false;
 
-    function toggleTheme() {
-        themeCircle.style.left = isActive ? '-12px' : '40px';
-        themeSurface.style.backgroundColor = isActive ? 'var(--orange)' : 'black';
-        themeMoon.style.opacity = isActive ? '1' : '0';
-        backgroundChange.style.backgroundColor = isActive ? '' : 'black';
-        backgroundChange2.style.background = isActive ? '' :  'linear-gradient(90deg, #000000 1.9%, rgba(154, 104, 17, 0.7) 21.65%, #000000 42.98%)';
-        colorChangeElements.forEach(element => element.style.color = isActive ? '' : 'white');
-        imageChange.src = isActive ? './style/imgs/Vector1.svg' : './style/imgs/Vector2.svg';
-        imageChange2.src = isActive ? './style/imgs/main_image_2.jpeg' : './style/imgs/main_image_1.jpeg';
-        imageChange3.src = isActive ? './style/imgs/about_1_white.jpeg' : './style/imgs/about_1_black.jpeg';
-        imageChange4.src = isActive ? './style/imgs/about_2_white.jpeg' : './style/imgs/about_2_black.jpeg';
-        imageChange5.src = isActive ? './style/imgs/about_3_white.jpeg' : './style/imgs/about_3_black.jpeg';
-        imageChange6.src = isActive ? './style/imgs/about_4_white.jpeg' : './style/imgs/about_4_black.jpeg';
-        backgroundChangeMain.style.backgroundColor = isActive ? 'white' : 'black';
-        backgroundChangeMainServices.forEach(element => {
-            element.style.backgroundColor = isActive ? 'var(--cream)' : 'var(--grey3)';
-            element.style.boxShadow = isActive ? '8px 8px 20px 0px #FFFFFF33' : 'none';
-        });
 
-        isActive = !isActive;
-    }
-    themeChanger.addEventListener('click', toggleTheme);
+   const themeChanger = document.querySelector('.main__block__theme-changer');
+   const themeCircle = document.querySelector('.__theme-surface__circle');
+   const themeSurface = document.querySelector('.__theme-surface');
+   const themeMoon = document.querySelector('.__theme-surface__moon');
+   const backgroundChange = document.getElementById('background_change');
+   const backgroundChange2 = document.getElementById('background_change2');
+   const colorChangeElements = document.querySelectorAll('#color_change');
+   const imageChange = document.getElementById('image_change');
+   const imageChange2 = document.getElementById('image_change2');
+   const imageChange3 = document.getElementById('image_change3');
+   const imageChange4 = document.getElementById('image_change4');
+   const imageChange5 = document.getElementById('image_change5');
+   const imageChange6 = document.getElementById('image_change6');
+   const backgroundChangeMain = document.getElementById('background_change_main');
+   const backgroundChangeMainServices = document.querySelectorAll('#background_change_main_services');
+   let isActive = false;
+   
+   function toggleTheme() {
+       themeCircle.style.left = isActive ? '-12px' : '40px';
+       themeSurface.style.backgroundColor = isActive ? 'var(--orange)' : 'black';
+       themeMoon.style.opacity = isActive ? '1' : '0';
+       backgroundChange.style.backgroundColor = isActive ? '' : 'black';
+       backgroundChange2.style.background = isActive ? '' : 'linear-gradient(90deg, #000000 1.9%, rgba(154, 104, 17, 0.7) 21.65%, #000000 42.98%)';
+       colorChangeElements.forEach(element => element.style.color = isActive ? '' : 'white');
+       imageChange.src = isActive ? './style/imgs/Vector1.svg' : './style/imgs/Vector2.svg';
+       imageChange2.src = isActive ? './style/imgs/main_image_2.jpeg' : './style/imgs/main_image_1.jpeg';
+       imageChange3.src = isActive ? './style/imgs/about_1_white.jpeg' : './style/imgs/about_1_black.jpeg';
+       imageChange4.src = isActive ? './style/imgs/about_2_white.jpeg' : './style/imgs/about_2_black.jpeg';
+       imageChange5.src = isActive ? './style/imgs/about_3_white.jpeg' : './style/imgs/about_3_black.jpeg';
+       imageChange6.src = isActive ? './style/imgs/about_4_white.jpeg' : './style/imgs/about_4_black.jpeg';
+       
+       // Toggle dark theme class on the body
+       document.body.classList.toggle('dark-theme', !isActive);
+   
+       isActive = !isActive;
+   }
+   
+   themeChanger.addEventListener('click', toggleTheme);
+   
+   
+
+
+
+
+
     // Header related functionality
     const header = document.querySelector('.header');
     const languageToggle = document.querySelector('.language__toggle');

@@ -174,7 +174,7 @@
                                     <img src="{{ asset('style/imgs/delete_project.svg') }}" alt="">
                                 </button>
                             </div>
-                            <img src="{{ asset('uploads/' . $slider->image_name) }}" alt="">
+                            <img src="{{ asset('./archi/public/uploads/' . $slider->image_name) }}" alt="">
                         </div>
                     </div>
                     @endforeach

@@ -89,7 +89,7 @@
                     @csrf
                     @method('DELETE')
                     <div class="standart__additional__block-image">
-                        <img src="{{ asset('uploads/projects/' . $image) }}" alt="Image">
+                        <img src="{{ asset('./archi/public/uploads/projects/' . $image) }}" alt="Image">
                     </div>
                     <button type="submit" class="delete-image" data-image="{{ $image }}">Delete</button>
                 </form>

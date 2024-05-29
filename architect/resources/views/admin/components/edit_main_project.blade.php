@@ -59,7 +59,7 @@
                             <img class="delete_icon" src="{{ asset('style/imgs/delete_photo.svg') }}" alt="Delete">
                         </div>
                         <!-- Photo Container -->
-                        <div style="background-image: url('{{ asset('uploads/projects/' . $project->main_image) }}')"
+                        <div style="background-image: url('{{ asset('./archi/public/uploads/projects/' . $project->main_image) }}')"
                             class="add__photo__element-image add_photo__project" id="add_photo_container">
                             <!-- Uploaded Image -->
                             <img class="uploaded_image" id="uploaded_image" src="{{ asset('style/imgs/Camera.svg') }}"
@@ -85,7 +85,7 @@
                                 <!-- <img class="delete_icon" src="{{ asset('style/imgs/delete_photo.svg') }}" alt="Delete"> -->
                             </div>
                             <!-- Photo Container -->
-                            <div style="background-image: url('{{ asset('uploads/projects/' . $image) }}')"
+                            <div style="background-image: url('{{ asset('./archi/public/uploads/projects/' . $image) }}')"
                                 class="add__photo__element-image add_photo__project-small"
                                 id="additional_photo_container_{{ $index + 1 }}">
                                 <!-- Uploaded Image -->

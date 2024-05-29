@@ -72,7 +72,17 @@
                         </div>
 
                         <div class="footer__content__block-contact">
+                        
                             <div class="footer__contact__numbers-wrapper">
+
+                                <div class="footer__contact-element">
+                                    <div class="footer__contact-element__image">
+                                        <img src="{{asset('style/imgs/call.svg')}}" alt="">
+                                    </div>
+                                    <div class="footer__contact-element__text">
+                                        +994 50 210 03 59 (H.Ramiz)
+                                    </div>
+                                </div>
                                 <div class="footer__contact-element">
                                     <div class="footer__contact-element__image">
                                         <img src="{{asset('style/imgs/call.svg')}}" alt="">
@@ -86,21 +96,12 @@
                                         <img src="{{asset('style/imgs/call.svg')}}" alt="">
                                     </div>
                                     <div class="footer__contact-element__text">
-                                        +994 50 210 03 59 (H.Ramiz)
-                                    </div>
-                                </div>
-
-                                <div class="footer__contact-element">
-                                    <div class="footer__contact-element__image">
-                                        <img src="{{asset('style/imgs/wp.svg')}}" alt="">
-                                    </div>
-                                    <div class="footer__contact-element__text">
-                                        +994 50 210 03 59 (H.Ramiz)
+                                        +994  55 888 22 77 (H.Aysel)
                                     </div>
                                 </div>
                                 <div class="footer__contact-element">
                                     <div class="footer__contact-element__image">
-                                        <img src="{{asset('style/imgs/mail.svg')}}" alt="">
+                                        <img src="{{asset('style/imgs/call.svg')}}" alt="">
                                     </div>
                                     <div class="footer__contact-element__text">
                                         info@altaysel.az

@@ -24,6 +24,21 @@ document.addEventListener('DOMContentLoaded', function () {
  
     // Hide the preloader after 1.5 seconds even if all content is not loaded
     hidePreloader();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      // Theme changer functionality
      // Theme changer functionality
     // Theme changer functionality
@@ -34,8 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const themeMoon = document.querySelector('.__theme-surface__moon');
     const backgroundChange = document.getElementById('background_change');
     const backgroundChange2 = document.getElementById('background_change2');
-
-
     const colorChangeElements = document.querySelectorAll('#color_change');
     const imageChange = document.getElementById('image_change');
     const imageChange2 = document.getElementById('image_change2');
@@ -45,25 +58,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const imageChange6 = document.getElementById('image_change6');
     const backgroundChangeMain = document.getElementById('background_change_main');
     const backgroundChangeMainServices = document.querySelectorAll('#background_change_main_services');
-
-    const backgroundChange3 = document.getElementById('background_change3');
-    const colorchangeAbout = document.querySelectorAll('#color_change3'); 
-
-     let isActive = false;
- 
-     function toggleTheme() {
+    let isActive = false;
+    
+    function toggleTheme() {
         themeCircle.style.left = isActive ? '-12px' : '40px';
         themeSurface.style.backgroundColor = isActive ? 'var(--orange)' : 'black';
         themeMoon.style.opacity = isActive ? '1' : '0';
         backgroundChange.style.backgroundColor = isActive ? '' : 'black';
         backgroundChange2.style.background = isActive ? '' : 'linear-gradient(90deg, #000000 1.9%, rgba(154, 104, 17, 0.7) 21.65%, #000000 42.98%)';
-        backgroundChange3.style.background = isActive ? '#ECE7E2' : '#323232';
-        backgroundChange3.style.color = isActive ? '' : '#fff';
-        colorchangeAbout.forEach(element => {
-            element.style.color = isActive ? '' : '#fff';
-        });
-
-
         colorChangeElements.forEach(element => element.style.color = isActive ? '' : 'white');
         imageChange.src = isActive ? './style/imgs/Vector1.svg' : './style/imgs/Vector2.svg';
         imageChange2.src = isActive ? './style/imgs/main_image_2.jpeg' : './style/imgs/main_image_1.jpeg';
@@ -71,15 +73,22 @@ document.addEventListener('DOMContentLoaded', function () {
         imageChange4.src = isActive ? './style/imgs/about_2_white.jpeg' : './style/imgs/about_2_black.jpeg';
         imageChange5.src = isActive ? './style/imgs/about_3_white.jpeg' : './style/imgs/about_3_black.jpeg';
         imageChange6.src = isActive ? './style/imgs/about_4_white.jpeg' : './style/imgs/about_4_black.jpeg';
-        backgroundChangeMain.style.backgroundColor = isActive ? 'white' : 'black';
-        backgroundChangeMainServices.forEach(element => {
-            element.style.backgroundColor = isActive ? 'var(--cream)' : 'var(--grey3)';
-            element.style.boxShadow = isActive ? '8px 8px 20px 0px #FFFFFF33' : 'none';
-        });
-
+        
+        // Toggle dark theme class on the body
+        document.body.classList.toggle('dark-theme', !isActive);
+    
         isActive = !isActive;
     }
-     themeChanger.addEventListener('click', toggleTheme);
+    
+    themeChanger.addEventListener('click', toggleTheme);
+    
+    
+    
+
+
+
+
+
      // Header related functionality
      const header = document.querySelector('.header');
      const languageToggle = document.querySelector('.language__toggle');
@@ -140,7 +149,10 @@ document.addEventListener('DOMContentLoaded', function () {
          numberBlocks.forEach(block => isInViewport(block) && !block.classList.contains('counted') && countNumbers(block));
      }
      handleScroll();
-     window.addEventListener('scroll', handleScroll);    
+     window.addEventListener('scroll', handleScroll);  
+     
+     
+
      // Function to toggle service content
      const serviceElements = document.querySelectorAll('.services__block__element');
      function toggleServiceContent(service) {
@@ -195,6 +207,7 @@ function handlePopupContainers(mainProjectData, mapProjectData, futureProjectDat
     const popupName = document.getElementById('popup_name');
     const popupAdress = document.getElementById('popup__adress');
     const popupYear = document.getElementById('popup_year');
+    const popupYearBlock = popupYear.parentElement; // Get the parent block containing the year
     const popupLocation = document.getElementById('popup_location');
     const popupDescription = document.getElementById('popup_description');
     const popupClose = document.getElementById('popup_close');
@@ -207,14 +220,19 @@ function handlePopupContainers(mainProjectData, mapProjectData, futureProjectDat
         popupContainer.addEventListener('click', () => {
             const projectId = popupContainer.dataset.projectId;
             let project = mainProjectData.find(project => project.id === parseInt(projectId));
+            let isFutureProject = false;
+
             if (!project) {
                 project = mapProjectData.find(project => project.id === parseInt(projectId));
             }
+
             if (!project) {
                 project = futureProjectData.find(project => project.id === parseInt(projectId));
+                isFutureProject = !!project; // Check if the project is a future project
             }
+
             if (project) {
-                createPopup(project);
+                createPopup(project, isFutureProject);
             }
         });
     });
@@ -239,11 +257,11 @@ function handlePopupContainers(mainProjectData, mapProjectData, futureProjectDat
     function updateImage() {
         if (currentData.images.length > 0) {
             const currentImageSrc = currentData.images[currentImageIndex];
-            popupImage.src = `/uploads/projects/${currentImageSrc}`;
+            popupImage.src = `./archi/public/uploads/projects/${currentImageSrc}`;
         }
     }
 
-    function createPopup(data) {
+    function createPopup(data, isFutureProject) {
         // Remove previous event listeners
         prevButton.removeEventListener('click', prevButtonClickHandler);
         nextButton.removeEventListener('click', nextButtonClickHandler);
@@ -270,11 +288,11 @@ function handlePopupContainers(mainProjectData, mapProjectData, futureProjectDat
         currentData.images = images;
 
         if (images.length === 0) {
-            popupImage.src = `/uploads/projects/${data.main_image}`;
+            popupImage.src = `./archi/public/uploads/projects/${data.main_image}`;
             prevButton.style.display = 'none';
             nextButton.style.display = 'none';
         } else {
-            popupImage.src = `/uploads/projects/${images[0]}`;
+            popupImage.src = `./archi/public/uploads/projects/${images[0]}`;
             prevButton.style.display = 'block';
             nextButton.style.display = 'block';
         }
@@ -282,7 +300,17 @@ function handlePopupContainers(mainProjectData, mapProjectData, futureProjectDat
         popupName.innerHTML = data.name_az;
         popupDescription.innerHTML = data.desc_az;
         popupAdress.innerHTML = data.adress;
-        popupYear.innerHTML = ` ${data.year}`;
+
+        // Hide the year block for future projects
+        if (isFutureProject) {
+            popupYearBlock.style.display = 'none';
+            popupLocation.innerHTML = 'Ətraflı';
+        } else {
+            popupYearBlock.style.display = 'flex';
+            popupYear.innerHTML = ` ${data.year}`;
+            popupLocation.innerHTML = 'Google Maps-da baxmaq';
+        }
+
         popupLocation.href = data.location;
 
         prevButton.addEventListener('click', prevButtonClickHandler);
@@ -301,6 +329,7 @@ function handlePopupContainers(mainProjectData, mapProjectData, futureProjectDat
         updateImage();
     };
 }
+
 
 
 

@@ -58,11 +58,8 @@ class ArchitectController extends Controller
     {
         $contacts = Contact::first(); 
         switch ($year) {
-            case 1960:
-                $projects = Project::where('year', '<=', 1960)->get();
-                break;
             case 1970:
-                $projects = Project::whereBetween('year', [1960, 1970])->get();
+                $projects = Project::where('year', '<=', 1970)->get();
                 break;
             case 1980:
                 $projects = Project::whereBetween('year', [1970, 1980])->get();
@@ -77,6 +74,9 @@ class ArchitectController extends Controller
                 $projects = Project::whereBetween('year', [2000, 2010])->get();
                 break;
             case 2020:
+                $projects = Project::whereBetween('year', [2010, 2020])->get();
+                break;
+            case 2030:
                 $projects = Project::where('year', '>=', 2020)->get();
                 break;
             default:

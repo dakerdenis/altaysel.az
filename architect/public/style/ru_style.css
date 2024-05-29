@@ -7,3 +7,23 @@
 .team__block__element-position{
     font-size: 21px;
 }
+.about__block__info-name-line{
+    width: 500px;
+}
+.about__block__info-name-desc{
+    right: 71px;
+}
+@media only screen and (max-width: 770px) {
+    .__services-element__type {
+        font-size: 13px;
+      }
+      .__services-element__link{
+        margin-top: initial;
+        height: initial;
+      }
+      .__services-element__container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+}

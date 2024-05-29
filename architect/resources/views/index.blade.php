@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alt.Ay.Sel</title>
-    <meta name="description" content="Brief description of your website">
-    <meta name="keywords" content="keywords, related, to, your, content">
-
+    <!-- Meta tags -->
+    <meta name="description" content="Altaysel Co is an architecture bureau based in Baku, Azerbaijan. We specialize in architectural design, development, and construction services, creating innovative and sustainable solutions for our clients.">
+    <meta name="keywords" content="Altaysel Co, architecture, design, development, construction, Baku, Azerbaijan, architectural services, sustainable design, innovative solutions, architectural bureau">
+    
+    <link rel="icon" href="{{asset('style/imgs/Vector1.svg')}}" type="image/svg+xml">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -50,7 +52,7 @@
                                     <div class="main__block__background">
 
                                     </div>
-                                    <img src="{{ asset('uploads/' . $slider->image_name) }}" alt="">
+                                    <img src="{{ asset('./archi/public/uploads/' . $slider->image_name) }}" alt="">
                                 </div>
                             @endforeach
 
@@ -211,8 +213,8 @@
             </div>
         </div>
         <!--? ---ABOUT------->
-        <div class=" about__block" id="aboutBlock">
-            <div class="about__block__container">
+        <div class=" about__block" id="aboutBlock" >
+            <div class="about__block__container" id="background_change4">
                 <div class="about__block__image">
                     <img id="image_change2" src="./style/imgs/main_image_2.jpeg" alt="">
                 </div>
@@ -282,7 +284,7 @@
                 </div>
 
                 <div class="projects__desc-link projects__desc-link_pc">
-                    <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', $year = 1960]) }}">
+                    <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', $year = 1970]) }}">
                         <img src="./style/imgs/project_1.svg" alt="">
                         <p>
                             {{ $locale === 'az' ? 'Bütün layihələrə baxın' : 'СМОТРЕТЬ ВСЕ ПРОЕКТЫ' }}
@@ -296,7 +298,7 @@
                 @foreach ($all_main_projects as $index => $main_project)
                     <div class="projects__block-element">
                         <div class="projects__block-element-image">
-                            <img src="{{ asset('uploads/projects/' . $main_project->main_image) }}" alt="">
+                            <img src="{{ asset('./archi/public/uploads/projects/' . $main_project->main_image) }}" alt="">
                         </div>
 
                         <div class="projects__block-element-hover">
@@ -328,7 +330,7 @@
                 <div class="map__block__desc-name">
                     <div id="color_change" class="map__block__desc-name-name">
 
-                        {{ $locale === 'az' ? 'Layihə xaritəsi' : 'Карта проектов' }}
+                        {{ $locale === 'az' ? 'Layihə xəritəsi' : 'Карта проектов' }}
                     </div>
                     <div class="map__block__desc-name_line">
 
@@ -673,7 +675,7 @@
                             @foreach ($map_projects[$i] as $map_project)
                             <div class="map__project-element">
                                 <div class="map__project-image">
-                                    <img src="{{ asset('uploads/projects/' . $map_project->main_image) }}" alt="">
+                                    <img src="{{ asset('./archi/public/uploads/projects/' . $map_project->main_image) }}" alt="">
                                 </div>
                                 <div class="map__project__wrapper">
                                     <div class="map__project-adress">
@@ -724,12 +726,16 @@
                             <div class="swiper-slide swiper_slide_future">
                                 <div class="future_slide__container">
                                     <div class="future_slide__image">
-                                        <img src="{{ asset('uploads/projects/' . $future_project->main_image) }}" alt="">
+                                        <img src="{{ asset('./archi/public/uploads/projects/' . $future_project->main_image) }}" alt="">
                                     </div>
                         
                                     <div class="future_slide__placeholder">
                                         <div class="future_slide__name">
-                                            {{ $locale === 'az' ? $future_project->name_az : $future_project->name_ru }}
+                                                                                            {{
+                                                    (strlen($locale === 'az' ? $future_project->name_az : $future_project->name_ru) > 65) ?
+                                                    substr($locale === 'az' ? $future_project->name_az : $future_project->name_ru, 0, 65) . '...' :
+                                                    ($locale === 'az' ? $future_project->name_az : $future_project->name_ru)
+                                                }}
                                         </div>
                                         <div class="future_slide__link" data-project-id="{{ $future_project->id }}">
                                             <div class="future_slide__link-img">
@@ -770,7 +776,7 @@
                     <div class="services__block__element" id="service1">
                         <div class="services__block__element-default">
                             <div class="services__element-image">
-                                <img src="{{ asset('uploads/' . $service->image) }}" alt="">
+                                <img src="{{ asset('./archi/public/uploads/' . $service->image) }}" alt="">
                             </div>
 
                             <div class="services__element__placeholder">
@@ -841,12 +847,13 @@
                     </div>
 
                     <div class="team__person__content">
-                        <div class="team__person-position">
-                            {{ $locale === 'az' ? ' Şirkətin direktoru və təsisçisi' : 'Директор и основатель компании' }}
-                        </div>
                         <div class="team__person__name" id="color_change3">
                             {{ $locale === 'az' ? 'Ramiz Hüseynov' : 'Рамиз Гусейнов' }}
                         </div>
+                        <div class="team__person-position">
+                            {{ $locale === 'az' ? ' Şirkətin direktoru və təsisçisi' : 'Директор и основатель компании' }}
+                        </div>
+
                         <div class="team__person__email">
                             ramiz@altaysel.az
                         </div>
@@ -919,7 +926,7 @@
 
 
                 <!------->
-                <div class="team__block__content-people">
+                <div class="team__block__content-people" style="justify-content: space-evenly;">
                     <div class="team__block__element">
                         <div class="team__block__element-image">
                             <img id="image_change4" src="./style/imgs/about_2_white.jpeg" alt="">
@@ -950,7 +957,7 @@
                         </div>
                     </div>
 
-                    <div class="team__block__element">
+                    <div class="team__block__element" style="display: none; visibility:hidden;">
                         <div class="team__block__element-image">
                             <img id="image_change6" src="./style/imgs/about_4_white.jpeg" alt="">
                         </div>
@@ -972,7 +979,7 @@
             </div>
         </div>
 
-        @include('components.footer');
+        @include('components.footer')
 
 <!-- Popup Overlay -->
 <div class="popup__overlay" id="popup_overlay">
@@ -1007,7 +1014,7 @@
                
                 <div class="popup__location">
                     <a id="popup_location" href="" target="_blank">
-                        {{ $locale === 'az' ? 'Google Maps-da baxmaq' : 'Смотреть на Google-картах ' }}
+                        Ətraflı
                     </a>
                 </div>
                 <div class="popup__description" id="popup_description">
@@ -1024,7 +1031,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
     <script>
         var swiper1 = new Swiper(".mySwiper", {
             direction: "vertical",
@@ -1039,14 +1045,35 @@
                 el: ".swiper-pagination",
                 clickable: true,
             },
+            breakpoints: {
+                768: {
+                    allowTouchMove: true,
+                },
+                0: {
+                    allowTouchMove: false,
+                    on: {
+                        init: function () {
+                            disableSwiperTouchEvents();
+                        }
+                    }
+                }
+            }
         });
-
+    
         var swiper2 = new Swiper(".mySwiper2", {
             slidesPerView: 2.5,
             spaceBetween: 10,
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2.5,
+                },
+                0: {
+                    slidesPerView: 1.2,
+                }
             },
             on: {
                 // Hide the prev button when swiper initializes
@@ -1058,17 +1085,27 @@
                     showPrevButton();
                 },
             }
-
-
         });
-
+    
+        function disableSwiperTouchEvents() {
+            const swiperContainer = document.querySelector('.mySwiper');
+            swiperContainer.addEventListener('touchstart', preventSwiperTouch, { passive: true });
+            swiperContainer.addEventListener('touchmove', preventSwiperTouch, { passive: true });
+        }
+    
+        function preventSwiperTouch(e) {
+            if (window.innerWidth < 768) {
+                e.preventDefault();
+            }
+        }
+    
         function hidePrevButton() {
             const prevButton = document.querySelector('.swiper-button-prev');
             if (prevButton) {
                 prevButton.style.visibility = 'hidden';
             }
         }
-
+    
         function showPrevButton() {
             const prevButton = document.querySelector('.swiper-button-prev');
             if (prevButton) {
@@ -1076,6 +1113,8 @@
             }
         }
     </script>
+    
+    
 
     <script>
 document.addEventListener('DOMContentLoaded', function() {

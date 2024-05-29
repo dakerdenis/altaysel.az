@@ -402,12 +402,13 @@ h6 {
 
 .project__element__name {
     width: 65%;
-
-    font-size: 20px;
+    margin-top: 8px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 24.2px;
     text-align: left;
-
+    height: 48px;
+    width: 230px;
 }
 
 .project__element__edit {

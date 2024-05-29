@@ -135,12 +135,16 @@
             <div class="project__element__wrapper">
                 <div class="project__element__image">
 
-                    <img src="{{ asset('uploads/projects/' . $project->main_image) }}" alt="">
+                    <img src="{{ asset('./archi/public/uploads/projects/' . $project->main_image) }}" alt="">
                 </div>
 
                 <div class="project__element__name__edit">
                     <div class="project__element__name">
-                        {{$project->name_az}}
+                                                {{
+                            (strlen($project->name_az) > 40) ?
+                            substr($project->name_az, 0, 40) . '...' :
+                            $project->name_az
+                        }}
                     </div>
                     <div class="project__element__edit">
                         <a href="{{ route('admin.edit_future_projects', ['id' => $project->id]) }}">

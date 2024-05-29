@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alt.Ay.Sel</title>
-    <meta name="description" content="Brief description of your website">
-    <meta name="keywords" content="keywords, related, to, your, content">
-
+    <!-- Meta tags -->
+    <meta name="description" content="Altaysel Co is an architecture bureau based in Baku, Azerbaijan. We specialize in architectural design, development, and construction services, creating innovative and sustainable solutions for our clients.">
+    <meta name="keywords" content="Altaysel Co, architecture, design, development, construction, Baku, Azerbaijan, architectural services, sustainable design, innovative solutions, architectural bureau">
+    
+    <link rel="icon" href="{{asset('style/imgs/Vector1.svg')}}" type="image/svg+xml">
 
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('style/projects.css') }}">
@@ -232,7 +234,7 @@
                 @foreach ($all_projects as $index => $main_project)
                     <div class="projects__block-element">
                         <div class="projects__block-element-image">
-                            <img src="{{ asset('uploads/projects/' . $main_project->main_image) }}" alt="">
+                            <img src="{{ asset('./archi/public/uploads/projects/' . $main_project->main_image) }}" alt="">
                         </div>
 
                         <div class="projects__block-element-hover">

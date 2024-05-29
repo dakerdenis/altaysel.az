@@ -167,44 +167,44 @@
                 <div class="projects__timeframe">
                     <div class="projects__timeframe__numbers">
                         <div class="projects__timeframe__numbers-lines">
-                            <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => 1960]) }}">
-                                <div class="timeframe_year">1960</div>
-                                <div class="timeframe__line"></div>
-                            </a>
-                        </div>
-                        <div class="projects__timeframe__numbers-lines">
                             <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => 1970]) }}">
-                                <div class="timeframe_year">1970</div>
+                                <div class="timeframe_year @if($year <= 1970) active_year_mobile @endif">1970</div>
                                 <div class="timeframe__line"></div>
                             </a>
                         </div>
                         <div class="projects__timeframe__numbers-lines">
                             <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => 1980]) }}">
-                                <div class="timeframe_year">1980</div>
+                                <div class="timeframe_year @if($year > 1970 && $year <= 1980) active_year_mobile @endif">1980</div>
                                 <div class="timeframe__line"></div>
                             </a>
                         </div>
                         <div class="projects__timeframe__numbers-lines">
                             <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => 1990]) }}">
-                                <div class="timeframe_year">1990</div>
+                                <div class="timeframe_year @if($year > 1980 && $year <=1990) active_year_mobile @endif">1990</div>
                                 <div class="timeframe__line"></div>
                             </a>
                         </div>
                         <div class="projects__timeframe__numbers-lines">
                             <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => 2000]) }}">
-                                <div class="timeframe_year">2000</div>
+                                <div class="timeframe_year @if($year > 1990 && $year <= 2000) active_year_mobile @endif">2000</div>
                                 <div class="timeframe__line"></div>
                             </a>
                         </div>
                         <div class="projects__timeframe__numbers-lines">
                             <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => 2010]) }}">
-                                <div class="timeframe_year">2010</div>
+                                <div class="timeframe_year @if($year > 2000 && $year <= 2010) active_year_mobile @endif">2010</div>
                                 <div class="timeframe__line"></div>
                             </a>
                         </div>
                         <div class="projects__timeframe__numbers-lines">
                             <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => 2020]) }}">
-                                <div class="timeframe_year">2020</div>
+                                <div class="timeframe_year @if($year > 2010 && $year <= 2020) active_year_mobile @endif">2020</div>
+                                <div class="timeframe__line"></div>
+                            </a>
+                        </div>
+                        <div class="projects__timeframe__numbers-lines">
+                            <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => 2030]) }}">
+                                <div class="timeframe_year @if($year > 2020) active_year_mobile @endif">2030</div>
                                 <div class="timeframe__line"></div>
                             </a>
                         </div>
@@ -213,25 +213,25 @@
                         <div class="projects__time-line">
                             <div class="projects__time-line-orange"                  
                             @switch($year)
-                            @case(1960)
+                            @case(1970)
                                 style="width: 20px;"
                                 @break
-                            @case(1970)
+                            @case(1980)
                                 style="width: 133px;"
                                 @break
-                            @case(1980)
+                            @case(1990)
                                 style="width: 240px;"
                                 @break
-                            @case(1990)
+                            @case(2000)
                                 style="width: 352px;"
                                 @break
-                            @case(2000)
+                            @case(2010)
                                 style="width: 460px;"
                                 @break
-                            @case(2010)
+                            @case(2020)
                                 style="width: 567px;"
                                 @break
-                            @case(2020)
+                            @case(2030)
                                 style="width: 680px;"
                                 @break
                             @default
@@ -240,25 +240,25 @@
                         </div>
                         <div class="projects__timeframe-circle"
                             @switch($year)
-                                @case(1960)
+                                @case(1970)
                                     style="left: calc(100% / 7 * 0.08); right: initial;"
                                     @break
-                                @case(1970)
+                                @case(1980)
                                     style="left: calc(100% / 7 * 1.17); right: initial;"
                                     @break
-                                @case(1980)
+                                @case(1990)
                                     style="left: calc(100% / 7 * 2.27); right: initial;"
                                     @break
-                                @case(1990)
+                                @case(2000)
                                     style="left: calc(100% / 7 * 3.37); right: initial;"
                                     @break
-                                @case(2000)
+                                @case(2010)
                                     style="left: calc(100% / 7 * 4.47); right: initial;"
                                     @break
-                                @case(2010)
+                                @case(2020)
                                     style="left: calc(100% / 7 * 5.58); right: initial;"
                                     @break
-                                @case(2020)
+                                @case(2030)
                                     style="left: calc(100% / 7 * 6.68); right: initial;"
                                     @break
                                 @default
@@ -282,7 +282,7 @@
                 @foreach ($all_projects as $index => $main_project)
                     <div class="projects__block-element">
                         <div class="projects__block-element-image">
-                            <img src="{{ asset('uploads/projects/' . $main_project->main_image) }}" alt="">
+                            <img src="{{ asset('./archi/public/uploads/projects/' . $main_project->main_image) }}" alt="">
                         </div>
 
                         <div class="projects__block-element-hover">
@@ -307,7 +307,7 @@
         <div class="popup__name__close">
             <div class="popup__name" id="popup_name"></div>
             <button class="popup__close" id="popup_close">
-                <img src="./style/imgs/close_popup.svg" alt="">
+                <img src="{{asset('/style/imgs/close_popup.svg')}}" alt="">
             </button>
         </div>
         <div class="popup__container">

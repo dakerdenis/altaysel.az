@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 /**! ***COLORS*************/
 /**! ***COLORS*************/
 /**! ***COLORS*************/
@@ -270,4 +275,79 @@
   line-height: 24px;
   text-align: left;
   margin-bottom: 14px;
+}
+@media only screen and (max-width: 700px) {
+  .projects__timeframe{
+    width: 95%;
+    margin-top: 10px;
+    height: 34px;
+  }
+  .projects__time-line-orange{
+    display: none;
+    visibility: hidden;
+  }
+  .projects__time-line{
+    display: none;
+    visibility: hidden;
+  }
+  .projects__timeframe-circle{
+    display: none;
+    visibility: hidden;
+  }
+  .timeframe__line{
+    display: none;
+    visibility: hidden;
+  }
+  .active_year_mobile{
+    color: #FFAC1C;
+    font-weight: 500;
+  }
+  .popup__container{
+    flex-direction: column;
+    margin-top: 4px;
+    height: 100%;
+    justify-content: initial;
+  }
+  .popup__container__image{
+    width: 100%;
+    height: 40vh;
+  }
+  .popup__content{
+    width: 90%;
+    height: 90vh;
+    padding: 18px;
+  }
+  .popup__name{
+    font-size: 21px;
+    line-height: 30px;
+  }
+  .popup__close{
+    width: 35px;
+    height: 35px;
+
+  }
+  .popup__close img{
+    width: 35px;
+    height: 35px;
+  }
+  .popup__container__description{
+    width: 100%;
+    height: initial;
+    margin-top: 10px;
+  }
+  .popup__address__block {
+    font-size: 17px;
+  }
+  .popup__address__block {
+    margin-bottom: 15px;
+  }
+  .popup__location{
+    margin-bottom: 15px;
+  }
+  .popup__description{
+
+    height: 23vh;
+    font-size: 14px;
+    line-height: 23px;
+  }
 }

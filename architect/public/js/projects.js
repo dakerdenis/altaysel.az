@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
      function updateImage() {
          if (currentData.images.length > 0) {
              const currentImageSrc = currentData.images[currentImageIndex];
-             popupImage.src = `/uploads/projects/${currentImageSrc}`;
+             popupImage.src = `/archi/public/uploads/projects/${currentImageSrc}`;
          }
      }
  
@@ -225,15 +225,15 @@ document.addEventListener('DOMContentLoaded', function () {
          }
          currentData.images = images;
  
-         if (images.length === 0) {
-             popupImage.src = `/uploads/projects/${data.main_image}`;
-             prevButton.style.display = 'none';
-             nextButton.style.display = 'none';
-         } else {
-             popupImage.src = `/uploads/projects/${images[0]}`;
-             prevButton.style.display = 'block';
-             nextButton.style.display = 'block';
-         }
+       if (images.length === 0) {
+            popupImage.src = `/archi/public/uploads/projects/${data.main_image}`;
+            prevButton.style.display = 'none';
+            nextButton.style.display = 'none';
+        } else {
+            popupImage.src = `/archi/public/uploads/projects/${images[0]}`;
+            prevButton.style.display = 'block';
+            nextButton.style.display = 'block';
+        }
  
          popupName.innerHTML = data.name_az;
          popupDescription.innerHTML = data.desc_az;

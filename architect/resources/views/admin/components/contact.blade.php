@@ -41,9 +41,7 @@
                             {{ $placeholder }}
                         </div>
                     </div>
-                    <div class="contact__element__desc">
-                        Tələb olunan sahə boşdur
-                    </div>
+
                 </div>
             @endforeach
         </div>
