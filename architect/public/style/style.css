@@ -1285,14 +1285,14 @@ h6 {
   z-index: 100;
   width: 100%;
   height: 100%;
-
+  background-color: var(--cream);
 
 }
 
 .popup__container__image-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .popup__container__description {
@@ -2395,6 +2395,11 @@ h6 {
 .footrer__created__copy a {
   width: 140px;
   height: 35px;
+
+  background-color: #fff;
+    padding: 2px;
+    border-radius: 5px;
+    margin-right: 9px;
 }
 
 .footrer__created__copy a img {
@@ -3583,7 +3588,7 @@ h6 {
 
   .footrer__created__copy {
     width: 100%;
-    background-color: #fff;
+
     padding: 10px;
     border-radius: 5px;
   }
@@ -3690,7 +3695,7 @@ h6 {
     left: -73px;
     transform: scale(1.8);
     width: 444px;
-
+    height: 516px;
 
   }
   .map__container__projects__wrapper {
@@ -3718,6 +3723,31 @@ h6 {
   }
   .map__block {
     min-height: 750px;
+  }
+  .map__project-element {
+    width: 219px;
+    height: 250px;
+
+  }
+  .map__project-image{
+    width: 219px;
+    height: 135px;
+  }
+  .map__project-google a{
+    font-size: 11.5px;
+  }
+  .footer__contact-element__text {
+    font-size: 16px;
+  }
+  .footer__content__block-links .header__navigation__container li p {
+    font-size: 16px;
+  }
+  .footer__content__block-links .header__navigation__container li {
+    margin-bottom: 9px;
+  }
+  .footer__contact__numbers-wrapper {
+    margin-top: 41px;
+
   }
 }
 

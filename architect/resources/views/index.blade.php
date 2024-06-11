@@ -901,7 +901,7 @@
                             {{ $locale === 'az' ? 'Memarlıq şöbəsinin müdürü' : 'Директор департамента архитектуры' }}
                         </div>
                         <div class="team__block__element-name" id="color_change3">
-                            {{ $locale === 'az' ? 'Altay Hüseynov' : 'Рамиз Гусейнов' }}
+                            {{ $locale === 'az' ? 'Altay Hüseynov' : 'Алтай Гусейнов' }}
                         </div>
                         <div class="team__block__element-email" id="color_change3">
                             altay@altaysel.az

@@ -1,15 +1,11 @@
-.about__block__info-name-main{
-    font-size: 54px;
-}
+
 .map__project-view_more P{
     font-size: 10px;
 }
 .team__block__element-position{
     font-size: 21px;
 }
-.about__block__info-name-line{
-    width: 500px;
-}
+
 .about__block__info-name-desc{
     right: 71px;
 }
@@ -25,5 +21,8 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+    }
+    .services__element__link-text {
+        font-size: 8px;
     }
 }
