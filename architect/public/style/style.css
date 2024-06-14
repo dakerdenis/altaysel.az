@@ -2395,11 +2395,6 @@ h6 {
 .footrer__created__copy a {
   width: 140px;
   height: 35px;
-
-  background-color: #fff;
-    padding: 2px;
-    border-radius: 5px;
-    margin-right: 9px;
 }
 
 .footrer__created__copy a img {
@@ -3588,7 +3583,7 @@ h6 {
 
   .footrer__created__copy {
     width: 100%;
-
+    background-color: #fff;
     padding: 10px;
     border-radius: 5px;
   }
@@ -3747,7 +3742,7 @@ h6 {
   }
   .footer__contact__numbers-wrapper {
     margin-top: 41px;
-
+    
   }
 }
 
