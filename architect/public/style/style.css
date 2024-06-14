@@ -3748,8 +3748,8 @@ h6 {
 
 @media only screen and (max-width: 500px) {
   .future_slide__name {
-    font-size: 20px;
-
+    font-size: 18.5px;
+    line-height: 28px;
   }
   .main__block__name {
     left: 15px;
@@ -3769,6 +3769,39 @@ h6 {
   }
   .projects__block-hover__name{
     font-size: 14px;
-    line-height: 26px;
+    line-height: 18.5px;
   }
+  .services__block__element {
+    width: 62%;
+    height: 300px;
+  }
+  .team__block__name-name {
+    font-size: 24px;
+    }
+    .team__person__name {
+      font-size: 30px;
+    }
+    .map__project-element{
+      width: 93%;
+      height: 250px;
+      display: flex;
+    }
+    .map__project-image{
+      width: 50%;
+        height: 100%;
+    }
+    .map__project__wrapper{
+      padding: 22px 13px;
+      width: 50%;
+    }
+    .map__project-adress{
+      margin-top: 5px;
+    }
+    .map__project-name{
+      font-size: 17px;
+      line-height: 23px;
+    }
+    .map__project-google{
+      margin-top: 17.5px;
+    }
 }
