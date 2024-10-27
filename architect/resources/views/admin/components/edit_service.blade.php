@@ -39,11 +39,11 @@
                     <div class="add__photo__element-image" id="add_photo_container">
                         <!-- Uploaded Image -->
                         <img class="uploaded_image" id="uploaded_image"
-                            src="{{ $service->image ? asset('./archi/public/uploads/' . $service->image) : asset('style/imgs/Camera.svg') }}"
+                            src="{{ $service->image ? asset('uploads/' . $service->image) : asset('style/imgs/Camera.svg') }}"
                             alt="Upload Photo">
                         <!-- Default Image (Placeholder) -->
                         <img class="default_image"
-                            src="{{ $service->image ? asset('./archi/public/uploads/' . $service->image) : asset('style/imgs/Camera.svg') }}"
+                            src="{{ $service->image ? asset('uploads/' . $service->image) : asset('style/imgs/Camera.svg') }}"
                             alt="Placeholder"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>

@@ -208,6 +208,7 @@
                                 <div class="timeframe__line"></div>
                             </a>
                         </div>
+                        
                     </div>
                     <div class="projects__timeframe__scale">
                         <div class="projects__time-line">
@@ -282,7 +283,7 @@
                 @foreach ($all_projects as $index => $main_project)
                     <div class="projects__block-element">
                         <div class="projects__block-element-image">
-                            <img src="{{ asset('./archi/public/uploads/projects/' . $main_project->main_image) }}" alt="">
+                            <img src="{{ asset('uploads/projects/' . $main_project->main_image) }}" alt="">
                         </div>
 
                         <div class="projects__block-element-hover">
@@ -290,10 +291,10 @@
                                 {{ $locale === 'az' ? $main_project->name_az : $main_project->name_ru }}
                             </div>
 
-                            <div class="projects__block-hover__popup" data-project-id="{{ $main_project->id }}">
+                            <a href="{{ route('single_project', ['id' => $main_project->id,'locale' => $locale === 'az' ? 'az' : 'ru', 'year' => $year ]) }}" class="projects__block-hover__popup" >
                                 <img src="{{ asset('style/imgs/project_popup.svg') }} " alt="">
                                 <p>{{ $locale === 'az' ? 'ƏTRAFLI MƏLUMAT' : 'ДЕТАЛЬНАЯ ИНФОРМАЦИЯ' }}</p>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 @endforeach

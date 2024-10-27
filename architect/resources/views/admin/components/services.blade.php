@@ -126,7 +126,7 @@ text-align: center;
             <div class="services__element">
                 <div class="services__element__wrapper">
                     <div class="services__element__photo">
-                        <img src="{{ asset('./archi/public/uploads/' . $service->image) }}" alt="{{ $service->service_name_az }}">
+                        <img src="{{ asset('uploads/' . $service->image) }}" alt="{{ $service->service_name_az }}">
                     </div>
                     <div class="services__element__name__edit">
                         <div class="service__element__name">

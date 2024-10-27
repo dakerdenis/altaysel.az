@@ -87,6 +87,13 @@ class ArchitectController extends Controller
 
         return view('year', ['locale' => $locale, 'all_projects' => $projects, 'year' => $year, 'contacts'=>$contacts]);
     }
+    public function single_project($locale, $year, $id){
+        $contacts = Contact::first(); 
+        $project = Project::findOrFail($id);
+
+        return view('single_project',['locale' => $locale, 'project' => $project, 'year' => $year, 'contacts'=>$contacts]);
+    }
 
 
 }
+

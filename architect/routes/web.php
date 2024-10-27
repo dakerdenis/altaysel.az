@@ -22,6 +22,7 @@ Route::get('/{locale}/projects', [ArchitectController::class, 'projects'])->name
 Route::get('/{locale}/projects/{year}',[ArchitectController::class,'projects_year'])->name('projects_year');
 
 
+Route::get('/{locale}/projects/{year}/{id}', [ArchitectController::class, 'single_project'])->name('single_project');
 
 
 /************* Authentication Routes *************/

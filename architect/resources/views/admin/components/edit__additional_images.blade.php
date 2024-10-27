@@ -94,7 +94,7 @@
                         @method('DELETE')
 
                         <div class="standart__additional__block-image">
-                            <img src="{{ asset('./archi/public/uploads/projects/' . $images[$i]) }}" alt="Image {{ $i + 1 }}">
+                            <img src="{{ asset('uploads/projects/' . $images[$i]) }}" alt="Image {{ $i + 1 }}">
                         </div>
                         <button type="submit" class="delete-image" data-image="{{ $images[$i] }}">Delete</button>
                     </form>

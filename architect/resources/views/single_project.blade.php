@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alt.Ay.Sel</title>
-    <meta name="description" content="Brief description of your website">
-    <meta name="keywords" content="keywords, related, to, your, content">
+    <meta name="description" content="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
+    <meta name="keywords" content="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
 
 
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('style/projects.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/single.css') }}">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!---LINK FOR STYLES IF RUSSIAN LANGUAGE---->
     @if ($locale === 'ru')
@@ -25,7 +30,7 @@
 <body id="background_change">
 
     <div id="background_change" class="main__wrapper">
-        @include('components.header_pr');
+        @include('components.header_pr')
         <!--? ---MAIN BLOCK------->
         <div class="main__block" id="background_change_main">
 
@@ -153,155 +158,99 @@
         <div class="projects__block" id="projectsBlock">
             <div class="projects__desc-block">
                 <div class="projects__block-name">
+
+
                     <div class="projects__block-name_name">
-                        Layihələrimiz
+                        {{ $locale === 'az' ? $project->name_az : $project->name_ru }}
                     </div>
-                    <div class="projects__block-name_line">
 
-                    </div>
-                    <div class="projects__block-name_desc">
-                        Portfel
-                    </div>
-                </div>
-
-                <div class="projects__timeframe">
-                    <?php
-                    $years = [1960, 1970, 1980, 1990, 2000, 2010, 2020, '2020+'];
-                    ?>
-                    <div class="projects__timeframe__numbers">
-                        <div class="projects__timeframe__numbers-lines">
-                            <a
-                                href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', ($year = 1960)]) }}">
-                                <div class="timeframe_year">1960</div>
-                                <div class="timeframe__line"></div>
-                            </a>
-                        </div>
-                        <div class="projects__timeframe__numbers-lines">
-                            <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', ($year = 1970)]) }}">
-                                <div class="timeframe_year">1970</div>
-                                <div class="timeframe__line"></div>
-                            </a>
-                        </div>
-                        <div class="projects__timeframe__numbers-lines">
-                            <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', ($year = 1980)]) }}">
-                                <div class="timeframe_year">1980</div>
-                                <div class="timeframe__line"></div>
-                            </a>
-                        </div>
-                        <div class="projects__timeframe__numbers-lines">
-                            <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', ($year = 1990)]) }}">
-                                <div class="timeframe_year">1990</div>
-                                <div class="timeframe__line"></div>
-                            </a>
-                        </div>
-                        <div class="projects__timeframe__numbers-lines">
-                            <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', ($year = 2000)]) }}">
-                                <div class="timeframe_year">2000</div>
-                                <div class="timeframe__line"></div>
-                            </a>
-                        </div>
-                        <div class="projects__timeframe__numbers-lines">
-                            <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', ($year = 2010)]) }}">
-                                <div class="timeframe_year">2010</div>
-                                <div class="timeframe__line"></div>
-                            </a>
-                        </div>
-                        <div class="projects__timeframe__numbers-lines">
-                            <a href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', ($year = 2020)]) }}">
-                                <div class="timeframe_year">2020</div>
-                                <div class="timeframe__line"></div>
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="projects__timeframe__scale">
-                        <div class="projects__time-line">
-                            <div class="projects__time-line-orange"></div>
-                        </div>
-                        <div class="projects__timeframe-circle">
-                            <div class="projects__timeframe-circle_white">
-                                <div class="projects__timeframe-circle-small"></div>
-                            </div>
-                        </div>
+                    <div class="project-single__back">
+                        <a href="{{route('projects_year',['locale' => $locale === 'az' ? 'az' : 'ru', 'year'=>$year])}}">
+                            Назад 
+                        </a>
                     </div>
                 </div>
             </div>
 
             <div class="projects__block-wrapper">
+                <div class="gallery__photos__wrapper">
+                    @if($project->main_image)
+                        <a href="{{ asset('./uploads/projects/' . $project->main_image) }}" data-fancybox="gallery" data-caption="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
+                            <img src="{{ asset('./uploads/projects/' . $project->main_image) }}" alt="Main Image" />
+                        </a>
+                    @endif
+        
+                    @if($project->images)
+                        @foreach(json_decode($project->images) as $image)
+                            <a href="{{ asset('./uploads/projects/' . $image) }}" data-fancybox="gallery" data-caption="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
+                                <img src="{{ asset('./uploads/projects/' . $image) }}" alt="Gallery Image" />
+                            </a>
+                        @endforeach
+                    @endif
+                </div>
 
-                @foreach ($all_projects as $index => $main_project)
-                    <div class="projects__block-element">
-                        <div class="projects__block-element-image">
-                            <img src="{{ asset('uploads/projects/' . $main_project->main_image) }}" alt="">
-                        </div>
 
-                        <div class="projects__block-element-hover">
-                            <div class="projects__block-hover__name">
-                                {{ $locale === 'az' ? $main_project->name_az : $main_project->name_ru }}
-                            </div>
-
-                            <div class="projects__block-hover__popup" data-project-id="{{ $main_project->id }}">
-                                <img src="{{ asset('style/imgs/project_popup.svg') }} " alt="">
-                                <p>{{ $locale === 'az' ? 'ƏTRAFLI MƏLUMAT' : 'ДЕТАЛЬНАЯ ИНФОРМАЦИЯ' }}</p>
-                            </div>
-                        </div>
+                <div class="single__project__info">
+                    <div class="single__project__year">
+                        <p>{{ $locale === 'az' ? 'Yaradılma tarixi:' : 'Год постройки:' }}</p>
+                        <p>{{$project->year}}</p>
                     </div>
-                @endforeach
-
-
-
-            </div>
-
-
-            <!-- Popup Overlay -->
-            <div class="popup__overlay" id="popup_overlay">
-                <div class="popup__content" id="popup_content">
-                    <div class="popup__name__close">
-                        <div class="popup__name" id="popup_name"></div>
-                        <button class="popup__close" id="popup_close">
-                            <img src="{{ asset('style/imgs/close_popup.svg') }}" alt="">
-                        </button>
+                    <div class="single__project__google">
+                        <a target="_blank" href="{{$project->location}}">
+                            {{ $locale === 'az' ? 'Google Maps-da baxmaq' : 'Смотреть на Google-картах' }}
+                        </a>
                     </div>
-                    <div class="popup__container">
-                        <div class="popup__container__image">
-                            <button id="prev_button">
-                                <img src="{{ asset('style/imgs/prev.svg') }}" alt="">
-                            </button>
-                            <button id="next_button">
-                                <img src="{{ asset('style/imgs/prev.svg') }}" alt="">
-                            </button>
-                            <div class="popup__container__image-img">
-                                <img class="popup__container__image-img" id="popup_image" src=""
-                                    alt="">
-                            </div>
+                    <div class="single__project__description">
+                        {{ $locale === 'az' ? $project->desc_az : $project->desc_ru }}
+                    </div>
+    
+    
+                    <div class="single__project__social">
+                        <p>{{ $locale === 'az' ? "Social'da paylaşın:" : 'Поделиться:' }}</p>
+                        <div class="social-share-buttons">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://vk.com/share.php?url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button vk">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <a href="https://pinterest.com/pin/create/button/?url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button pinterest">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a href="https://telegram.me/share/url?url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button telegram">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+                            <a href="https://api.whatsapp.com/send?text={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
                         </div>
-                        <div class="popup__container__description">
-                            <div class="popup__address__block">
-                                <p>{{ $locale === 'az' ? 'Layihənin' : 'ДЕТАЛЬНАЯ ИНФОРМАЦИЯ' }}</p>
-                                <div class="popup__adress" id="popup__adress"></div>
-                            </div>
-
-                            <div class="popup__year" id="popup_year"></div>
-                            <div class="popup__location">
-                                <a id="popup_location" href="" target="_blank">View Location</a>
-                            </div>
-                            <div class="popup__description" id="popup_description"></div>
-                        </div>
+                        
                     </div>
                 </div>
+
+
+
+
             </div>
+
+
+
         </div>
 
 
 
 
-        @include('components.footer_pr');
+        @include('components.footer_pr')
 
 
     </div>
 
 
     <script src="{{ asset('js/projects.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 </body>
 
 </html>
