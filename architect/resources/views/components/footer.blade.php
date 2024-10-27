@@ -79,7 +79,7 @@
 
                                 <div class="footer__contact-element">
                                     <div class="footer__contact-element__image">
-                                        <img src="../style/imgs/call.svg" alt="">
+                                        <img src="./style/imgs/call.svg" alt="">
                                     </div>
                                     <div class="footer__contact-element__text">
                                         +994 50 210 03 59 (H.Ramiz)
@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="footer__contact-element">
                                     <div class="footer__contact-element__image">
-                                        <img src="../style/imgs/call.svg" alt="">
+                                        <img src="./style/imgs/call.svg" alt="">
                                     </div>
                                     <div class="footer__contact-element__text">
                                         +994 77 218 15 48 &nbsp;(H.Altay)
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="footer__contact-element">
                                     <div class="footer__contact-element__image">
-                                        <img src="../style/imgs/call.svg" alt="">
+                                        <img src="./style/imgs/call.svg" alt="">
                                     </div>
                                     <div class="footer__contact-element__text">
                                         +994  55 888 22 77 (H.Aysel)
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="footer__contact-element">
                                     <div class="footer__contact-element__image">
-                                        <img src="../style/imgs/mail.svg" alt="">
+                                        <img src="./style/imgs/mail.svg" alt="">
                                     </div>
                                     <div class="footer__contact-element__text">
                                         info@altaysel.az
@@ -188,7 +188,7 @@
 
                 <div class="footrer__created__copy">
                     <a target="_blank" href="https://daker.site/">
-                        <img src="../style/imgs/daker_created.svg" alt="">
+                        <img src="./style/imgs/daker_created.svg" alt="">
                     </a>
                     <p>
                         Copyright 2024
