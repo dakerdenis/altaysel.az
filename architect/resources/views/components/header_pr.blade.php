@@ -28,7 +28,7 @@
                             <li>
                                 <button  onclick="window.location.href='{{ route('index', ['locale' => $locale]) }}#futureBlock'">
                                     <p id="color_change">
-                                        {{ $locale === 'az' ? 'Xəbərlər' : 'Новости' }}
+                                        {{ $locale === 'az' ? 'Carı layihələr' : 'Будущие проекты' }}
                                     </p>
                                 </button>
                             </li>

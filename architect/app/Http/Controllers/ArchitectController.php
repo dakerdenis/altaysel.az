@@ -17,12 +17,14 @@ class ArchitectController extends Controller
 {
     public function redirectToLanguage($locale)
     {
+            // Collect query parameters, such as `projectId`
+    $queryParams = request()->query();
         // Check if the requested locale is valid
         if ($locale === 'az' || $locale === 'ru') {
-            return Redirect::route('index', ['locale' => $locale]);
+            return Redirect::route('index', array_merge(['locale' => $locale], $queryParams));
         } else {
             // Redirect to the default locale if the requested one is invalid
-            return Redirect::route('index', ['locale' => 'az']);
+            return Redirect::route('index', array_merge(['locale' => 'az'], $queryParams));
         }
     }
 

@@ -1295,12 +1295,51 @@ h6 {
   object-fit: contain;
 }
 
+
+/***! *******************/
+/***! *******************/
 .popup__container__description {
   width: 521px;
-  height: 80%;
+  height: 70%;
 
   right: 0;
+
 }
+.popup__social__container{
+  
+  height: 40px;
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+}
+.popup__social__text {
+  font-size: 18px;
+  color: #000;
+  margin-right: 10px;
+}
+.popup-social {
+  display: flex;
+  justify-content: center;
+}
+.popup-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-color: #FFAC1C;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+}
+/***! *******************/
+/***! *******************/
+/***! *******************/
+/***! *******************/
 
 .popup__address__block {
   display: flex;

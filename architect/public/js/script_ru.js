@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
  
     // Hide the preloader after 1.5 seconds even if all content is not loaded
     hidePreloader();
+ 
      // Theme changer functionality
      // Theme changer functionality
     // Theme changer functionality
@@ -34,7 +35,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const themeMoon = document.querySelector('.__theme-surface__moon');
     const backgroundChange = document.getElementById('background_change');
     const backgroundChange2 = document.getElementById('background_change2');
+
+    const backgroundChange3 = document.getElementById('background_change3');
+    const backgroundChange4 = document.getElementById('background_change4');
+
+    const color_change_team = document.getElementById('color_change_team');
+    const colorChangeElements1 = document.getElementById('colorChangeElements1');
+    const colorChangeElements2 = document.getElementById('colorChangeElements2');
+
+
     const colorChangeElements = document.querySelectorAll('#color_change');
+
+    const color_change3 = document.querySelectorAll('#color_change3');
+
     const imageChange = document.getElementById('image_change');
     const imageChange2 = document.getElementById('image_change2');
     const imageChange3 = document.getElementById('image_change3');
@@ -50,8 +63,26 @@ document.addEventListener('DOMContentLoaded', function () {
         themeSurface.style.backgroundColor = isActive ? 'var(--orange)' : 'black';
         themeMoon.style.opacity = isActive ? '1' : '0';
         backgroundChange.style.backgroundColor = isActive ? '' : 'black';
+        backgroundChangeMain.style.backgroundColor = isActive ? '' : 'black';
+
+
+        backgroundChange3.style.backgroundColor = isActive ? '' : '#323232';
+        backgroundChange3.style.color = isActive ? '' : '#fff';
+
+        backgroundChange4.style.backgroundColor = isActive ? '' : '#323232';
+        backgroundChange4.style.color = isActive ? '' : '#fff';
+
+        color_change_team.style.color = isActive ? '' : '#fff';
+        colorChangeElements1.style.color = isActive ? '' : '#fff';
+        colorChangeElements2.style.color = isActive ? '' : '#fff';
+
+
+        
         backgroundChange2.style.background = isActive ? '' : 'linear-gradient(90deg, #000000 1.9%, rgba(154, 104, 17, 0.7) 21.65%, #000000 42.98%)';
         colorChangeElements.forEach(element => element.style.color = isActive ? '' : 'white');
+        color_change3.forEach(element => element.style.color = isActive ? '' : 'white');
+
+
         imageChange.src = isActive ? './style/imgs/Vector1.svg' : './style/imgs/Vector2.svg';
         imageChange2.src = isActive ? './style/imgs/main_image_2.jpeg' : './style/imgs/main_image_1.jpeg';
         imageChange3.src = isActive ? './style/imgs/about_1_white.jpeg' : './style/imgs/about_1_black.jpeg';
@@ -66,6 +97,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     themeChanger.addEventListener('click', toggleTheme);
+
+
+    
      // Header related functionality
      const header = document.querySelector('.header');
      const languageToggle = document.querySelector('.language__toggle');
