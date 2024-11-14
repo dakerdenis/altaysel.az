@@ -290,10 +290,10 @@
                                 {{ $locale === 'az' ? $main_project->name_az : $main_project->name_ru }}
                             </div>
 
-                            <div class="projects__block-hover__popup" data-project-id="{{ $main_project->id }}">
+                            <a href="{{ route('single_project', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => $year, 'id'=>$main_project->id]) }}" class="projects__block-hover__popup" >
                                 <img src="{{ asset('style/imgs/project_popup.svg') }} " alt="">
                                 <p>{{ $locale === 'az' ? 'ƏTRAFLI MƏLUMAT' : 'ДЕТАЛЬНАЯ ИНФОРМАЦИЯ' }}</p>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 @endforeach
@@ -340,6 +340,7 @@
                 <div class="popup__description" id="popup_description">
                     
                 </div>
+
             </div>
         </div>
     </div>
