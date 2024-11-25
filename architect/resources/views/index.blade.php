@@ -961,8 +961,8 @@
 
                 <div class="popup__image__and__video__container-wrapper">
                     <div class="popup__video__image__navigation">
-                        <button>Images</button>
-                        <button>Video</button>
+                        <button class="popup_tab-images">{{ $locale === 'az' ? 'Fotolar' : 'Фото' }}</button>
+                        <button class="popup_tab-video">{{ $locale === 'az' ? 'Video' : 'Видео' }}</button>
                     </div>
                     <div class="popup__container__image-tab">
                         <button id="prev_button">
@@ -976,7 +976,7 @@
                         </div>
                     </div>
                     <div class="popup__container__video-tab">
-                        
+                        <!----on future here will be video tab--->
                     </div>
                 </div>
 
