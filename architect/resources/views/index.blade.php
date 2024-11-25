@@ -958,16 +958,30 @@
         </div>
         <div class="popup__container">
             <div class="popup__container__image">
-                <button id="prev_button">
-                    <img src="./style/imgs/prev.svg" alt="">
-                </button>
-                <button id="next_button">
-                    <img src="./style/imgs/next.svg" alt="">
-                </button>
-                <div class="popup__container__image-img">
-                    <img class="popup__container__image-img" id="popup_image" src="" alt="">
+
+                <div class="popup__image__and__video__container-wrapper">
+                    <div class="popup__video__image__navigation">
+                        <button>Images</button>
+                        <button>Video</button>
+                    </div>
+                    <div class="popup__container__image-tab">
+                        <button id="prev_button">
+                            <img src="./style/imgs/prev.svg" alt="">
+                        </button>
+                        <button id="next_button">
+                            <img src="./style/imgs/next.svg" alt="">
+                        </button>
+                        <div class="popup__container__image-img ">
+                            <img class="popup__container__image-img" id="popup_image" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="popup__container__video-tab">
+                        
+                    </div>
                 </div>
+
             </div>
+
             <div class="popup__container__description">
                 <div class="popup__address__block popup__address__block2">
                     <p>{{ $locale === 'az' ? 'Layihənin adressi:' : 'Адрес проекта:' }}</p>
