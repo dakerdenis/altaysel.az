@@ -18,6 +18,7 @@
 
             <div class="section__add__project">
                 <button type="submit">Layihəni yadda saxla və dərc et</button>
+            </div>
         </div>
 
         <div class="section__add__wrapper">

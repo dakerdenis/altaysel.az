@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('map_projects', function (Blueprint $table) {
             $table->id();
             $table->year('year'); // Year with four digits
-            $table->text('location')->default(''); // Provide an empty string as the default value// google maps location
+            $table->text('location'); // Provide an empty string as the default value// google maps location
             $table->integer('region_id');
             $table->string('name_ru'); // Name in Russian
             $table->string('name_az'); // Name in Azerbaijani

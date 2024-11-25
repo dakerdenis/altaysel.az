@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('telegram')->nullable();
+            $table->string('behance')->nullable();           
+            $table->string('pinterest')->nullable();           
             $table->timestamps();
         });
     }
