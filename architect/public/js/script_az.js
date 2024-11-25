@@ -592,3 +592,56 @@ window.onload = function () {
     
     
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const imagesTabButton = document.getElementById("images_tab_button");
+    const videoTabButton = document.getElementById("video_tab_button");
+    const imagesTab = document.getElementById("images_tab");
+    const videoTab = document.getElementById("video_tab");
+    const popupVideo = document.getElementById("popup_video");
+
+    function switchToImagesTab() {
+        imagesTab.style.display = "flex";
+        videoTab.style.display = "none";
+        imagesTabButton.classList.add("active-tab");
+        videoTabButton.classList.remove("active-tab");
+    }
+
+    function switchToVideoTab(videoUrl) {
+        imagesTab.style.display = "none";
+        videoTab.style.display = "flex";
+        imagesTabButton.classList.remove("active-tab");
+        videoTabButton.classList.add("active-tab");
+
+        // Set the iframe source dynamically
+        popupVideo.src = videoUrl || ""; // Provide a default or dynamic URL if necessary
+    }
+
+    imagesTabButton.addEventListener("click", () => {
+        switchToImagesTab();
+    });
+
+    videoTabButton.addEventListener("click", () => {
+        const videoUrl = currentData?.video_url || ""; // Assuming `currentData` contains a `video_url` field
+        switchToVideoTab(videoUrl);
+    });
+
+    // Set default tab (Images tab) on popup open
+    function resetTabs() {
+        switchToImagesTab();
+        popupVideo.src = ""; // Reset video URL when popup is closed
+    }
+
+    // Ensure `resetTabs` is called when the popup is opened
+    function openPopup() {
+        const popupOverlay = document.getElementById("popup_overlay");
+        popupOverlay.style.display = "flex";
+        document.body.style.overflow = "hidden";
+
+        resetTabs(); // Reset tabs to default state
+
+        popupOverlay.addEventListener("click", (event) => {
+            if (event.target === popupOverlay) closePopup();
+        });
+        popupClose.addEventListener("click", closePopup);
+    }
+});

@@ -1299,7 +1299,11 @@ h6 {
   background-color: var(--orange);
   color: #fff;
 
+}.active-tab {
+  background-color: #000; /* Example active color */
+  color: #fff;
 }
+
 
 .popup__container__image-tab button {
   position: absolute;
