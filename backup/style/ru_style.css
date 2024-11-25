@@ -1,0 +1,56 @@
+
+.map__project-view_more P{
+    font-size: 10px;
+}
+.team__block__element-position{
+    font-size: 21px;
+}
+
+.about__block__info-name-desc{
+    right: 71px;
+}
+.about__block__info-name-main {
+    font-size: 50px;
+}
+@media only screen and (max-width: 1370px) {
+    .about__block__info-name-main {
+        font-size: 39px;
+    }
+    .number__block__slogan{
+        font-size: 23px;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .__services-element__type {
+        font-size: 12px;
+        line-height: 16px;
+      }
+      .__services-element__link{
+        margin-top: initial;
+        height: initial;
+      }
+      .__services-element__container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .services__element__link-text {
+        font-size: 8px;
+    }
+    .about__block__info-name-main {
+        font-size: 27px;
+    }
+    .number__block__slogan{
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .projects__block-name_desc{
+        font-size: 13px;
+    }
+    .projects__block-name {
+        height: 59px;
+    }
+    .projects__block-name_name {
+        font-size: 28px;
+    }
+}
