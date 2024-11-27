@@ -9,7 +9,14 @@ class Project extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'year',
+        'location',
+        'name_ru',
+        'name_az',
+        'desc_ru',
+        'desc_az',
         'main_image',
-        // Other fillable attributes
+        'images',
+        'video_url', // Add the new field here
     ];
 }
