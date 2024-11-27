@@ -599,49 +599,50 @@ document.addEventListener("DOMContentLoaded", function () {
     const videoTab = document.getElementById("video_tab");
     const popupVideo = document.getElementById("popup_video");
 
+    const placeholderVideoUrl = "https://www.youtube.com/embed/H_ReGaTJ92s?si=F7ZSyz1kUfDl8Sp1"; // Replace with your placeholder video UR
     function switchToImagesTab() {
+        console.log("Images tab clicked");
         imagesTab.style.display = "flex";
         videoTab.style.display = "none";
         imagesTabButton.classList.add("active-tab");
         videoTabButton.classList.remove("active-tab");
     }
 
-    function switchToVideoTab(videoUrl) {
+    function switchToVideoTab() {
+        console.log("Video tab clicked");
         imagesTab.style.display = "none";
         videoTab.style.display = "flex";
         imagesTabButton.classList.remove("active-tab");
         videoTabButton.classList.add("active-tab");
 
-        // Set the iframe source dynamically
-        popupVideo.src = videoUrl || ""; // Provide a default or dynamic URL if necessary
+        // Use placeholder video URL
+        popupVideo.src = placeholderVideoUrl;
     }
 
+    // Event listeners for tab buttons
     imagesTabButton.addEventListener("click", () => {
         switchToImagesTab();
     });
 
     videoTabButton.addEventListener("click", () => {
-        const videoUrl = currentData?.video_url || ""; // Assuming `currentData` contains a `video_url` field
-        switchToVideoTab(videoUrl);
+        switchToVideoTab();
     });
 
-    // Set default tab (Images tab) on popup open
+    // Reset tabs to default state when opening the popup
     function resetTabs() {
+        console.log("Resetting tabs to default state");
         switchToImagesTab();
-        popupVideo.src = ""; // Reset video URL when popup is closed
+        popupVideo.src = ""; // Clear the video URL when switching tabs
     }
 
-    // Ensure `resetTabs` is called when the popup is opened
+    // Example: Call resetTabs when the popup opens
     function openPopup() {
         const popupOverlay = document.getElementById("popup_overlay");
         popupOverlay.style.display = "flex";
         document.body.style.overflow = "hidden";
 
-        resetTabs(); // Reset tabs to default state
-
-        popupOverlay.addEventListener("click", (event) => {
-            if (event.target === popupOverlay) closePopup();
-        });
-        popupClose.addEventListener("click", closePopup);
+        resetTabs(); // Reset tabs to their default state
     }
 });
+
+

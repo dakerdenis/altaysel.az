@@ -967,8 +967,9 @@
                         <button class="popup_tab-video" id="video_tab_button">
                             {{ $locale === 'az' ? 'Video' : 'Видео' }}
                         </button>
+                        
                     </div>
-                    <div class="popup__container__image-tab" id="images_tab">
+                    <div class="popup__container__image-tab" id="images_tab" style="display: flex;">
                         <button id="prev_button">
                             <img src="./style/imgs/prev.svg" alt="">
                         </button>
@@ -976,7 +977,7 @@
                             <img src="./style/imgs/next.svg" alt="">
                         </button>
                         <div class="popup__container__image-img">
-                            <img class="popup__container__image-img" id="popup_image" src="" alt="">
+                            <img class="popup__container__image-img" id="popup_image" src="" alt="" >
                         </div>
                     </div>
                     <div class="popup__container__video-tab" id="video_tab" style="display: none;">
