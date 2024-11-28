@@ -168,4 +168,17 @@
     .projects__block-name_name{
         font-size: 18px;
     }
+    .projects__block {
+        margin-top: 20px;
+    }
+    .projects__block-name_name {
+        font-size: 13px;
+    }
+    .project-single__back a{
+        padding: 6px 10px;
+        font-size: 11.5px;
+    }
+    .single__project__description{
+        font-size: 13px;
+    }
 }
