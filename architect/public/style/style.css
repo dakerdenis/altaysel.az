@@ -3967,4 +3967,23 @@ h6 {
     .map__project-view_more p {
       font-size: 10px;
     }
+    .projects__block-hover__popup p {
+      font-size: 10px;
+    }
+    .projects__block-hover__popup img {
+      width: 24px;
+      height: 24px;
+    }
+    .header {
+      height: 63px;
+    }
+    .map__project__wrapper {
+      padding-top: 12px;
+    }
+    .map__project-name{
+      font-size: 12px;
+    }
+    .services__block-name {
+      font-size: 26px;
+    }
 }
