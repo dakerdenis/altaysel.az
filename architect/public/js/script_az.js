@@ -57,11 +57,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 element.style.color = isDarkTheme ? "#fff" : "#000";
             });
         
+            // Update image sources
+            const imageMappings = [
+                { id: "image_change5", darkSrc: "./style/imgs/about_3_black.jpeg", lightSrc: "./style/imgs/about_3_white.jpeg" },
+                { id: "image_change4", darkSrc: "./style/imgs/about_2_black.jpeg", lightSrc: "./style/imgs/about_2_white.jpeg" },
+                { id: "image_change3", darkSrc: "./style/imgs/about_1_black.jpeg", lightSrc: "./style/imgs/about_1_white.jpeg" },
+            ];
+        
+            imageMappings.forEach(({ id, darkSrc, lightSrc }) => {
+                const image = document.getElementById(id);
+                if (image) {
+                    image.src = isDarkTheme ? darkSrc : lightSrc;
+                }
+            });
+        
             document.body.classList.toggle("dark-theme", isDarkTheme);
         
             // Update header immediately to reflect the theme
             updateHeaderClass();
         }
+        
         
         
         

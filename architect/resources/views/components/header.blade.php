@@ -67,7 +67,7 @@
                 </div>
                 <div class="header__phone__language">
                     <a href="tel: +994124403711" aria-label="Contact Phone Number">
-                        <p id="color_change">+994 12 440 37 11</p>
+                        <p class="font_change" id="color_change">+994 12 440 37 11</p>
                     </a>
 
                     <div class="header__language" aria-label="Langsuage Selection">

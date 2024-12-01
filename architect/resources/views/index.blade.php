@@ -675,7 +675,7 @@
         <div class=" future__block" id="futureBlock">
             <div class="future__block__name">
                 <div class="future__block__name-line"></div>
-                <div id="color_change" class="future__block__name-name">
+                <div id="color_change" class="future__block__name-name font_change">
 
 
                     {{ $locale === 'az' ? 'Xəbərlər' : 'Новости' }}

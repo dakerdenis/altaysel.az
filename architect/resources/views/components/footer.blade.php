@@ -186,7 +186,7 @@
                     <a target="_blank" href="https://daker.site/">
                         <img src="../style/imgs/daker_created.svg" alt="">
                     </a>
-                    <p>
+                    <p class="font_change">
                         Copyright 2024
                     </p>
                 </div>
