@@ -1,6 +1,6 @@
         <!--! ---HEADER------->
         <header class="header" id="background_change2">
-            <div class="header__container" id="background_change">
+            <div class="header__container font_change" id="color_change">
                 <div class="header__logo__navigation">
                     <div class="header__logo">
                         @if ($locale ==='az')
@@ -21,42 +21,42 @@
                         <ul class="header__navigation__container header__navigation__container-links">
                             <li>
                                 <button data-target="#aboutBlock">
-                                    <p id="color_change">
+                                    <p class="font_change" id="color_change">
                                         {{ $locale === 'az' ? 'Haqqımızda' : 'О нас' }}
                                     </p>
                                 </button>
                             </li>
                             <li>
                                 <button data-target="#projectsBlock">
-                                    <p id="color_change">
+                                    <p class="font_change"  id="color_change">
                                         {{ $locale === 'az' ? 'Layihələrimiz' : 'Проекты' }}
                                     </p>
                                 </button>
                             </li>
                             <li>
                                 <button data-target="#futureBlock">
-                                    <p id="color_change">
+                                    <p  class="font_change"  id="color_change">
                                         {{ $locale === 'az' ? 'Xəbərlər' : 'Новости' }}
                                     </p>
                                 </button>
                             </li>
                             <li>
                                 <button data-target="#servicesBlock">
-                                    <p id="color_change">
+                                    <p class="font_change"  id="color_change">
                                         {{ $locale === 'az' ? 'Xidmətlər' : 'Услуги' }}
                                     </p>
                                 </button>
                             </li>
                             <li>
                                 <button data-target="#teamBlock">
-                                    <p id="color_change">
+                                    <p class="font_change"  id="color_change">
                                         {{ $locale === 'az' ? 'Komanda' : 'Команда' }}
                                     </p>
                                 </button>
                             </li>
                             <li>
                                 <button data-target="#contactBlock">
-                                    <p id="color_change">
+                                    <p class="font_change"  id="color_change">
                                         {{ $locale === 'az' ? 'Bizimlə əlaqə' : 'Связь с нами' }}
                                     </p>
                                 </button>

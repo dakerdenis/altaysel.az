@@ -357,14 +357,14 @@ class AdminController extends Controller
             'main_photo.required' => 'The main image is required.',
             'main_photo.max' => 'The main image may not be greater than 2 megabytes.',
         ]);
-
+    
         // Handle image upload for main photo
         if ($request->hasFile('main_photo')) {
             $mainImage = $request->file('main_photo');
             $mainImageName = time() . '_' . $mainImage->getClientOriginalName();
             $mainImage->move(public_path('uploads/projects'), $mainImageName);
         }
-
+    
         // Handle additional photos
         $additionalPhotos = [];
         if ($request->hasFile('additional_photo_input')) {
@@ -376,10 +376,13 @@ class AdminController extends Controller
                 }
             }
         }
-
+    
         // Store additional photos in the database
         $images = array_merge($additionalPhotos);
-
+    
+        // Use default video link if user does not provide one
+        $videoUrl = $request->project__video_link ?? 'https://www.youtube.com/embed/H_ReGaTJ92s?si=yY3Lry_NdsNI_txC';
+    
         // Create new project record
         $project = new MainProject();
         $project->year = $request->project__year;
@@ -391,11 +394,14 @@ class AdminController extends Controller
         $project->desc_az = $request->desc_az;
         $project->main_image = $mainImageName;
         $project->images = json_encode($images); // Store image names as JSON
+        $project->video_url = $videoUrl; // Save the video URL
         $project->save();
-
+    
         // Redirect with success message or perform other actions
-        return redirect()->route('admin.main', ['content' => 'new__main_project'])->with('success', 'Main project added successfully.');
+        return redirect()->route('admin.main', ['content' => 'new__main_project'])
+            ->with('success', 'Main project added successfully.');
     }
+    
     public function delete_main_project($id)
     {
         // Find the project by ID

@@ -24,7 +24,7 @@
                     <div class="footer__content__placeholder">
 
                     </div>
-                    <div id="color_change" class="footer__name">
+                    <div id="color_change" class="footer__name font_change">
 
                         {{ $locale === 'az' ? 'Bizimlə Əlaqə' : 'Контакты' }}
                     </div>

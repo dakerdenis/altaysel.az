@@ -172,7 +172,7 @@
 
             </div>
             <div class="number__block__container">
-                <div id="color_change" class="number__block__element">
+                <div id="color_change" class="number__block__element font_change">
                     <div class="number__block__element-number">
                         <span>30</span>+
                     </div>
@@ -182,7 +182,7 @@
                     </div>
                 </div>
 
-                <div id="color_change" class="number__block__element">
+                <div id="color_change" class="number__block__element font_change">
                     <div class="number__block__element-number">
                         <span>120</span>+
                     </div>
@@ -191,7 +191,7 @@
                     </div>
                 </div>
 
-                <div id="color_change" class="number__block__element">
+                <div id="color_change" class="number__block__element font_change">
                     <div class="number__block__element-number">
                         <span>500</span>+
                     </div>
@@ -200,7 +200,7 @@
                     </div>
                 </div>
 
-                <div id="color_change" class="number__block__element">
+                <div id="color_change" class="number__block__element font_change">
                     <div class="number__block__element-number">
                         <span>200</span>+
                     </div>
@@ -726,7 +726,7 @@
         <!--? ---OUR SERVICES------->
         <div class=" services__block header__navigation__container" id="servicesBlock">
             <div class="services__block__name">
-                <div id="color_change" class="services__block-name">
+                <div id="color_change" class="services__block-name font_change">
 
                     {{ $locale === 'az' ? 'Bizim Xidmətlərimiz' : 'Наши услуги' }}
                 </div>
@@ -1202,13 +1202,14 @@ pointClassNames.forEach(className => {
 
 
     </script>
-    @if ($locale === 'az')
-    <script src="{{ asset('js/script_az.js') }}"></script>
+@if ($locale === 'az')
+<script src="{{ asset('js/script_az.js') }}"></script>
 @elseif ($locale === 'ru')
-    <script src="{{ asset('js/script_ru.js') }}"></script>
+<script src="{{ asset('js/script_ru.js') }}"></script>
 @else
-    <script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 @endif
+
 
 
 

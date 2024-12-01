@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,6 +11,7 @@ class MainProject extends Model
 
     protected $fillable = [
         'main_image',
+        'video_url', // Add this to allow mass assignment
         // Other fillable attributes
     ];
 }

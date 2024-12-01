@@ -1,216 +1,191 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Hide the preloader when all content is loaded or after 1.5 seconds
-    const preloader = document.getElementById("preloader");
+    // Global theme state
+    let isDarkTheme = false;
 
-    // Set minimum duration for preloader visibility (1.5 seconds)
-    const minDuration = 100;
-    const startTime = performance.now();
-
-    // Function to hide the preloader
-    function hidePreloader() {
-        const currentTime = performance.now();
-        const elapsedTime = currentTime - startTime;
-        const remainingTime = Math.max(0, minDuration - elapsedTime);
-
-        setTimeout(function () {
-            preloader.style.display = "none";
-        }, remainingTime);
-    }
-
-    // Hide the preloader when all content is loaded
-    window.addEventListener("load", function () {
-        hidePreloader();
-    });
-
-    // Hide the preloader after 1.5 seconds even if all content is not loaded
-    hidePreloader();
-
-    // Theme changer functionality
-    // Theme changer functionality
-    // Theme changer functionality
-    // Theme changer functionality
-    const themeChanger = document.querySelector(".main__block__theme-changer");
-    const themeCircle = document.querySelector(".__theme-surface__circle");
-    const themeSurface = document.querySelector(".__theme-surface");
-    const themeMoon = document.querySelector(".__theme-surface__moon");
-    const backgroundChange = document.getElementById("background_change");
-    const backgroundChange2 = document.getElementById("background_change2");
-    /**!!!!!!*********** */
-    /**!!!!!!*********** */
-    // Correct selector for social container
-    const socialContainer = document.querySelector(".popup__social__container");
-    /**!!!!!!*********** */
-    /**!!!!!!*********** */
-    const backgroundChange3 = document.getElementById("background_change3");
-    const backgroundChange4 = document.getElementById("background_change4");
-
-    const color_change_team = document.getElementById("color_change_team");
-    const colorChangeElements1 = document.getElementById(
-        "colorChangeElements1"
-    );
-    const colorChangeElements2 = document.getElementById(
-        "colorChangeElements2"
-    );
-
-    const colorChangeElements = document.querySelectorAll("#color_change");
-
-    const color_change3 = document.querySelectorAll("#color_change3");
-
-    const imageChange = document.getElementById("image_change");
-    const imageChange2 = document.getElementById("image_change2");
-    const imageChange3 = document.getElementById("image_change3");
-    const imageChange4 = document.getElementById("image_change4");
-    const imageChange5 = document.getElementById("image_change5");
-    const imageChange6 = document.getElementById("image_change6");
-    const backgroundChangeMain = document.getElementById(
-        "background_change_main"
-    );
-    const backgroundChangeMainServices = document.querySelectorAll(
-        "#background_change_main_services"
-    );
-    let isActive = false;
-
-    function toggleTheme() {
-        themeCircle.style.left = isActive ? "-12px" : "40px";
-        themeSurface.style.backgroundColor = isActive
-            ? "var(--orange)"
-            : "black";
-        themeMoon.style.opacity = isActive ? "1" : "0";
-        backgroundChange.style.backgroundColor = isActive ? "" : "black";
-        backgroundChangeMain.style.backgroundColor = isActive ? "" : "black";
-
-        backgroundChange3.style.backgroundColor = isActive ? "" : "#323232";
-        backgroundChange3.style.color = isActive ? "" : "#fff";
-
-        backgroundChange4.style.backgroundColor = isActive ? "" : "#323232";
-        backgroundChange4.style.color = isActive ? "" : "#fff";
-
-        color_change_team.style.color = isActive ? "" : "#fff";
-        colorChangeElements1.style.color = isActive ? "" : "#fff";
-        colorChangeElements2.style.color = isActive ? "" : "#fff";
-
-        backgroundChange2.style.background = isActive
-            ? ""
-            : "linear-gradient(90deg, #000000 1.9%, rgba(154, 104, 17, 0.7) 21.65%, #000000 42.98%)";
-        colorChangeElements.forEach(
-            (element) => (element.style.color = isActive ? "" : "white")
-        );
-        color_change3.forEach(
-            (element) => (element.style.color = isActive ? "" : "white")
-        );
-
-        imageChange.src = isActive
-            ? "./style/imgs/Vector1.svg"
-            : "./style/imgs/Vector2.svg";
-        imageChange2.src = isActive
-            ? "./style/imgs/main_image_2.jpeg"
-            : "./style/imgs/main_image_1.jpeg";
-        imageChange3.src = isActive
-            ? "./style/imgs/about_1_white.jpeg"
-            : "./style/imgs/about_1_black.jpeg";
-        imageChange4.src = isActive
-            ? "./style/imgs/about_2_white.jpeg"
-            : "./style/imgs/about_2_black.jpeg";
-        imageChange5.src = isActive
-            ? "./style/imgs/about_3_white.jpeg"
-            : "./style/imgs/about_3_black.jpeg";
-        imageChange6.src = isActive
-            ? "./style/imgs/about_4_white.jpeg"
-            : "./style/imgs/about_4_black.jpeg";
-
-        // Toggle dark theme class on the body
-        document.body.classList.toggle("dark-theme", !isActive);
-
-        isActive = !isActive;
-    }
-
-    themeChanger.addEventListener("click", toggleTheme);
-
-    // Header related functionality
+    // Header Element
     const header = document.querySelector(".header");
-    const languageToggle = document.querySelector(".language__toggle");
-    const languageDropdown = document.querySelector(".language__dropdown");
-    const arrow = document.querySelector(".arrow");
-    const numberBlocks = document.querySelectorAll(".number__block__element");
 
-    function scrollToTarget(button) {
-        const targetElement = document.querySelector(button.dataset.target);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 95,
-                behavior: "smooth",
-            });
+    // Update header class based on scroll and theme state
+    function updateHeaderClass() {
+        const isScrolled = window.scrollY > 0;
+
+        if (header) {
+            header.classList.remove("header__scrolled", "header__scrolled_black");
+
+            if (isScrolled) {
+                header.classList.add(isDarkTheme ? "header__scrolled_black" : "header__scrolled");
+            }
         }
     }
 
-    document
-        .querySelectorAll(".header__navigation__container button")
-        .forEach((button) => {
-            button.addEventListener("click", () => scrollToTarget(button));
+    // Setup header scroll handling
+    function setupHeaderScroll() {
+        window.addEventListener("scroll", updateHeaderClass);
+        updateHeaderClass(); // Initial call on page load
+    }
+
+    // Theme changer functionality
+    function setupThemeChanger() {
+        const themeChanger = document.querySelector(".main__block__theme-changer");
+        const themeCircle = document.querySelector(".__theme-surface__circle");
+        const themeSurface = document.querySelector(".__theme-surface");
+        const themeMoon = document.querySelector(".__theme-surface__moon");
+
+        function toggleTheme() {
+            isDarkTheme = !isDarkTheme;
+        
+            // Update theme-specific styles
+            if (themeCircle) themeCircle.style.left = isDarkTheme ? "40px" : "-12px";
+            if (themeSurface) themeSurface.style.backgroundColor = isDarkTheme ? "black" : "var(--orange)";
+            if (themeMoon) themeMoon.style.opacity = isDarkTheme ? "0" : "1";
+        
+            // Update background colors for all elements with id="background_change"
+            const backgroundChanges = document.querySelectorAll("#background_change");
+            const backgroundChangeMain = document.getElementById("background_change_main");
+        
+            backgroundChanges.forEach((element) => {
+                element.style.backgroundColor = isDarkTheme ? "#000" : "#fff";
+            });
+        
+            if (backgroundChangeMain) {
+                backgroundChangeMain.style.backgroundColor = isDarkTheme ? "#000" : "#fff";
+            }
+        
+            // Update font colors for all elements with class "font_change"
+            const fontChangeElements = document.querySelectorAll(".font_change");
+            fontChangeElements.forEach((element) => {
+                element.style.color = isDarkTheme ? "#fff" : "#000";
+            });
+        
+            document.body.classList.toggle("dark-theme", isDarkTheme);
+        
+            // Update header immediately to reflect the theme
+            updateHeaderClass();
+        }
+        
+        
+        
+
+        if (themeChanger) {
+            themeChanger.addEventListener("click", toggleTheme);
+        }
+    }
+
+    // Preloader setup
+    function setupPreloader() {
+        const preloader = document.getElementById("preloader");
+        const minDuration = 100;
+        const startTime = performance.now();
+
+        function hidePreloader() {
+            const elapsedTime = performance.now() - startTime;
+            const remainingTime = Math.max(0, minDuration - elapsedTime);
+
+            setTimeout(() => {
+                if (preloader) preloader.style.display = "none";
+            }, remainingTime);
+        }
+
+        window.addEventListener("load", hidePreloader);
+    }
+
+    // Scroll-to functionality
+    function setupScrollTo() {
+        const buttons = document.querySelectorAll(".header__navigation__container button");
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                const targetElement = document.querySelector(button.dataset.target);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 95,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    }
+
+    // Language dropdown toggle
+    function setupLanguageDropdown() {
+        const languageToggle = document.querySelector(".language__toggle");
+        const languageDropdown = document.querySelector(".language__dropdown");
+        const arrow = document.querySelector(".arrow");
+
+        if (!languageToggle || !languageDropdown || !arrow) return;
+
+        languageToggle.addEventListener("click", (event) => {
+            event.stopPropagation();
+            languageDropdown.classList.toggle("show");
+            arrow.classList.toggle("rotate");
         });
 
-    window.addEventListener("scroll", () => {
-        header.classList.toggle(
-            isActive ? "header__scrolled_black" : "header__scrolled",
-            window.scrollY > 0
-        );
-        if (!window.scrollY)
-            setTimeout(() => header.classList.add("header__transition"), 100);
-    });
+        document.addEventListener("click", (event) => {
+            if (!languageToggle.contains(event.target) && !languageDropdown.contains(event.target)) {
+                languageDropdown.classList.remove("show");
+                arrow.classList.remove("rotate");
+            }
+        });
+    }
 
-    languageToggle.addEventListener("click", (event) => {
-        event.stopPropagation();
-        languageDropdown.classList.toggle("show");
-        arrow.classList.toggle("rotate");
-    });
+    // Number animations on scroll
+    function setupNumberAnimation() {
+        const numberBlocks = document.querySelectorAll(".number__block__element");
 
-    document.addEventListener("click", (event) => {
-        if (
-            !languageToggle.contains(event.target) &&
-            !languageDropdown.contains(event.target)
-        ) {
-            languageDropdown.classList.remove("show");
-            arrow.classList.remove("rotate");
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
         }
-    });
 
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <=
-                (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <=
-                (window.innerWidth || document.documentElement.clientWidth)
-        );
+        function countNumbers(element) {
+            const targetNumber = parseInt(element.querySelector("span").innerText);
+            let currentNumber = 0;
+            const increment = Math.ceil(targetNumber / 60);
+
+            const interval = setInterval(() => {
+                if (currentNumber < targetNumber) {
+                    currentNumber += increment;
+                    if (currentNumber > targetNumber) currentNumber = targetNumber;
+                    element.querySelector("span").innerText = currentNumber;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 20);
+
+            element.classList.add("counted");
+        }
+
+        function handleScroll() {
+            numberBlocks.forEach(block => {
+                if (isInViewport(block) && !block.classList.contains("counted")) {
+                    countNumbers(block);
+                }
+            });
+        }
+
+        handleScroll(); // Initial call
+        window.addEventListener("scroll", handleScroll);
     }
 
-    function countNumbers(element) {
-        const targetNumber = parseInt(element.querySelector("span").innerText);
-        let currentNumber = 0;
-        const increment = Math.ceil(targetNumber / 60);
+    // Initialize all functionality
+    setupPreloader();
+    setupHeaderScroll();
+    setupThemeChanger();
+    setupScrollTo();
+    setupLanguageDropdown();
+    setupNumberAnimation();
 
-        const interval = setInterval(() => {
-            if (currentNumber < targetNumber) {
-                currentNumber += increment;
-                if (currentNumber > targetNumber) currentNumber = targetNumber;
-                element.querySelector("span").innerText = currentNumber;
-            } else clearInterval(interval);
-        }, 20);
 
-        element.classList.add("counted");
-    }
-    function handleScroll() {
-        numberBlocks.forEach(
-            (block) =>
-                isInViewport(block) &&
-                !block.classList.contains("counted") &&
-                countNumbers(block)
-        );
-    }
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
+
+
+
+    // Function to toggle service content
+    // Function to toggle service content
+    // Function to toggle service content
 
     // Function to toggle service content
     const serviceElements = document.querySelectorAll(
@@ -245,6 +220,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 toggleServiceContent(service);
             })
     );
+
+
+
+
 
     //! POPUP CODE
     //! POPUP CODE
@@ -353,10 +332,10 @@ document.addEventListener("DOMContentLoaded", function () {
             // Remove previous event listeners
             prevButton.removeEventListener("click", prevButtonClickHandler);
             nextButton.removeEventListener("click", nextButtonClickHandler);
-        
+
             currentData = data;
             currentImageIndex = 0;
-        
+
             // Ensure images is a proper array
             let images = [];
             try {
@@ -370,13 +349,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error("Error parsing images:", e);
                 images = [];
             }
-        
+
             // Add main_image to the beginning of the images array if not already present
             if (!images.includes(data.main_image)) {
                 images.unshift(data.main_image);
             }
             currentData.images = images;
-        
+
             if (images.length === 0) {
                 popupImage.src = `./archi/public/uploads/projects/${data.main_image}`;
                 prevButton.style.display = "none";
@@ -386,22 +365,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 prevButton.style.display = "block";
                 nextButton.style.display = "block";
             }
-        
+
             popupName.innerHTML = data.name_az;
             popupDescription.innerHTML = data.desc_az;
             popupAdress.innerHTML = data.adress;
-        
+
             if (isFutureProject) {
                 popupYearBlock.style.display = "none";
                 popupLocation.innerHTML = "Ətraflı";
                 socialContainer.style.display = "flex";
-        
+
                 // Generate a unique shareable URL with the project ID
                 const shareUrl = encodeURIComponent(
                     window.location.origin + `?projectId=${data.id}`
                 );
                 const shareText = encodeURIComponent(`Check out this project: ${data.name_az}`);
-        
+
                 document.querySelector(".facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
                 document.querySelector(".twitter").href = `https://twitter.com/share?url=${shareUrl}&text=${shareText}`;
                 document.querySelector(".linkedin").href = `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareText}`;
@@ -413,12 +392,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 popupYear.innerHTML = ` ${data.year}`;
                 popupLocation.innerHTML = "Google Maps-da baxmaq";
             }
-        
+
             popupLocation.href = data.location;
-        
+
             prevButton.addEventListener("click", prevButtonClickHandler);
             nextButton.addEventListener("click", nextButtonClickHandler);
-        
+
             openPopup();
         }
 
@@ -437,7 +416,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function createPopup(data, isFutureProject) {
         console.log("Opening popup for project:", data);
-        
+
         const popupOverlay = document.getElementById("popup_overlay");
         const popupImage = document.getElementById("popup_image");
         const popupName = document.getElementById("popup_name");
@@ -450,7 +429,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const nextButton = document.getElementById("next_button");
         let currentImageIndex = 0;
         let currentData = data;
-    
+
         // Ensure images is a proper array
         let images = [];
         try {
@@ -462,13 +441,13 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error parsing images:", e);
             images = [];
         }
-    
+
         // Add main_image to the beginning of the images array if not already present
         if (!images.includes(data.main_image)) {
             images.unshift(data.main_image);
         }
         currentData.images = images;
-    
+
         if (images.length === 0) {
             popupImage.src = `./archi/public/uploads/projects/${data.main_image}`;
             prevButton.style.display = "none";
@@ -478,22 +457,22 @@ document.addEventListener("DOMContentLoaded", function () {
             prevButton.style.display = "block";
             nextButton.style.display = "block";
         }
-    
+
         popupName.innerHTML = data.name_az;
         popupDescription.innerHTML = data.desc_az;
         popupAdress.innerHTML = data.adress;
-    
+
         if (isFutureProject) {
             popupYearBlock.style.display = "none";
             popupLocation.innerHTML = "Ətraflı";
             socialContainer.style.display = "flex";
-    
+
             // Generate a unique shareable URL with the project ID
             const shareUrl = encodeURIComponent(
                 window.location.origin + `?projectId=${data.id}`
             );
             const shareText = encodeURIComponent(`Check out this project: ${data.name_az}`);
-    
+
             document.querySelector(".facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
             document.querySelector(".twitter").href = `https://twitter.com/share?url=${shareUrl}&text=${shareText}`;
             document.querySelector(".linkedin").href = `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareText}`;
@@ -505,92 +484,92 @@ document.addEventListener("DOMContentLoaded", function () {
             popupYear.innerHTML = ` ${data.year}`;
             popupLocation.innerHTML = "Google Maps-da baxmaq";
         }
-    
+
         popupLocation.href = data.location;
-    
+
         function openPopup() {
             popupOverlay.style.display = "flex";
             document.body.style.overflow = "hidden";
-    
+
             popupOverlay.addEventListener("click", (event) => {
                 if (event.target === popupOverlay) closePopup();
             });
             popupClose.addEventListener("click", closePopup);
         }
-    
+
         function closePopup() {
             popupOverlay.style.display = "none";
             document.body.style.overflow = "auto";
         }
-    
+
         const prevButtonClickHandler = () => {
             currentImageIndex = (currentImageIndex - 1 + currentData.images.length) % currentData.images.length;
             updateImage();
         };
-    
+
         const nextButtonClickHandler = () => {
             currentImageIndex = (currentImageIndex + 1) % currentData.images.length;
             updateImage();
         };
-    
+
         function updateImage() {
             if (currentData.images.length > 0) {
                 const currentImageSrc = currentData.images[currentImageIndex];
                 popupImage.src = `./archi/public/uploads/projects/${currentImageSrc}`;
             }
         }
-    
+
         prevButton.addEventListener("click", prevButtonClickHandler);
         nextButton.addEventListener("click", nextButtonClickHandler);
-    
+
         openPopup();
     }
-    
-// Remaining code continues here, including window.onload and handlePopupContainers
-window.onload = function () {
-    console.log("Page loaded. Checking URL parameters...");
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get("projectId");
 
-    console.log("Project ID from URL:", projectId);
+    // Remaining code continues here, including window.onload and handlePopupContainers
+    window.onload = function () {
+        console.log("Page loaded. Checking URL parameters...");
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get("projectId");
 
-    if (projectId) {
-        console.log("Project ID detected. Fetching project data...");
+        console.log("Project ID from URL:", projectId);
 
-        Promise.all([
-            fetchData("/api/mainprojects"),
-            fetchData("/api/mapprojects"),
-            fetchData("/api/futureprojects"),
-        ])
-            .then(([mainProjectData, mapProjectData, futureProjectData]) => {
-                const futureProject = futureProjectData.find(
-                    (project) => project.id === parseInt(projectId)
-                );
+        if (projectId) {
+            console.log("Project ID detected. Fetching project data...");
 
-                console.log("Future project data:", futureProject);
+            Promise.all([
+                fetchData("/api/mainprojects"),
+                fetchData("/api/mapprojects"),
+                fetchData("/api/futureprojects"),
+            ])
+                .then(([mainProjectData, mapProjectData, futureProjectData]) => {
+                    const futureProject = futureProjectData.find(
+                        (project) => project.id === parseInt(projectId)
+                    );
 
-                if (futureProject) {
-                    createPopup(futureProject, true);
+                    console.log("Future project data:", futureProject);
 
-                    if (history.pushState) {
-                        const newUrl = window.location.origin + window.location.pathname;
-                        history.pushState({}, document.title, newUrl);
+                    if (futureProject) {
+                        createPopup(futureProject, true);
+
+                        if (history.pushState) {
+                            const newUrl = window.location.origin + window.location.pathname;
+                            history.pushState({}, document.title, newUrl);
+                        }
+                    } else {
+                        console.log("Project not found with the provided ID.");
                     }
-                } else {
-                    console.log("Project not found with the provided ID.");
-                }
-            })
-            .catch((error) => {
-                console.error("Error fetching project data:", error);
-            });
-    } else {
-        console.log("No project ID in URL.");
-    }
-};
-    
-    
-    
-    
+                })
+                .catch((error) => {
+                    console.error("Error fetching project data:", error);
+                });
+        } else {
+            console.log("No project ID in URL.");
+        }
+    };
+
+
+
+
 });
 document.addEventListener("DOMContentLoaded", function () {
     const imagesTabButton = document.getElementById("images_tab_button");
