@@ -1,650 +1,494 @@
-    document.addEventListener("DOMContentLoaded", function () {
-        // Global theme state
-        let isDarkTheme = false;
+document.addEventListener("DOMContentLoaded", function () {
+    // Global theme state
+    let isDarkTheme = false;
 
-        // Header Element
-        const header = document.querySelector(".header");
+    // Header Element
+    const header = document.querySelector(".header");
 
-        // Update header class based on scroll and theme state
-        function updateHeaderClass() {
-            const isScrolled = window.scrollY > 0;
+    // Update header class based on scroll and theme state
+    function updateHeaderClass() {
+        const isScrolled = window.scrollY > 0;
 
-            if (header) {
-                header.classList.remove("header__scrolled", "header__scrolled_black");
+        if (header) {
+            header.classList.remove("header__scrolled", "header__scrolled_black");
 
-                if (isScrolled) {
-                    header.classList.add(isDarkTheme ? "header__scrolled_black" : "header__scrolled");
+            if (isScrolled) {
+                header.classList.add(isDarkTheme ? "header__scrolled_black" : "header__scrolled");
+            }
+        }
+    }
+
+    // Setup header scroll handling
+    function setupHeaderScroll() {
+        window.addEventListener("scroll", updateHeaderClass);
+        updateHeaderClass(); // Initial call on page load
+    }
+
+    // Theme changer functionality
+    function setupThemeChanger() {
+        const themeChanger = document.querySelector(".main__block__theme-changer");
+        const themeCircle = document.querySelector(".__theme-surface__circle");
+        const themeSurface = document.querySelector(".__theme-surface");
+        const themeMoon = document.querySelector(".__theme-surface__moon");
+
+        function toggleTheme() {
+            isDarkTheme = !isDarkTheme;
+
+            // Update theme-specific styles
+            if (themeCircle) themeCircle.style.left = isDarkTheme ? "40px" : "-12px";
+            if (themeSurface) themeSurface.style.backgroundColor = isDarkTheme ? "black" : "var(--orange)";
+            if (themeMoon) themeMoon.style.opacity = isDarkTheme ? "0" : "1";
+
+            // Update background colors for all elements with id="background_change"
+            const backgroundChanges = document.querySelectorAll("#background_change");
+            const backgroundChangeMain = document.getElementById("background_change_main");
+
+            backgroundChanges.forEach((element) => {
+                element.style.backgroundColor = isDarkTheme ? "#000" : "#fff";
+            });
+
+            if (backgroundChangeMain) {
+                backgroundChangeMain.style.backgroundColor = isDarkTheme ? "#000" : "#fff";
+            }
+
+            // Update font colors for all elements with class "font_change"
+            const fontChangeElements = document.querySelectorAll(".font_change");
+            fontChangeElements.forEach((element) => {
+                element.style.color = isDarkTheme ? "#fff" : "#000";
+            });
+
+            // Update image sources
+            const imageMappings = [
+                { id: "image_change5", darkSrc: "./style/imgs/about_3_black.jpeg", lightSrc: "./style/imgs/about_3_white.jpeg" },
+                { id: "image_change4", darkSrc: "./style/imgs/about_2_black.jpeg", lightSrc: "./style/imgs/about_2_white.jpeg" },
+                { id: "image_change3", darkSrc: "./style/imgs/about_1_black.jpeg", lightSrc: "./style/imgs/about_1_white.jpeg" },
+            ];
+
+            imageMappings.forEach(({ id, darkSrc, lightSrc }) => {
+                const image = document.getElementById(id);
+                if (image) {
+                    image.src = isDarkTheme ? darkSrc : lightSrc;
                 }
-            }
+            });
+
+            document.body.classList.toggle("dark-theme", isDarkTheme);
+
+            // Update header immediately to reflect the theme
+            updateHeaderClass();
         }
 
-        // Setup header scroll handling
-        function setupHeaderScroll() {
-            window.addEventListener("scroll", updateHeaderClass);
-            updateHeaderClass(); // Initial call on page load
+
+
+
+
+        if (themeChanger) {
+            themeChanger.addEventListener("click", toggleTheme);
+        }
+    }
+
+    // Preloader setup
+    function setupPreloader() {
+        const preloader = document.getElementById("preloader");
+        const minDuration = 100;
+        const startTime = performance.now();
+
+        function hidePreloader() {
+            const elapsedTime = performance.now() - startTime;
+            const remainingTime = Math.max(0, minDuration - elapsedTime);
+
+            setTimeout(() => {
+                if (preloader) preloader.style.display = "none";
+            }, remainingTime);
         }
 
-        // Theme changer functionality
-        function setupThemeChanger() {
-            const themeChanger = document.querySelector(".main__block__theme-changer");
-            const themeCircle = document.querySelector(".__theme-surface__circle");
-            const themeSurface = document.querySelector(".__theme-surface");
-            const themeMoon = document.querySelector(".__theme-surface__moon");
+        window.addEventListener("load", hidePreloader);
+    }
 
-            function toggleTheme() {
-                isDarkTheme = !isDarkTheme;
-            
-                // Update theme-specific styles
-                if (themeCircle) themeCircle.style.left = isDarkTheme ? "40px" : "-12px";
-                if (themeSurface) themeSurface.style.backgroundColor = isDarkTheme ? "black" : "var(--orange)";
-                if (themeMoon) themeMoon.style.opacity = isDarkTheme ? "0" : "1";
-            
-                // Update background colors for all elements with id="background_change"
-                const backgroundChanges = document.querySelectorAll("#background_change");
-                const backgroundChangeMain = document.getElementById("background_change_main");
-            
-                backgroundChanges.forEach((element) => {
-                    element.style.backgroundColor = isDarkTheme ? "#000" : "#fff";
-                });
-            
-                if (backgroundChangeMain) {
-                    backgroundChangeMain.style.backgroundColor = isDarkTheme ? "#000" : "#fff";
+    // Scroll-to functionality
+    function setupScrollTo() {
+        const buttons = document.querySelectorAll(".header__navigation__container button");
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                const targetElement = document.querySelector(button.dataset.target);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 95,
+                        behavior: "smooth"
+                    });
                 }
-            
-                // Update font colors for all elements with class "font_change"
-                const fontChangeElements = document.querySelectorAll(".font_change");
-                fontChangeElements.forEach((element) => {
-                    element.style.color = isDarkTheme ? "#fff" : "#000";
-                });
-            
-                // Update image sources
-                const imageMappings = [
-                    { id: "image_change5", darkSrc: "./style/imgs/about_3_black.jpeg", lightSrc: "./style/imgs/about_3_white.jpeg" },
-                    { id: "image_change4", darkSrc: "./style/imgs/about_2_black.jpeg", lightSrc: "./style/imgs/about_2_white.jpeg" },
-                    { id: "image_change3", darkSrc: "./style/imgs/about_1_black.jpeg", lightSrc: "./style/imgs/about_1_white.jpeg" },
-                ];
-            
-                imageMappings.forEach(({ id, darkSrc, lightSrc }) => {
-                    const image = document.getElementById(id);
-                    if (image) {
-                        image.src = isDarkTheme ? darkSrc : lightSrc;
-                    }
-                });
-            
-                document.body.classList.toggle("dark-theme", isDarkTheme);
-            
-                // Update header immediately to reflect the theme
-                updateHeaderClass();
-            }
-            
-            
-            
-            
+            });
+        });
+    }
 
-            if (themeChanger) {
-                themeChanger.addEventListener("click", toggleTheme);
+    // Language dropdown toggle
+    function setupLanguageDropdown() {
+        const languageToggle = document.querySelector(".language__toggle");
+        const languageDropdown = document.querySelector(".language__dropdown");
+        const arrow = document.querySelector(".arrow");
+
+        if (!languageToggle || !languageDropdown || !arrow) return;
+
+        languageToggle.addEventListener("click", (event) => {
+            event.stopPropagation();
+            languageDropdown.classList.toggle("show");
+            arrow.classList.toggle("rotate");
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!languageToggle.contains(event.target) && !languageDropdown.contains(event.target)) {
+                languageDropdown.classList.remove("show");
+                arrow.classList.remove("rotate");
             }
+        });
+    }
+
+    // Number animations on scroll
+    function setupNumberAnimation() {
+        const numberBlocks = document.querySelectorAll(".number__block__element");
+
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
         }
 
-        // Preloader setup
-        function setupPreloader() {
-            const preloader = document.getElementById("preloader");
-            const minDuration = 100;
-            const startTime = performance.now();
+        function countNumbers(element) {
+            const targetNumber = parseInt(element.querySelector("span").innerText);
+            let currentNumber = 0;
+            const increment = Math.ceil(targetNumber / 60);
 
-            function hidePreloader() {
-                const elapsedTime = performance.now() - startTime;
-                const remainingTime = Math.max(0, minDuration - elapsedTime);
+            const interval = setInterval(() => {
+                if (currentNumber < targetNumber) {
+                    currentNumber += increment;
+                    if (currentNumber > targetNumber) currentNumber = targetNumber;
+                    element.querySelector("span").innerText = currentNumber;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 20);
 
-                setTimeout(() => {
-                    if (preloader) preloader.style.display = "none";
-                }, remainingTime);
-            }
-
-            window.addEventListener("load", hidePreloader);
+            element.classList.add("counted");
         }
 
-        // Scroll-to functionality
-        function setupScrollTo() {
-            const buttons = document.querySelectorAll(".header__navigation__container button");
-            buttons.forEach(button => {
-                button.addEventListener("click", () => {
-                    const targetElement = document.querySelector(button.dataset.target);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 95,
-                            behavior: "smooth"
-                        });
-                    }
-                });
+        function handleScroll() {
+            numberBlocks.forEach(block => {
+                if (isInViewport(block) && !block.classList.contains("counted")) {
+                    countNumbers(block);
+                }
             });
         }
 
-        // Language dropdown toggle
-        function setupLanguageDropdown() {
-            const languageToggle = document.querySelector(".language__toggle");
-            const languageDropdown = document.querySelector(".language__dropdown");
-            const arrow = document.querySelector(".arrow");
+        handleScroll(); // Initial call
+        window.addEventListener("scroll", handleScroll);
+    }
 
-            if (!languageToggle || !languageDropdown || !arrow) return;
+    // Initialize all functionality
+    setupPreloader();
+    setupHeaderScroll();
+    setupThemeChanger();
+    setupScrollTo();
+    setupLanguageDropdown();
+    setupNumberAnimation();
 
-            languageToggle.addEventListener("click", (event) => {
+
+
+
+
+    // Function to toggle service content
+    // Function to toggle service content
+    // Function to toggle service content
+
+    // Function to toggle service content
+    const serviceElements = document.querySelectorAll(
+        ".services__block__element"
+    );
+    function toggleServiceContent(service) {
+        const link = service.querySelector(".services__element__link");
+        const defaultElement = service.querySelector(
+            ".services__block__element-default"
+        );
+        const openedElement = service.querySelector(
+            ".services__block__element-oppened"
+        );
+        defaultElement.style.display = "none";
+        openedElement.style.display = "block";
+
+        document.addEventListener("click", closeOpenedContent);
+
+        function closeOpenedContent(event) {
+            if (!service.contains(event.target)) {
+                defaultElement.style.display = "block";
+                openedElement.style.display = "none";
+                document.removeEventListener("click", closeOpenedContent);
+            }
+        }
+    }
+    serviceElements.forEach((service) =>
+        service
+            .querySelector(".services__element__link")
+            .addEventListener("click", (event) => {
                 event.stopPropagation();
-                languageDropdown.classList.toggle("show");
-                arrow.classList.toggle("rotate");
-            });
-
-            document.addEventListener("click", (event) => {
-                if (!languageToggle.contains(event.target) && !languageDropdown.contains(event.target)) {
-                    languageDropdown.classList.remove("show");
-                    arrow.classList.remove("rotate");
-                }
-            });
-        }
-
-        // Number animations on scroll
-        function setupNumberAnimation() {
-            const numberBlocks = document.querySelectorAll(".number__block__element");
-
-            function isInViewport(element) {
-                const rect = element.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            }
-
-            function countNumbers(element) {
-                const targetNumber = parseInt(element.querySelector("span").innerText);
-                let currentNumber = 0;
-                const increment = Math.ceil(targetNumber / 60);
-
-                const interval = setInterval(() => {
-                    if (currentNumber < targetNumber) {
-                        currentNumber += increment;
-                        if (currentNumber > targetNumber) currentNumber = targetNumber;
-                        element.querySelector("span").innerText = currentNumber;
-                    } else {
-                        clearInterval(interval);
-                    }
-                }, 20);
-
-                element.classList.add("counted");
-            }
-
-            function handleScroll() {
-                numberBlocks.forEach(block => {
-                    if (isInViewport(block) && !block.classList.contains("counted")) {
-                        countNumbers(block);
-                    }
-                });
-            }
-
-            handleScroll(); // Initial call
-            window.addEventListener("scroll", handleScroll);
-        }
-
-        // Initialize all functionality
-        setupPreloader();
-        setupHeaderScroll();
-        setupThemeChanger();
-        setupScrollTo();
-        setupLanguageDropdown();
-        setupNumberAnimation();
-
-
-
-
-
-        // Function to toggle service content
-        // Function to toggle service content
-        // Function to toggle service content
-
-        // Function to toggle service content
-        const serviceElements = document.querySelectorAll(
-            ".services__block__element"
-        );
-        function toggleServiceContent(service) {
-            const link = service.querySelector(".services__element__link");
-            const defaultElement = service.querySelector(
-                ".services__block__element-default"
-            );
-            const openedElement = service.querySelector(
-                ".services__block__element-oppened"
-            );
-            defaultElement.style.display = "none";
-            openedElement.style.display = "block";
-
-            document.addEventListener("click", closeOpenedContent);
-
-            function closeOpenedContent(event) {
-                if (!service.contains(event.target)) {
-                    defaultElement.style.display = "block";
-                    openedElement.style.display = "none";
-                    document.removeEventListener("click", closeOpenedContent);
-                }
-            }
-        }
-        serviceElements.forEach((service) =>
-            service
-                .querySelector(".services__element__link")
-                .addEventListener("click", (event) => {
-                    event.stopPropagation();
-                    toggleServiceContent(service);
-                })
-        );
-
-
-
-
-
-        //! POPUP CODE
-        //! POPUP CODE
-        //! POPUP CODE
-        // Function to fetch JSON data from external file
-        async function fetchData(url) {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Failed to fetch data from ${url}`);
-            }
-            return response.json();
-        }
-
-        // Load project data
-        Promise.all([
-            fetchData("/api/mainprojects"),
-            fetchData("/api/mapprojects"),
-            fetchData("/api/futureprojects"),
-        ])
-            .then(([mainProjectData, mapProjectData, futureProjectData]) => {
-                handlePopupContainers(
-                    mainProjectData,
-                    mapProjectData,
-                    futureProjectData
-                );
+                toggleServiceContent(service);
             })
-            .catch((error) => {
-                console.error("Error fetching project data:", error);
-            });
+    );
 
-        // Function to handle popup containers after fetching data
-        function handlePopupContainers(
-            mainProjectData,
-            mapProjectData,
-            futureProjectData
-        ) {
-            const popupContainers = document.querySelectorAll(
-                ".projects__block-hover__popup, .map__project-view_more, .future_slide__link"
-            );
-            const popupImage = document.getElementById("popup_image");
-            const popupName = document.getElementById("popup_name");
-            const popupAdress = document.getElementById("popup__adress");
-            const popupYear = document.getElementById("popup_year");
-            const popupYearBlock = popupYear.parentElement; // Get the parent block containing the year
-            const popupLocation = document.getElementById("popup_location");
-            const popupDescription = document.getElementById("popup_description");
-            const popupClose = document.getElementById("popup_close");
-            const prevButton = document.getElementById("prev_button");
-            const nextButton = document.getElementById("next_button");
-            let currentImageIndex = 0;
-            let currentData;
 
-            popupContainers.forEach((popupContainer) => {
-                popupContainer.addEventListener("click", () => {
-                    const projectId = popupContainer.dataset.projectId;
-                    let project = mainProjectData.find(
-                        (project) => project.id === parseInt(projectId)
-                    );
-                    let isFutureProject = false;
 
-                    if (!project) {
-                        project = mapProjectData.find(
-                            (project) => project.id === parseInt(projectId)
-                        );
-                    }
 
-                    if (!project) {
-                        project = futureProjectData.find(
-                            (project) => project.id === parseInt(projectId)
-                        );
-                        isFutureProject = !!project; // Check if the project is a future project
-                    }
 
-                    if (project) {
-                        createPopup(project, isFutureProject);
-                    }
-                });
-            });
 
-            function openPopup() {
-                const popupOverlay = document.getElementById("popup_overlay");
-                popupOverlay.style.display = "flex";
-                document.body.style.overflow = "hidden";
 
-                popupOverlay.addEventListener("click", (event) => {
-                    if (event.target === popupOverlay) closePopup();
-                });
-                popupClose.addEventListener("click", closePopup);
-            }
 
-            function closePopup() {
-                const popupOverlay = document.getElementById("popup_overlay");
-                popupOverlay.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
 
-            function updateImage() {
-                if (currentData.images.length > 0) {
-                    const currentImageSrc = currentData.images[currentImageIndex];
-                    popupImage.src = `./archi/public/uploads/projects/${currentImageSrc}`;
-                }
-            }
 
-            function createPopup(data, isFutureProject) {
-                console.log("Opening popup for project:", data);
-                // Remove previous event listeners
-                prevButton.removeEventListener("click", prevButtonClickHandler);
-                nextButton.removeEventListener("click", nextButtonClickHandler);
+    //! POPUP CODE
+//! POPUP CODE
+//! POPUP CODE
+let projectsData = [];
 
-                currentData = data;
-                currentImageIndex = 0;
+// Function to fetch JSON data from external file THIS FUNCTIONS IS WROKING 
+// Fetch data from the API
+async function fetchData(url) {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch data from ${url}`);
+    }
+    return response.json();
+}
+// Function to fetch JSON data from external file THIS FUNCTIONS IS WROKING 
+// Load project data (Remove handlePopupContainers since it's undefined)
+Promise.all([
+// Fetch all projects data once
+fetchData("/api/mainprojects")
+    .then((data) => {
+        projectsData = data;
+        console.log("Fetched projects data:", projectsData);
+    })
+    .catch((error) => {
+        console.error("Error fetching projects data:", error);
+    }),
 
-                // Ensure images is a proper array
-                let images = [];
-                try {
-                    images = Array.isArray(data.images)
-                        ? data.images
-                        : JSON.parse(data.images);
-                    if (!Array.isArray(images)) {
-                        throw new Error("Parsed images data is not an array");
-                    }
-                } catch (e) {
-                    console.error("Error parsing images:", e);
-                    images = [];
-                }
+    fetchData("/api/mapprojects"),
+    fetchData("/api/futureprojects"),
+])
+    .then(([mainProjectData, mapProjectData, futureProjectData]) => {
+        console.log("Fetched data:", { mainProjectData, mapProjectData, futureProjectData });
+        // You can add further functionality here if needed.
+    })
+    .catch((error) => {
+        console.error("Error fetching project data:", error);
+    });
+// Function to fetch JSON data from external file THIS FUNCTIONS IS WROKING 
 
-                // Add main_image to the beginning of the images array if not already present
-                if (!images.includes(data.main_image)) {
-                    images.unshift(data.main_image);
-                }
-                currentData.images = images;
+    
+//////////////////!!!POPUP NEW CODE:
+const popupOverlay = document.getElementById("popup_overlay");
+    const popupCloseButton = document.getElementById("popup_close");
+    const projectButtons = document.querySelectorAll(".projects__block-hover__popup");
 
-                if (images.length === 0) {
-                    popupImage.src = `./archi/public/uploads/projects/${data.main_image}`;
-                    prevButton.style.display = "none";
-                    nextButton.style.display = "none";
-                } else {
-                    popupImage.src = `./archi/public/uploads/projects/${images[0]}`;
-                    prevButton.style.display = "block";
-                    nextButton.style.display = "block";
-                }
+// Popup Elements
+const popupYear = document.getElementById("popup_year");
+const popupLocation = document.getElementById("popup_location");
+const popupDescription = document.getElementById("popup_description");
+const popupImage = document.getElementById("popup_image");
+const prevButton = document.getElementById("prev_button");
+const nextButton = document.getElementById("next_button");
+const popupVideo = document.getElementById("popup_video");
 
-                popupName.innerHTML = data.name_az;
-                popupDescription.innerHTML = data.desc_az;
-                popupAdress.innerHTML = data.adress;
+let currentImageIndex = 0;
+let imagesArray = [];
 
-                if (isFutureProject) {
-                    popupYearBlock.style.display = "none";
-                    popupLocation.innerHTML = "Ətraflı";
-                    socialContainer.style.display = "flex";
+// Function to open the popup
+function openPopup(projectData) {
+    if (popupOverlay) {
+        popupOverlay.style.display = "flex";
+        document.body.style.overflow = "hidden"; // Disable scrolling
 
-                    // Generate a unique shareable URL with the project ID
-                    const shareUrl = encodeURIComponent(
-                        window.location.origin + `?projectId=${data.id}`
-                    );
-                    const shareText = encodeURIComponent(`Check out this project: ${data.name_az}`);
-
-                    document.querySelector(".facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
-                    document.querySelector(".twitter").href = `https://twitter.com/share?url=${shareUrl}&text=${shareText}`;
-                    document.querySelector(".linkedin").href = `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareText}`;
-                    document.querySelector(".whatsapp").href = `https://api.whatsapp.com/send?text=${shareText} ${shareUrl}`;
-                    document.querySelector(".telegram").href = `https://telegram.me/share/url?url=${shareUrl}&text=${shareText}`;
-                } else {
-                    socialContainer.style.display = "none";
-                    popupYearBlock.style.display = "flex";
-                    popupYear.innerHTML = ` ${data.year}`;
-                    popupLocation.innerHTML = "Google Maps-da baxmaq";
-                }
-
-                popupLocation.href = data.location;
-
-                prevButton.addEventListener("click", prevButtonClickHandler);
-                nextButton.addEventListener("click", nextButtonClickHandler);
-
-                openPopup();
-            }
-
-            const prevButtonClickHandler = () => {
-                currentImageIndex =
-                    (currentImageIndex - 1 + currentData.images.length) %
-                    currentData.images.length;
-                updateImage();
-            };
-
-            const nextButtonClickHandler = () => {
-                currentImageIndex =
-                    (currentImageIndex + 1) % currentData.images.length;
-                updateImage();
-            };
+        // Populate data into popup
+        if (popupYear) popupYear.textContent = projectData.year || "Year not available";
+        if (popupLocation) {
+            popupLocation.href = projectData.location || "#";
+            popupLocation.textContent = "Ətraflı";
         }
-        function createPopup(data, isFutureProject) {
-            console.log("Opening popup for project:", data);
-        
-            // Get required DOM elements
-            const popupOverlay = document.getElementById("popup_overlay");
-            const popupImage = document.getElementById("popup_image");
-            const popupName = document.getElementById("popup_name");
-            const popupAdress = document.getElementById("popup__adress");
-            const popupYear = document.getElementById("popup_year");
-            const popupYearBlock = popupYear?.parentElement;
-            const popupLocation = document.getElementById("popup_location");
-            const popupDescription = document.getElementById("popup_description");
-            const socialContainer = document.querySelector(".popup__social__container");
-            const prevButton = document.getElementById("prev_button");
-            const nextButton = document.getElementById("next_button");
-        
-            // Check if all critical elements exist
-            if (
-                !popupOverlay ||
-                !popupImage ||
-                !popupName ||
-                !popupAdress ||
-                !popupYear ||
-                !popupLocation ||
-                !popupDescription ||
-                !socialContainer
-            ) {
-                console.error("One or more popup elements are missing in the DOM.");
-                return;
-            }
-        
-            let currentImageIndex = 0;
-        
-            // Parse images from the project data
-            const images = parseImages(data);
-        
-            // Update popup content dynamically
-            updatePopupContent({
-                popupImage,
-                popupName,
-                popupAdress,
-                popupYear,
-                popupYearBlock,
-                popupLocation,
-                popupDescription,
-                socialContainer,
-                images,
-                data,
-                isFutureProject,
-            });
-        
-            // Set up navigation for image carousel
-            setupImageNavigation(images, popupImage, prevButton, nextButton);
-        
-            // Open the popup
-            openPopup(popupOverlay);
+
+        const currentLocale = window.location.pathname.includes("/az") ? "desc_az" : "desc_ru";
+        if (popupDescription) {
+            popupDescription.textContent = projectData[currentLocale] || "No description available.";
         }
-        
-        
-        function parseImages(data) {
+
+        const popupName = document.getElementById("popup_name");
+        if (popupName) {
+            const currentLocale = window.location.pathname.includes("/az") ? "name_az" : "name_ru";
+            popupName.textContent = projectData[currentLocale] || "No name available.";
+        }
+
+        // Handle images carousel
+        imagesArray = [];
+        if (projectData.main_image) {
+            imagesArray.push(projectData.main_image);
+        }
+        if (Array.isArray(projectData.images)) {
+            imagesArray = [...imagesArray, ...projectData.images];
+        } else {
             try {
-                const images = Array.isArray(data.images) ? data.images : JSON.parse(data.images || "[]");
-                if (!Array.isArray(images)) throw new Error("Parsed images data is not an array.");
-                return images.includes(data.main_image) ? images : [data.main_image, ...images];
-            } catch (error) {
-                console.error("Error parsing images:", error);
-                return [data.main_image];
+                imagesArray = [...imagesArray, ...JSON.parse(projectData.images)];
+            } catch (e) {
+                console.error("Failed to parse images:", e);
             }
         }
-        
-        
-        function updatePopupContent({
-            popupImage,
-            popupName,
-            popupAdress,
-            popupYear,
-            popupYearBlock,
-            popupLocation,
-            popupDescription,
-            socialContainer,
-            images,
-            data,
-            isFutureProject,
-        }) {
-            // Set initial image
-            if (images.length > 0) {
-                popupImage.src = `./archi/public/uploads/projects/${images[0]}`;
-            }
-        
-            // Update project details
-            popupName.textContent = data.name_az || "Project Name";
-            popupDescription.textContent = data.desc_az || "No description available.";
-            popupAdress.textContent = data.adress || "No address provided.";
-        
-            if (isFutureProject) {
-                if (popupYearBlock) popupYearBlock.style.display = "none";
-                socialContainer.style.display = "flex";
-                setupSocialSharing(data);
-            } else {
-                socialContainer.style.display = "none";
-                if (popupYearBlock) popupYearBlock.style.display = "block";
-                popupYear.textContent = data.year || "Year not provided.";
-            }
-        
-            popupLocation.href = data.location || "#";
-        }
-        
-        
-        function setupSocialSharing(data) {
-            const shareUrl = encodeURIComponent(window.location.origin + `?projectId=${data.id}`);
-            const shareText = encodeURIComponent(`Check out this project: ${data.name_az}`);
-        
-            document.querySelector(".facebook").href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
-            document.querySelector(".twitter").href = `https://twitter.com/share?url=${shareUrl}&text=${shareText}`;
-            document.querySelector(".linkedin").href = `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareText}`;
-            document.querySelector(".whatsapp").href = `https://api.whatsapp.com/send?text=${shareText} ${shareUrl}`;
-            document.querySelector(".telegram").href = `https://telegram.me/share/url?url=${shareUrl}&text=${shareText}`;
-        }
-        
-        
-        function setupImageNavigation(images, popupImage, prevButton, nextButton) {
-            let currentImageIndex = 0;
-        
-            const updateImage = () => {
-                popupImage.src = `./archi/public/uploads/projects/${images[currentImageIndex]}`;
-            };
-        
-            if (prevButton && nextButton) {
-                prevButton.addEventListener("click", () => {
-                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-                    updateImage();
-                });
-        
-                nextButton.addEventListener("click", () => {
-                    currentImageIndex = (currentImageIndex + 1) % images.length;
-                    updateImage();
-                });
-            }
-        
-            updateImage(); // Initialize with the first image
-        }
-        
-        
-        function openPopup(popupOverlay) {
-            popupOverlay.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        
-            const closePopup = () => {
-                popupOverlay.style.display = "none";
-                document.body.style.overflow = "auto";
-            };
-        
-            popupOverlay.addEventListener("click", (event) => {
-                if (event.target === popupOverlay) closePopup();
-            });
-        
-            const popupClose = document.getElementById("popup_close");
-            if (popupClose) popupClose.addEventListener("click", closePopup);
-        }
-        
-        
-        
-    });
 
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const imagesTabButton = document.getElementById("images_tab_button");
-        const videoTabButton = document.getElementById("video_tab_button");
-        const imagesTab = document.getElementById("images_tab");
-        const videoTab = document.getElementById("video_tab");
-        const popupVideo = document.getElementById("popup_video");
-
-        const placeholderVideoUrl = "https://www.youtube.com/embed/H_ReGaTJ92s?si=F7ZSyz1kUfDl8Sp1"; // Replace with your placeholder video UR
-        function switchToImagesTab() {
-            console.log("Images tab clicked");
-            imagesTab.style.display = "flex";
-            videoTab.style.display = "none";
-            imagesTabButton.classList.add("active-tab");
-            videoTabButton.classList.remove("active-tab");
+        if (imagesArray.length > 0) {
+            currentImageIndex = 0;
+            updateImage();
         }
 
-        function switchToVideoTab() {
-            console.log("Video tab clicked");
-            imagesTab.style.display = "none";
-            videoTab.style.display = "flex";
-            imagesTabButton.classList.remove("active-tab");
-            videoTabButton.classList.add("active-tab");
-
-            // Use placeholder video URL
-            popupVideo.src = placeholderVideoUrl;
+        // Handle video URL
+        if (popupVideo) {
+            popupVideo.src = projectData.video_url || "";
+            popupVideo.style.display = projectData.video_url ? "block" : "none";
         }
 
-        // Event listeners for tab buttons
-        imagesTabButton.addEventListener("click", () => {
-            switchToImagesTab();
-        });
+        // Handle social media sharing
+        const baseUrl = window.location.origin; // Your site's base URL
+        const projectUrl = `${baseUrl}/project/${projectData.id}`;
+        updateSocialMediaLinks(projectUrl);
+    }
+}
 
-        videoTabButton.addEventListener("click", () => {
-            switchToVideoTab();
-        });
 
-        // Reset tabs to default state when opening the popup
-        function resetTabs() {
-            console.log("Resetting tabs to default state");
-            switchToImagesTab();
-            popupVideo.src = ""; // Clear the video URL when switching tabs
+// Function to close the popup
+function closePopup() {
+    if (popupOverlay) {
+        popupOverlay.style.display = "none";
+        document.body.style.overflow = "auto"; // Enable scrolling
+        if (popupVideo) {
+            popupVideo.src = ""; // Stop video playback
+        }
+    }
+}
+
+// Update the current image in the carousel
+function updateImage() {
+    if (imagesArray.length > 0 && popupImage) {
+        popupImage.src = `./archi/public/uploads/projects/${imagesArray[currentImageIndex]}`;
+    }
+}
+
+// Navigate to the previous image
+function showPreviousImage() {
+    if (imagesArray.length > 0) {
+        currentImageIndex = (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
+        updateImage();
+    }
+}
+
+// Navigate to the next image
+function showNextImage() {
+    if (imagesArray.length > 0) {
+        currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
+        updateImage();
+    }
+}
+
+// Event listeners for navigation buttons
+if (prevButton) {
+    prevButton.addEventListener("click", showPreviousImage);
+}
+if (nextButton) {
+    nextButton.addEventListener("click", showNextImage);
+}
+
+// Add event listeners to project buttons to fetch and display project data
+projectButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+        const projectId = button.dataset.projectId;
+        if (!projectId) {
+            console.error("No project ID found for button:", button);
+            return;
         }
 
-        // Example: Call resetTabs when the popup opens
-        function openPopup() {
-            const popupOverlay = document.getElementById("popup_overlay");
-            popupOverlay.style.display = "flex";
-            document.body.style.overflow = "hidden";
-
-            resetTabs(); // Reset tabs to their default state
+        // Find the project in the fetched data
+        const projectData = projectsData.find((project) => project.id == projectId);
+        if (projectData) {
+            openPopup(projectData);
+        } else {
+            console.error("Project not found:", projectId);
         }
     });
+});
+
+// Add event listener to close button to close the popup
+if (popupCloseButton) {
+    popupCloseButton.addEventListener("click", closePopup);
+}
+
+// Close the popup if clicking outside the content
+if (popupOverlay) {
+    popupOverlay.addEventListener("click", function (event) {
+        if (event.target === popupOverlay) {
+            closePopup();
+        }
+    });
+}
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const imagesTabButton = document.getElementById("images_tab_button");
+    const videoTabButton = document.getElementById("video_tab_button");
+    const imagesTab = document.getElementById("images_tab");
+    const videoTab = document.getElementById("video_tab");
+    const popupVideo = document.getElementById("popup_video");
+
+    const placeholderVideoUrl = "https://www.youtube.com/embed/H_ReGaTJ92s?si=F7ZSyz1kUfDl8Sp1"; // Replace with your placeholder video UR
+    function switchToImagesTab() {
+        console.log("Images tab clicked");
+        imagesTab.style.display = "flex";
+        videoTab.style.display = "none";
+        imagesTabButton.classList.add("active-tab");
+        videoTabButton.classList.remove("active-tab");
+    }
+
+    function switchToVideoTab() {
+        console.log("Video tab clicked");
+        imagesTab.style.display = "none";
+        videoTab.style.display = "flex";
+        imagesTabButton.classList.remove("active-tab");
+        videoTabButton.classList.add("active-tab");
+
+        // Use placeholder video URL
+        popupVideo.src = placeholderVideoUrl;
+    }
+
+    // Event listeners for tab buttons
+    imagesTabButton.addEventListener("click", () => {
+        switchToImagesTab();
+    });
+
+    videoTabButton.addEventListener("click", () => {
+        switchToVideoTab();
+    });
+
+    // Reset tabs to default state when opening the popup
+    function resetTabs() {
+        console.log("Resetting tabs to default state");
+        switchToImagesTab();
+        popupVideo.src = ""; // Clear the video URL when switching tabs
+    }
+
+    // Example: Call resetTabs when the popup opens
+    function openPopup() {
+        const popupOverlay = document.getElementById("popup_overlay");
+        popupOverlay.style.display = "flex";
+        document.body.style.overflow = "hidden";
+
+        resetTabs(); // Reset tabs to their default state
+    }
+});
 
 

@@ -31,6 +31,8 @@ Route::get('/admin', [AdminController::class, 'admin'])->name('admin.login');
 Route::post('/admin', [AdminController::class, 'login'])->name('admin.login.post');
 
 /*******API************ */
+Route::get('/api/project/{id}', [ProjectController::class, 'show']);
+
 Route::get('/api/mainprojects', [ProjectController::class, 'index']);
 Route::get('/api/allprojects', [ProjectController::class, 'allprojects']);
 Route::get('/api/mapprojects', [ProjectController::class, 'mapprojects']);

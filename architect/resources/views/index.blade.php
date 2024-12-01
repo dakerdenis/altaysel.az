@@ -1008,27 +1008,16 @@
                 </div>
 
                 <div class="popup__social__container">
-                    <div class="popup__social__text">
-                        {{ $locale === 'az' ? 'Paylaşmaq:' : 'Поделиться:' }}
-                    </div>
+                    <div class="popup__social__text">Share:</div>
                     <div class="popup-social">
-                    <a  target="_blank" class="facebook">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a  target="_blank" class="twitter">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a  target="_blank" class="linkedin">
-                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                    <a  target="_blank" class="whatsapp">
-                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                    </a>
-                    <a  target="_blank" class="telegram">
-                        <i class="fa fa-telegram" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                  </div>
+                        <a class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <a class="whatsapp" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                        <a class="telegram" target="_blank"><i class="fa fa-telegram"></i></a>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

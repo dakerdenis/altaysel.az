@@ -29,4 +29,15 @@ class ProjectController extends Controller
             return response()->json($allprojects);
         }
 
+        public function show($id)
+        {
+            $project = Project::find($id);
+    
+            if (!$project) {
+                return response()->json(['error' => 'Project not found'], 404);
+            }
+    
+            return response()->json($project);
+        }
+
 }
