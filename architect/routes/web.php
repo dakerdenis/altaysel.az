@@ -11,6 +11,7 @@ use App\Http\Middleware\AuthenticateAdmin;
 /************* Main Routes *************/
 Route::get('/', [ArchitectController::class, 'redirectToLanguage'])->defaults('locale', 'az')->name('mainpage');
 Route::get('/{locale}', [ArchitectController::class, 'index'])->where('locale', 'az|ru')->name('index');
+Route::get('/{locale}/project/{id}', [ArchitectController::class, 'popupProject'])->name('popup_project');
 
 
 

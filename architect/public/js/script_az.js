@@ -359,6 +359,21 @@ function openPopup(projectData) {
     }
 }
 
+function updateSocialMediaLinks(projectId, locale) {
+    const projectUrl = `${window.location.origin}/${locale}/project/${projectId}`;
+    const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(projectUrl)}`;
+    const twitterLink = `https://twitter.com/intent/tweet?url=${encodeURIComponent(projectUrl)}`;
+    const linkedinLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(projectUrl)}`;
+    const whatsappLink = `https://wa.me/?text=${encodeURIComponent(projectUrl)}`;
+    const telegramLink = `https://t.me/share/url?url=${encodeURIComponent(projectUrl)}`;
+
+    document.querySelector(".popup-social .facebook").href = facebookLink;
+    document.querySelector(".popup-social .twitter").href = twitterLink;
+    document.querySelector(".popup-social .linkedin").href = linkedinLink;
+    document.querySelector(".popup-social .whatsapp").href = whatsappLink;
+    document.querySelector(".popup-social .telegram").href = telegramLink;
+}
+
 
 // Function to close the popup
 function closePopup() {
@@ -415,6 +430,7 @@ projectButtons.forEach((button) => {
         const projectData = projectsData.find((project) => project.id == projectId);
         if (projectData) {
             openPopup(projectData);
+            updateSocialMediaLinks(projectData.id, window.location.pathname.includes('/az') ? 'az' : 'ru');
         } else {
             console.error("Project not found:", projectId);
         }
@@ -492,3 +508,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if a project ID is preloaded (from PHP)
+    if (window.preloadedProjectId) {
+        const projectId = window.preloadedProjectId;
+
+        // Find the project data from the fetched data
+        const projectData = projectsData.find((project) => project.id == projectId);
+        if (projectData) {
+            openPopup(projectData); // Use the existing `openPopup` function
+            updateSocialMediaLinks(projectData.id, window.location.pathname.includes('/az') ? 'az' : 'ru');
+        } else {
+            console.error("Project data not found for ID:", projectId);
+        }
+    }
+});
