@@ -17,7 +17,7 @@
             @endif
 
             <div class="section__add__project">
-                <button type="submit">Layihəni yadda saxla və dərc et</button>
+                <button type="submit">Xəbəri yadda saxla və dərc et</button>
             </div>
         </div>
 
@@ -149,11 +149,11 @@
                 <div class="section__add__date">
                     <div class="input__container">
                         <div class="input__container__desc">
-                            Yaradılma tarixi
+                            Xəbəri tarixi
                         </div>
                         <div class="input__field">
                             <input type="number" id="project__year" name="project__year"
-                                placeholder="Zəhmət olmasa layənin yaradılma ili göstərin*" required>
+                                placeholder="Zəhmət olmasa Xəbərin yaradılma ili göstərin*" required>
                         </div>
                     </div>
                     <p style="display: none">Sahənin dəyəri rəqəmsal olmalıdır : 1234</p>
@@ -177,7 +177,7 @@
                 <div class="section__add__date">
                     <div class="input__container">
                         <div class="input__container__desc">
-                            Layihənin adı
+                            Xəbərin adı
                         </div>
                         <div class="input__field">
                             <input type="text" id="project_name_az" name="project_name_az"
@@ -189,11 +189,11 @@
                 <div class="section__add__date">
                     <div class="input__container">
                         <div class="input__container__desc input__container__desc_ru">
-                            Название проекта
+                            Название новости
                         </div>
                         <div class="input__field">
                             <input type="text" id="project_name_ru" name="project_name_ru"
-                                placeholder="Пожалуйста, укажите название проекта*" required>
+                                placeholder="Пожалуйста, укажите название новости*" required>
                         </div>
                     </div>
                     <p style="display: none">Обязательное поле не заполнено</p>
@@ -206,7 +206,7 @@
                         <textarea name="desc_az" id="desc_az"></textarea>
                     </div>
                     <div class="textarea_desc">
-                        Layihənin təsviri
+                        Xəbərin təsviri
                     </div>
                 </div>
                 <div class="section__add_desc__block">
@@ -214,7 +214,21 @@
                         <textarea name="desc_ru" id="desc_ru"></textarea>
                     </div>
                     <div class="textarea_desc">
-                        Описание проекта
+                        Описание новости
+                    </div>
+                </div>
+            </div>
+
+            <br> <br>
+            <!---Project video URL---->
+            <div class="section__add__youtube__link">
+                <div class="input__container">
+                    <div class="input__container__desc">
+                        YouTube Link
+                    </div>
+                    <div class="input__field">
+                        <input type="text" id="project__video_link" name="project__video_link"
+                            placeholder="YouTube Link" >
                     </div>
                 </div>
             </div>
