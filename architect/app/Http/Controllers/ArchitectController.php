@@ -33,35 +33,7 @@ class ArchitectController extends Controller
         $all_projects = Project::all();
         return view('projects', ['locale' => $locale, 'all_projects' => $all_projects]);
     }
-    public function popupProject($locale, $id)
-    {
-        $all_sliders = Slider::all();
-        $all_main_projects = MainProject::all();
-        $all_services = Service::all();
-        $future_projects = FutureProjects::all();
-        $map_projects = MapProjects::all();
-        $contacts = Contact::first(); 
-        // Group projects by region_id
-        $grouped_projects = $map_projects->groupBy('region_id');
-        // Validate locale
-        if (!in_array($locale, ['az', 'ru'])) {
-            abort(404); // Invalid locale
-        }
-    
-        $contacts = Contact::first();
-        $project = MainProject::findOrFail($id); // Fetch the project from MainProject
-    
-        return view('index', [
-            'locale' => $locale,
-            'future_projects' => $future_projects,
-            'map_projects' => $grouped_projects,
-            'all_main_projects' => $all_main_projects,
-            'all_services' => $all_services,
-            'all_sliders' => $all_sliders,
-            'contacts' => $contacts,
-            'preloadedProjectId' => $project->id, // Pass the project ID to open popup
-        ]);
-    }
+
     
     public function index($locale)
     {
@@ -71,19 +43,28 @@ class ArchitectController extends Controller
         $future_projects = FutureProjects::all();
         $map_projects = MapProjects::all();
         $contacts = Contact::first(); 
-        // Group projects by region_id
-        $grouped_projects = $map_projects->groupBy('region_id');
-
+        $preloadedProject = null;
+    
+        // Check if a projectId is passed
+        if (request()->has('projectId')) {
+            $projectId = request()->get('projectId');
+            $preloadedProject = MainProject::find($projectId);
+        }
+    
         return view('index', [
             'locale' => $locale,
             'future_projects' => $future_projects,
-            'map_projects' => $grouped_projects,
+            'map_projects' => $map_projects->groupBy('region_id'),
             'all_main_projects' => $all_main_projects,
             'all_services' => $all_services,
             'all_sliders' => $all_sliders,
-            'contacts'=>$contacts
+            'contacts' => $contacts,
+            'preloadedProject' => $preloadedProject
         ]);
     }
+    
+    
+    
 
     public function projects_year($locale, $year)
     {

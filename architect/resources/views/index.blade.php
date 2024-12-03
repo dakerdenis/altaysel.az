@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <link rel="stylesheet" href="{{ asset('style/style.css') }}">
+    <link rel="canonical" href="{{ url()->full() }}">
 
     <!---LINK FOR STYLES IF RUSSIAN LANGUAGE---->
     @if ($locale === 'ru')
@@ -23,6 +24,21 @@
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <meta property="og:url" content="{{ request()->fullUrl() }}">
+    <meta property="og:type" content="website">
+    @if(request()->has('projectId') && isset($preloadedProject))
+        <meta property="og:title" content="{{ $preloadedProject->name }}">
+        <meta property="og:description" content="{{ $preloadedProject->description }}">
+        <meta property="og:image" content="{{ asset('archi/public/uploads/' . $preloadedProject->main_image) }}">
+        <meta property="og:image:alt" content="{{ $preloadedProject->name }}">
+    @else
+        <meta property="og:title" content="Alt.Ay.Sel">
+        <meta property="og:description" content="Altaysel Co is an architecture bureau based in Baku, Azerbaijan.">
+        <meta property="og:image" content="{{ asset('default-image.jpg') }}">
+    @endif
+
+
 
 </head>
 
@@ -1031,6 +1047,7 @@
     <script>
         window.preloadedProjectId = {{ $preloadedProjectId ?? 'null' }};
     </script>
+    
     
     <script>
         var swiper1 = new Swiper(".mySwiper", {
