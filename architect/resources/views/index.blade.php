@@ -1031,6 +1031,7 @@
                         <a class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
                         <a class="whatsapp" target="_blank"><i class="fa fa-whatsapp"></i></a>
                         <a class="telegram" target="_blank"><i class="fa fa-telegram"></i></a>
+                        <button class="copy-link-button" title="Copy Link"><i class="fa fa-copy"></i></button>
                     </div>
                 </div>
                 

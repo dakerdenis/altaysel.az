@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //! POPUP CODE
     let projectsData = []
     let mapProjectsData = [] // Separate variable for map projects
-    let futureProjectsData = []; // Separate variable for future projects
+    let futureProjectsData = [] // Separate variable for future projects
     // Function to fetch JSON data from external file THIS FUNCTIONS IS WROKING
     // Fetch data from the API
     async function fetchData (url) {
@@ -312,17 +312,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentImageIndex = 0
     let imagesArray = []
+    let currentOpenedProjectId = null; // Global variable to track the current project
 
-    // Function to open the popup
     // Function to open the popup
     function openPopup(projectData, isMapProject = false) {
         if (popupOverlay) {
             popupOverlay.style.display = 'flex';
             document.body.style.overflow = 'hidden';
     
+            // Set the current project ID
+            currentOpenedProjectId = projectData.id; // Track the currently opened project ID
+    
             // Populate data into popup
-            if (popupYear)
+            if (popupYear) {
                 popupYear.textContent = projectData.year || 'Year not available';
+            }
             if (popupLocation) {
                 popupLocation.href = projectData.location || '#';
                 popupLocation.textContent = 'Ətraflı';
@@ -377,7 +381,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (videoTabButton) videoTabButton.style.display = 'none';
     
                 // Add style to .popup_tab-images button
-                const imagesTabButton = document.getElementById('images_tab_button');
+                const imagesTabButton =
+                    document.getElementById('images_tab_button');
                 if (imagesTabButton) {
                     imagesTabButton.style.width = '100%'; // Make the button full width
                 }
@@ -387,7 +392,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (videoTabButton) videoTabButton.style.display = 'block';
     
                 // Reset .popup_tab-images button style
-                const imagesTabButton = document.getElementById('images_tab_button');
+                const imagesTabButton =
+                    document.getElementById('images_tab_button');
                 if (imagesTabButton) {
                     imagesTabButton.style.width = ''; // Reset to default
                 }
@@ -403,6 +409,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     
+
     // Event listener for map project buttons
     const mapProjectButtons = document.querySelectorAll(
         '.map__project-view_more'
@@ -448,6 +455,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.popup-social .linkedin').href = linkedinLink
         document.querySelector('.popup-social .whatsapp').href = whatsappLink
         document.querySelector('.popup-social .telegram').href = telegramLink
+
+        console.log('Updating social media links for project ID:', projectId)
     }
 
     // Function to close the popup
@@ -471,27 +480,27 @@ document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
         fetchData('/api/mainprojects')
             .then(data => {
-                projectsData = data;
-                console.log('Fetched main projects data:', projectsData);
+                projectsData = data
+                console.log('Fetched main projects data:', projectsData)
             })
             .catch(error => {
-                console.error('Error fetching main projects data:', error);
+                console.error('Error fetching main projects data:', error)
             }),
         fetchData('/api/mapprojects')
             .then(data => {
-                mapProjectsData = data; // Store map projects separately
-                console.log('Fetched map projects data:', mapProjectsData);
+                mapProjectsData = data // Store map projects separately
+                console.log('Fetched map projects data:', mapProjectsData)
             })
             .catch(error => {
-                console.error('Error fetching map projects data:', error);
+                console.error('Error fetching map projects data:', error)
             }),
         fetchData('/api/futureprojects')
             .then(data => {
-                futureProjectsData = data; // Store future projects separately
-                console.log('Fetched future projects data:', futureProjectsData);
+                futureProjectsData = data // Store future projects separately
+                console.log('Fetched future projects data:', futureProjectsData)
             })
             .catch(error => {
-                console.error('Error fetching future projects data:', error);
+                console.error('Error fetching future projects data:', error)
             })
     ])
         .then(([mainProjectData, mapProjectData, futureProjectData]) => {
@@ -499,31 +508,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 mainProjectData,
                 mapProjectData,
                 futureProjectData
-            });
-    
+            })
+
             // Check if a project ID is preloaded (from PHP or URL query)
-            const urlParams = new URLSearchParams(window.location.search);
-            const projectId = urlParams.get('projectId');
+            const urlParams = new URLSearchParams(window.location.search)
+            const projectId = urlParams.get('projectId')
             if (projectId) {
                 // Check main, map, and future projects
                 const projectData =
                     projectsData.find(project => project.id == projectId) ||
                     mapProjectsData.find(project => project.id == projectId) ||
-                    futureProjectsData.find(project => project.id == projectId);
-    
+                    futureProjectsData.find(project => project.id == projectId)
+
                 if (projectData) {
                     openPopup(
                         projectData,
                         mapProjectsData.includes(projectData)
-                    ); // Pass a flag for map projects
+                    ) // Pass a flag for map projects
                 } else {
-                    console.error('Project data not found for ID:', projectId);
+                    console.error('Project data not found for ID:', projectId)
                 }
             }
         })
         .catch(error => {
-            console.error('Error fetching project data:', error);
-        });
+            console.error('Error fetching project data:', error)
+        })
 
     // Navigate to the previous image
     function showPreviousImage () {
@@ -591,46 +600,75 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Check if a project ID is preloaded (from PHP or URL query)
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('projectId');
+    const urlParams = new URLSearchParams(window.location.search)
+    const projectId = urlParams.get('projectId')
     if (projectId) {
         const projectData =
             projectsData.find(project => project.id == projectId) ||
             mapProjectsData.find(project => project.id == projectId) ||
-            futureProjectsData.find(project => project.id == projectId);
-    
+            futureProjectsData.find(project => project.id == projectId)
+
         if (projectData) {
             openPopup(
                 projectData,
                 mapProjectsData.includes(projectData) // `true` for map projects
-            );
+            )
         } else {
-            console.error('Project data not found for ID:', projectId);
+            console.error('Project data not found for ID:', projectId)
         }
     }
-    
 
     const futureProjectButtons = document.querySelectorAll(
         '.future_slide__link'
-    );
+    )
     futureProjectButtons.forEach(button => {
         button.addEventListener('click', function () {
-            const projectId = button.dataset.projectId;
+            const projectId = button.dataset.projectId
             if (!projectId) {
-                console.error('No project ID found for button:', button);
-                return;
+                console.error('No project ID found for button:', button)
+                return
             }
-    
+
             const projectData = futureProjectsData.find(
                 project => project.id == projectId
-            );
+            )
             if (projectData) {
-                openPopup(projectData); // Open popup for future project
+                openPopup(projectData) // Open popup for future project
+
+                // Update social media links for future projects
+                updateSocialMediaLinks(
+                    projectData.id,
+                    window.location.pathname.includes('/az') ? 'az' : 'ru'
+                )
             } else {
-                console.error('Future project not found:', projectId);
+                console.error('Future project not found:', projectId)
             }
-        });
-    });
+        })
+    })
+
+    // Handle the copy button
+    const copyButton = document.querySelector('.popup-social .copy-link-button')
+
+    if (copyButton) {
+        copyButton.addEventListener('click', () => {
+            const urlParams = new URLSearchParams(window.location.search)
+            const projectId = urlParams.get('projectId')
+            const locale = window.location.pathname.includes('/az')
+                ? 'az'
+                : 'ru'
+            const projectUrl = `${window.location.origin}/${locale}?projectId=${projectId}`
+
+            // Copy the project URL to clipboard
+            navigator.clipboard
+                .writeText(projectUrl)
+                .then(() => {
+                    alert('Link copied to clipboard!')
+                })
+                .catch(err => {
+                    console.error('Failed to copy link:', err)
+                })
+        })
+    }
 })
 
 document.addEventListener('DOMContentLoaded', function () {

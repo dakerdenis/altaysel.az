@@ -1386,6 +1386,21 @@ h6 {
   color: #fff;
   font-size: 18px;
 }
+.popup-social button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-color: #FFAC1C;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+}
 /***! *******************/
 /***! *******************/
 /***! *******************/
