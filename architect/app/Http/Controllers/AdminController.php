@@ -140,14 +140,14 @@ class AdminController extends Controller
             'main_photo.required' => 'The main image is required.',
             'main_photo.max' => 'The main image may not be greater than 2 megabytes.',
         ]);
-
+    
         // Handle image upload for main photo
         if ($request->hasFile('main_photo')) {
             $mainImage = $request->file('main_photo');
             $mainImageName = time() . '_' . $mainImage->getClientOriginalName();
             $mainImage->move(public_path('uploads/projects'), $mainImageName);
         }
-
+    
         // Handle additional photos
         $additionalPhotos = [];
         if ($request->hasFile('additional_photo_input')) {
@@ -159,10 +159,10 @@ class AdminController extends Controller
                 }
             }
         }
-
+    
         // Store additional photos in the database
         $images = array_merge($additionalPhotos);
-
+    
         // Create new project record
         $project = new Project();
         $project->year = $request->project__year;
@@ -173,11 +173,13 @@ class AdminController extends Controller
         $project->desc_az = $request->desc_az;
         $project->main_image = $mainImageName;
         $project->images = json_encode($images); // Store image names as JSON
+        $project->video_url = $request->input('project__video_link'); // Store video URL
         $project->save();
-
+    
         // Redirect with success message or perform other actions
         return redirect()->route('admin.main')->with('success', 'Project added successfully.');
     }
+    
     public function edit_project($id)
     {
         $project = Project::findOrFail($id);
@@ -186,27 +188,27 @@ class AdminController extends Controller
     public function edit_project__form(Request $request, $id)
     {
         $project = Project::findOrFail($id);
-
+    
         // Check if a new main photo is uploaded
         if ($request->hasFile('main_photo')) {
             // Delete the existing main image file
             if (file_exists(public_path('uploads/projects/' . $project->main_image))) {
                 unlink(public_path('uploads/projects/' . $project->main_image));
             }
-
+    
             // Get the uploaded main photo
             $mainPhoto = $request->file('main_photo');
-
+    
             // Generate a unique name for the main photo using datetime
             $mainPhotoName = now()->format('YmdHis') . '_' . $mainPhoto->getClientOriginalName();
-
+    
             // Move the main photo to the specified directory
             $mainPhoto->move(public_path('uploads/projects'), $mainPhotoName);
-
+    
             // Update the project's main_image attribute
             $project->main_image = $mainPhotoName;
         }
-
+    
         // Update other fields
         $project->year = $request->input('project__year');
         $project->location = $request->input('project__location');
@@ -214,10 +216,11 @@ class AdminController extends Controller
         $project->name_az = $request->input('project_name_az');
         $project->desc_ru = $request->input('desc_ru');
         $project->desc_az = $request->input('desc_az');
-
+        $project->video_url = $request->input('project__video_link'); // Update video URL
+    
         // Retrieve existing additional images and decode them into an array
         $additionalImages = json_decode($project->images, true);
-
+    
         // Handle additional photos
         if ($request->hasFile('additional_photo_input')) {
             foreach ($request->file('additional_photo_input') as $file) {
@@ -228,19 +231,20 @@ class AdminController extends Controller
                 }
             }
         }
-
+    
         // Limit the additional images array to a maximum of 4 images
         $additionalImages = array_slice($additionalImages, 0, 4);
-
+    
         // Store additional photos in the database
         $project->images = json_encode($additionalImages);
-
+    
         // Save the updated project
         $project->save();
-
+    
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Project updated successfully!');
     }
+    
     public function edit__additional__images($id)
     {
         $project = Project::findOrFail($id);
@@ -336,6 +340,9 @@ class AdminController extends Controller
 
 
     /********MAIN PROJECTS************** */
+        /********MAIN PROJECTS************** */
+
+
     public function main_projects()
     {
         $main_projects = MainProject::all();
@@ -435,27 +442,27 @@ class AdminController extends Controller
     public function edit_main_project__form(Request $request, $id)
     {
         $project = MainProject::findOrFail($id);
-
+    
         // Check if a new main photo is uploaded
         if ($request->hasFile('main_photo')) {
             // Delete the existing main image file
             if (file_exists(public_path('uploads/projects/' . $project->main_image))) {
                 unlink(public_path('uploads/projects/' . $project->main_image));
             }
-
+    
             // Get the uploaded main photo
             $mainPhoto = $request->file('main_photo');
-
+    
             // Generate a unique name for the main photo using datetime
             $mainPhotoName = now()->format('YmdHis') . '_' . $mainPhoto->getClientOriginalName();
-
+    
             // Move the main photo to the specified directory
             $mainPhoto->move(public_path('uploads/projects'), $mainPhotoName);
-
+    
             // Update the project's main_image attribute
             $project->main_image = $mainPhotoName;
         }
-
+    
         // Update other fields
         $project->year = $request->input('project__year');
         $project->location = $request->input('project__location');
@@ -464,10 +471,13 @@ class AdminController extends Controller
         $project->name_az = $request->input('project_name_az');
         $project->desc_ru = $request->input('desc_ru');
         $project->desc_az = $request->input('desc_az');
-
+    
+        // Update the video URL
+        $project->video_url = $request->input('project__video_link');
+    
         // Retrieve existing additional images and decode them into an array
-        $additionalImages = json_decode($project->images, true);
-
+        $additionalImages = json_decode($project->images, true) ?? [];
+    
         // Handle additional photos
         if ($request->hasFile('additional_photo_input')) {
             foreach ($request->file('additional_photo_input') as $file) {
@@ -478,19 +488,20 @@ class AdminController extends Controller
                 }
             }
         }
-
+    
         // Limit the additional images array to a maximum of 4 images
         $additionalImages = array_slice($additionalImages, 0, 4);
-
+    
         // Store additional photos in the database
         $project->images = json_encode($additionalImages);
-
+    
         // Save the updated project
         $project->save();
-
+    
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Project updated successfully!');
     }
+    
     public function edit__additional_images__main($id)
     {
         $main_project = MainProject::findOrFail($id);

@@ -215,6 +215,20 @@
                     </div>
                 </div>
             </div>
+
+            <br><br>
+                        <!---Project video URL---->
+                        <div class="section__add__youtube__link">
+                            <div class="input__container">
+                                <div class="input__container__desc">
+                                    YouTube Link
+                                </div>
+                                <div class="input__field">
+                                    <input type="text" id="project__video_link" value="{{ $project->video_url }}" name="project__video_link"
+                                        placeholder="YouTube Link" >
+                                </div>
+                            </div>
+                        </div>
         </div>
     </form>
 </section>

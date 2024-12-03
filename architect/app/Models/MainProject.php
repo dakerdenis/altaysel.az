@@ -10,8 +10,7 @@ class MainProject extends Model
     use HasFactory;
 
     protected $fillable = [
-        'main_image',
-        'video_url', // Add this to allow mass assignment
+        'main_image', // Add this to allow mass assignment
         // Other fillable attributes
     ];
 }

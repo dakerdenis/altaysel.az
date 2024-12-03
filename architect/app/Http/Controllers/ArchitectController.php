@@ -33,7 +33,18 @@ class ArchitectController extends Controller
         $all_projects = Project::all();
         return view('projects', ['locale' => $locale, 'all_projects' => $all_projects]);
     }
-
+    public function popupProject($locale, $id)
+    {
+        // Fetch the project by ID
+        $project = Project::findOrFail($id);
+    
+        // Return the project data (adjust this logic as needed for your frontend)
+        return response()->json([
+            'locale' => $locale,
+            'project' => $project
+        ]);
+    }
+    
     
     public function index($locale)
     {

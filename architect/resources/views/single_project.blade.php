@@ -11,8 +11,8 @@
     <meta property="og:description" content="{{ $locale === 'az' ? $project->desc_az : $project->desc_ru }}" />
     <meta property="og:url" content="{{ request()->fullUrl() }}" />
     <meta property="og:type" content="website" />
-    
-    @if($project->main_image)
+
+    @if ($project->main_image)
         <meta property="og:image" content="{{ asset('archi/public/uploads/projects/' . $project->main_image) }}" />
     @else
         <!-- Fallback image if no project image is available -->
@@ -23,7 +23,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
     <meta name="twitter:description" content="{{ $locale === 'az' ? $project->desc_az : $project->desc_ru }}">
-    <meta name="twitter:image" content="{{ $project->main_image ? asset('archi/public/uploads/projects/' . $project->main_image) : asset('path/to/fallback-image.jpg') }}">
+    <meta name="twitter:image"
+        content="{{ $project->main_image ? asset('archi/public/uploads/projects/' . $project->main_image) : asset('path/to/fallback-image.jpg') }}">
 
     <!-- Other meta tags -->
     <meta name="description" content="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
@@ -185,8 +186,9 @@
                     </div>
 
                     <div class="project-single__back">
-                        <a href="{{route('projects_year',['locale' => $locale === 'az' ? 'az' : 'ru', 'year'=>$year])}}">
-                            {{ $locale === 'az' ? 'Əvvəlki Səhifə' : 'Назад' }} 
+                        <a
+                            href="{{ route('projects_year', ['locale' => $locale === 'az' ? 'az' : 'ru', 'year' => $year]) }}">
+                            {{ $locale === 'az' ? 'Əvvəlki Səhifə' : 'Назад' }}
                         </a>
                     </div>
                 </div>
@@ -194,16 +196,21 @@
 
             <div class="projects__block-wrapper">
                 <div class="gallery__photos__wrapper">
-                    @if($project->main_image)
-                        <a href="{{ asset('archi/public/uploads/projects/' . $project->main_image) }}" data-fancybox="gallery" data-caption="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
-                            <img src="{{ asset('archi/public/uploads/projects/' . $project->main_image) }}" alt="Main Image" />
+                    @if ($project->main_image)
+                        <a href="{{ asset('archi/public/uploads/projects/' . $project->main_image) }}"
+                            data-fancybox="gallery"
+                            data-caption="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
+                            <img src="{{ asset('archi/public/uploads/projects/' . $project->main_image) }}"
+                                alt="Main Image" />
                         </a>
                     @endif
-        
-                    @if($project->images)
-                        @foreach(json_decode($project->images) as $image)
-                            <a href="{{ asset('archi/public/uploads/projects/' . $image) }}" data-fancybox="gallery" data-caption="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
-                                <img src="{{ asset('archi/public/uploads/projects/' . $image) }}" alt="Gallery Image" />
+
+                    @if ($project->images)
+                        @foreach (json_decode($project->images) as $image)
+                            <a href="{{ asset('archi/public/uploads/projects/' . $image) }}" data-fancybox="gallery"
+                                data-caption="{{ $locale === 'az' ? $project->name_az : $project->name_ru }}">
+                                <img src="{{ asset('archi/public/uploads/projects/' . $image) }}"
+                                    alt="Gallery Image" />
                             </a>
                         @endforeach
                     @endif
@@ -213,41 +220,58 @@
                 <div class="single__project__info">
                     <div class="single__project__year">
                         <p>{{ $locale === 'az' ? 'Yaradılma tarixi:' : 'Год постройки:' }}</p>
-                        <p>{{$project->year}}</p>
+                        <p>{{ $project->year }}</p>
                     </div>
                     <div class="single__project__google">
-                        <a target="_blank" href="{{$project->location}}">
+                        <a target="_blank" href="{{ $project->location }}">
                             {{ $locale === 'az' ? 'Google Maps-da baxmaq' : 'Смотреть на Google-картах' }}
                         </a>
                     </div>
                     <div class="single__project__description">
                         {{ $locale === 'az' ? $project->desc_az : $project->desc_ru }}
                     </div>
-    
-    
+                        <br>
+                    <!---- Check if "video_url" exists and include iframe if available --->
+                    @if (!empty($project->video_url))
+                        <div class="single__project__video">
+                            <iframe width="100%" height="100%" src="{{ $project->video_url }}"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    @endif
+
+
                     <div class="single__project__social">
                         <p>{{ $locale === 'az' ? "Social'da paylaşın:" : 'Поделиться:' }}</p>
                         <div class="social-share-buttons">
-                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button facebook">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"
+                                target="_blank" class="social-button facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button linkedin">
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(request()->fullUrl()) }}"
+                                target="_blank" class="social-button linkedin">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://vk.com/share.php?url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button vk">
+                            <a href="https://vk.com/share.php?url={{ urlencode(request()->fullUrl()) }}"
+                                target="_blank" class="social-button vk">
                                 <i class="fab fa-vk"></i>
                             </a>
-                            <a href="https://pinterest.com/pin/create/button/?url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button pinterest">
+                            <a href="https://pinterest.com/pin/create/button/?url={{ urlencode(request()->fullUrl()) }}"
+                                target="_blank" class="social-button pinterest">
                                 <i class="fab fa-pinterest-p"></i>
                             </a>
-                            <a href="https://telegram.me/share/url?url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button telegram">
+                            <a href="https://telegram.me/share/url?url={{ urlencode(request()->fullUrl()) }}"
+                                target="_blank" class="social-button telegram">
                                 <i class="fab fa-telegram-plane"></i>
                             </a>
-                            <a href="https://api.whatsapp.com/send?text={{ urlencode(request()->fullUrl()) }}" target="_blank" class="social-button whatsapp">
+                            <a href="https://api.whatsapp.com/send?text={{ urlencode(request()->fullUrl()) }}"
+                                target="_blank" class="social-button whatsapp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                         </div>
-                        
+
                     </div>
                 </div>
 

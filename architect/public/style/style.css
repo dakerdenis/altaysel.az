@@ -2660,7 +2660,10 @@ h6 {
   height: 45px;
   margin-right: 23px;
 }
-
+.single__project__video{
+  width: 100%;
+  height: 550px;
+}
 @media only screen and (max-width: 2011px) {
   .main__block__name {
     left: 120px;

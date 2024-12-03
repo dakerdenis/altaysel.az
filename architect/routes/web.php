@@ -11,7 +11,6 @@ use App\Http\Middleware\AuthenticateAdmin;
 /************* Main Routes *************/
 Route::get('/', [ArchitectController::class, 'redirectToLanguage'])->defaults('locale', 'az')->name('mainpage');
 Route::get('/{locale}', [ArchitectController::class, 'index'])->where('locale', 'az|ru')->name('index');
-Route::get('/{locale}/project/{id}', [ArchitectController::class, 'popupProject'])->name('popup_project');
 
 
 
@@ -20,7 +19,7 @@ Route::get('/{locale}/project/{id}', [ArchitectController::class, 'popupProject'
 Route::get('/{locale}/projects', [ArchitectController::class, 'projects'])->name('projects');
 
 
-Route::get('/{locale}/projects/{year}',[ArchitectController::class,'projects_year'])->name('projects_year');
+Route::get('/{locale}/projects/{year}', [ArchitectController::class, 'projects_year'])->name('projects_year');
 
 
 Route::get('/{locale}/projects/{year}/{id}', [ArchitectController::class, 'single_project'])->name('single_project');
@@ -52,10 +51,11 @@ Route::middleware([AuthenticateAdmin::class])->group(function () {
     /********Projects************ */
     /*****ADD PROJECT******** */
     Route::post('/main/project', [AdminController::class, 'add_project'])->name('admin.add_project');
-    /*********PROJECT edit*********** */
-    Route::get('/main/project/{id}', [AdminController::class, 'edit_project'])->name('admin.edit_project');
+
     /*******DELETE PROJECT */
     Route::delete('/main/project/{id}', [AdminController::class, 'delete_project'])->name('admin.delete_project');
+    /*********PROJECT edit*********** */
+    Route::get('/main/project/{id}', [AdminController::class, 'edit_project'])->name('admin.edit_project');
     /**********EDIT PROJECT*********** */
     Route::put('/main/project/{id}', [AdminController::class, 'edit_project__form'])->name('admin.edit_project__form');
     /******EDITING ADDITIONAL IMAGES************/

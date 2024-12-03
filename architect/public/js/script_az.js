@@ -312,9 +312,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentImageIndex = 0
     let imagesArray = []
-    let currentOpenedProjectId = null; // Global variable to track the current project
+    let currentOpenedProjectId = null // Global variable to track the current project
 
-    // Function to open the popup
     function openPopup(projectData, isMapProject = false) {
         if (popupOverlay) {
             popupOverlay.style.display = 'flex';
@@ -397,6 +396,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (imagesTabButton) {
                     imagesTabButton.style.width = ''; // Reset to default
                 }
+    
+                // Set the video URL dynamically
+                if (popupVideo) {
+                    popupVideo.src = projectData.video_url || ''; // Use the video URL from projectData
+                }
             }
     
             // Hide social sharing buttons if it's a map project
@@ -408,7 +412,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-    
 
     // Event listener for map project buttons
     const mapProjectButtons = document.querySelectorAll(
@@ -647,26 +650,30 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     // Handle the copy button
+    // Handle the copy button
     const copyButton = document.querySelector('.popup-social .copy-link-button')
 
     if (copyButton) {
         copyButton.addEventListener('click', () => {
-            const urlParams = new URLSearchParams(window.location.search)
-            const projectId = urlParams.get('projectId')
-            const locale = window.location.pathname.includes('/az')
-                ? 'az'
-                : 'ru'
-            const projectUrl = `${window.location.origin}/${locale}?projectId=${projectId}`
+            if (currentOpenedProjectId) {
+                const locale = window.location.pathname.includes('/az')
+                    ? 'az'
+                    : 'ru'
+                const projectUrl = `${window.location.origin}/${locale}?projectId=${currentOpenedProjectId}`
 
-            // Copy the project URL to clipboard
-            navigator.clipboard
-                .writeText(projectUrl)
-                .then(() => {
-                    alert('Link copied to clipboard!')
-                })
-                .catch(err => {
-                    console.error('Failed to copy link:', err)
-                })
+                // Copy the project URL to clipboard
+                navigator.clipboard
+                    .writeText(projectUrl)
+                    .then(() => {
+                        alert('Link copied to clipboard!')
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy link:', err)
+                    })
+            } else {
+                console.error('No project ID is currently set.')
+                alert('Failed to copy link. No project is currently open.')
+            }
         })
     }
 })
@@ -695,8 +702,13 @@ document.addEventListener('DOMContentLoaded', function () {
         imagesTabButton.classList.remove('active-tab')
         videoTabButton.classList.add('active-tab')
 
-        // Use placeholder video URL
-        popupVideo.src = placeholderVideoUrl
+        // Set the video URL for the currently opened project
+        if (popupVideo && currentOpenedProjectId) {
+            const projectData = projectsData.find(
+                project => project.id == currentOpenedProjectId
+            )
+            popupVideo.src = projectData ? projectData.video_url || '' : ''
+        }
     }
 
     // Event listeners for tab buttons
