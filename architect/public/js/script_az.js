@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //! POPUP CODE
     let projectsData = []
     let mapProjectsData = [] // Separate variable for map projects
-
+    let futureProjectsData = []; // Separate variable for future projects
     // Function to fetch JSON data from external file THIS FUNCTIONS IS WROKING
     // Fetch data from the API
     async function fetchData (url) {
@@ -315,76 +315,94 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to open the popup
     // Function to open the popup
-    function openPopup (projectData, isMapProject = false) {
+    function openPopup(projectData, isMapProject = false) {
         if (popupOverlay) {
-            popupOverlay.style.display = 'flex'
-            document.body.style.overflow = 'hidden'
-
+            popupOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+    
             // Populate data into popup
             if (popupYear)
-                popupYear.textContent = projectData.year || 'Year not available'
+                popupYear.textContent = projectData.year || 'Year not available';
             if (popupLocation) {
-                popupLocation.href = projectData.location || '#'
-                popupLocation.textContent = 'Ətraflı'
+                popupLocation.href = projectData.location || '#';
+                popupLocation.textContent = 'Ətraflı';
             }
-
+    
             const currentLocale = window.location.pathname.includes('/az')
                 ? 'desc_az'
-                : 'desc_ru'
+                : 'desc_ru';
             if (popupDescription) {
                 popupDescription.textContent =
-                    projectData[currentLocale] || 'No description available.'
+                    projectData[currentLocale] || 'No description available.';
             }
-
-            const popupName = document.getElementById('popup_name')
+    
+            const popupName = document.getElementById('popup_name');
             if (popupName) {
                 const nameLocale = window.location.pathname.includes('/az')
                     ? 'name_az'
-                    : 'name_ru'
+                    : 'name_ru';
                 popupName.textContent =
-                    projectData[nameLocale] || 'No name available.'
+                    projectData[nameLocale] || 'No name available.';
             }
-
+    
             // Handle images carousel
-            imagesArray = []
+            imagesArray = [];
             if (projectData.main_image) {
-                imagesArray.push(projectData.main_image)
+                imagesArray.push(projectData.main_image);
             }
             if (Array.isArray(projectData.images)) {
-                imagesArray = [...imagesArray, ...projectData.images]
+                imagesArray = [...imagesArray, ...projectData.images];
             } else {
                 try {
                     imagesArray = [
                         ...imagesArray,
-                        ...JSON.parse(projectData.images)
-                    ]
+                        ...JSON.parse(projectData.images),
+                    ];
                 } catch (e) {
-                    console.error('Failed to parse images:', e)
+                    console.error('Failed to parse images:', e);
                 }
             }
-
+    
             if (imagesArray.length > 0) {
-                currentImageIndex = 0
-                updateImage()
+                currentImageIndex = 0;
+                updateImage();
             }
-
-            // Handle video URL
-            if (popupVideo) {
-                popupVideo.src = projectData.video_url || ''
-                popupVideo.style.display = projectData.video_url
-                    ? 'block'
-                    : 'none'
+    
+            // Handle video section
+            const videoTab = document.getElementById('video_tab');
+            const videoTabButton = document.getElementById('video_tab_button');
+            if (isMapProject) {
+                // Hide video section for map projects
+                if (videoTab) videoTab.style.display = 'none';
+                if (videoTabButton) videoTabButton.style.display = 'none';
+    
+                // Add style to .popup_tab-images button
+                const imagesTabButton = document.getElementById('images_tab_button');
+                if (imagesTabButton) {
+                    imagesTabButton.style.width = '100%'; // Make the button full width
+                }
+            } else {
+                // Show video section for main projects
+                if (videoTab) videoTab.style.display = 'flex';
+                if (videoTabButton) videoTabButton.style.display = 'block';
+    
+                // Reset .popup_tab-images button style
+                const imagesTabButton = document.getElementById('images_tab_button');
+                if (imagesTabButton) {
+                    imagesTabButton.style.width = ''; // Reset to default
+                }
             }
-
+    
             // Hide social sharing buttons if it's a map project
             const socialContainer = document.querySelector(
                 '.popup__social__container'
-            )
+            );
             if (socialContainer) {
-                socialContainer.style.display = isMapProject ? 'none' : 'block'
+                socialContainer.style.display = isMapProject ? 'none' : 'block';
             }
         }
     }
+    
     // Event listener for map project buttons
     const mapProjectButtons = document.querySelectorAll(
         '.map__project-view_more'
@@ -453,51 +471,59 @@ document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
         fetchData('/api/mainprojects')
             .then(data => {
-                projectsData = data
-                console.log('Fetched main projects data:', projectsData)
+                projectsData = data;
+                console.log('Fetched main projects data:', projectsData);
             })
             .catch(error => {
-                console.error('Error fetching main projects data:', error)
+                console.error('Error fetching main projects data:', error);
             }),
         fetchData('/api/mapprojects')
             .then(data => {
-                mapProjectsData = data // Store map projects separately
-                console.log('Fetched map projects data:', mapProjectsData)
+                mapProjectsData = data; // Store map projects separately
+                console.log('Fetched map projects data:', mapProjectsData);
             })
             .catch(error => {
-                console.error('Error fetching map projects data:', error)
+                console.error('Error fetching map projects data:', error);
             }),
         fetchData('/api/futureprojects')
+            .then(data => {
+                futureProjectsData = data; // Store future projects separately
+                console.log('Fetched future projects data:', futureProjectsData);
+            })
+            .catch(error => {
+                console.error('Error fetching future projects data:', error);
+            })
     ])
         .then(([mainProjectData, mapProjectData, futureProjectData]) => {
             console.log('Fetched all data:', {
                 mainProjectData,
                 mapProjectData,
                 futureProjectData
-            })
-
+            });
+    
             // Check if a project ID is preloaded (from PHP or URL query)
-            const urlParams = new URLSearchParams(window.location.search)
-            const projectId = urlParams.get('projectId')
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('projectId');
             if (projectId) {
-                // Check both main and map projects
+                // Check main, map, and future projects
                 const projectData =
                     projectsData.find(project => project.id == projectId) ||
-                    mapProjectsData.find(project => project.id == projectId)
-
+                    mapProjectsData.find(project => project.id == projectId) ||
+                    futureProjectsData.find(project => project.id == projectId);
+    
                 if (projectData) {
                     openPopup(
                         projectData,
                         mapProjectsData.includes(projectData)
-                    ) // Second param indicates if it's a map project
+                    ); // Pass a flag for map projects
                 } else {
-                    console.error('Project data not found for ID:', projectId)
+                    console.error('Project data not found for ID:', projectId);
                 }
             }
         })
         .catch(error => {
-            console.error('Error fetching project data:', error)
-        })
+            console.error('Error fetching project data:', error);
+        });
 
     // Navigate to the previous image
     function showPreviousImage () {
@@ -565,24 +591,46 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Check if a project ID is preloaded (from PHP or URL query)
-    const urlParams = new URLSearchParams(window.location.search)
-    const projectId = urlParams.get('projectId')
-
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get('projectId');
     if (projectId) {
-        // Find the project data from the fetched data
-        const projectData = projectsData.find(
-            project => project.id == projectId
-        )
+        const projectData =
+            projectsData.find(project => project.id == projectId) ||
+            mapProjectsData.find(project => project.id == projectId) ||
+            futureProjectsData.find(project => project.id == projectId);
+    
         if (projectData) {
-            openPopup(projectData) // Use the existing `openPopup` function
-            updateSocialMediaLinks(
-                projectData.id,
-                window.location.pathname.includes('/az') ? 'az' : 'ru'
-            )
+            openPopup(
+                projectData,
+                mapProjectsData.includes(projectData) // `true` for map projects
+            );
         } else {
-            console.error('Project data not found for ID:', projectId)
+            console.error('Project data not found for ID:', projectId);
         }
     }
+    
+
+    const futureProjectButtons = document.querySelectorAll(
+        '.future_slide__link'
+    );
+    futureProjectButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const projectId = button.dataset.projectId;
+            if (!projectId) {
+                console.error('No project ID found for button:', button);
+                return;
+            }
+    
+            const projectData = futureProjectsData.find(
+                project => project.id == projectId
+            );
+            if (projectData) {
+                openPopup(projectData); // Open popup for future project
+            } else {
+                console.error('Future project not found:', projectId);
+            }
+        });
+    });
 })
 
 document.addEventListener('DOMContentLoaded', function () {

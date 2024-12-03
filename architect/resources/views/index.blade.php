@@ -24,7 +24,7 @@
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <meta property="og:url" content="{{ request()->fullUrl() }}">
     <meta property="og:type" content="website">
     @if(request()->has('projectId') && isset($preloadedProject))
