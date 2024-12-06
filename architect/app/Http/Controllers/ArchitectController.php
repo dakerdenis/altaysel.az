@@ -56,6 +56,10 @@ class ArchitectController extends Controller
         $contacts = Contact::first(); 
         $preloadedProject = null;
     
+        // Pass projects and future projects to the view
+        $projectsData = Project::all();
+        $futureProjectsData = FutureProjects::all();
+    
         // Check if a projectId is passed
         if (request()->has('projectId')) {
             $projectId = request()->get('projectId');
@@ -70,7 +74,9 @@ class ArchitectController extends Controller
             'all_services' => $all_services,
             'all_sliders' => $all_sliders,
             'contacts' => $contacts,
-            'preloadedProject' => $preloadedProject
+            'preloadedProject' => $preloadedProject,
+            'projectsData' => $projectsData, // Pass to the view
+            'futureProjectsData' => $futureProjectsData, // Pass to the view
         ]);
     }
     
